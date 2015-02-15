@@ -1,71 +1,49 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{IEEEpreamble}
 
+\usepackage{booktabs}
+\usepackage{blindtext}
+
 \begin{document}
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Bare Demo of IEEEtran.cls for ICSE'15 and Workshops}
+\title{\textsc{Fuse}: A Reproducable, Internet-scale Dataset\\of Publicly-indexed Spreadsheets for Science}
 
-
-% author names and affiliations
-% use a multiple column layout for up to three different
-% affiliations
-%\author{\IEEEauthorblockN{Michael Shell}
-%\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
-%Georgia Institute of Technology\\
-%Atlanta, Georgia 30332--0250\\
-%Email: http://www.michaelshell.org/contact.html}
-%\and
-%\IEEEauthorblockN{Homer Simpson}
-%\IEEEauthorblockA{Twentieth Century Fox\\
-%Springfield, USA\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
-%\IEEEauthorblockA{Starfleet Academy\\
-%San Francisco, California 96678-2391\\
-%Telephone: (800) 555--1212\\
-%Fax: (888) 555--1212}}
-
-% conference papers do not typically use \thanks and this command
-% is locked out in conference mode. If really needed, such as for
-% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
-% after \documentclass
-
-% for over three affiliations, or if they all won't fit within the width
-% of the page, use this alternative format:
-%
-\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
-Homer Simpson\IEEEauthorrefmark{2},
-James Kirk\IEEEauthorrefmark{3},
-Montgomery Scott\IEEEauthorrefmark{3} and
-Eldon Tyrell\IEEEauthorrefmark{4}}
-\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
-Georgia Institute of Technology,
-Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
-\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
-Email: homer@thesimpsons.com}
-\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
-Telephone: (800) 555--1212, Fax: (888) 555--1212}
-\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
-
-
-
+\author{
+\IEEEauthorblockN{Titus Barik\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}ABB Corporation Research\\
+Raleigh, North Carolina, USA\\
+titus.barik@us.abb.com
+}
+\and
+\IEEEauthorblockN{
+Kevin Lubick,
+Justin Smith,\\
+John Slankas,
+Emerson Murphy-Hill}
+\IEEEauthorblockA{
+\IEEEauthorrefmark{2}North Carolina State University, Raleigh, USA\\
+\{kjlubick, jssmit11\}@ncsu.edu, emerson@csc.ncsu.edu}
+\and
+\IEEEauthorblockN{Felienne Hermans}
+\IEEEauthorblockA{Delft University of Technology\\
+Delft, Netherlands\\
+f.f.j.hermans@tudelft.n
+}
+}
 
 % use for special paper notices
 %\IEEEspecialpapernotice{(Invited Paper)}
 
-
-
+% http://www.cra.org/resources/bp-view/evaluating_computer_scientists_and_engineers_for_promotion_and_tenure/
 
 % make the title area
 \maketitle
 
 
 \begin{abstract}
-%\boldmath
-The abstract goes here.
+We submit a corpus consisting of 1.5 million spreadsheets, extracted using the Common Crawl corpus (based on Blekko). This corpus is compared against a proprietary index from a leading search engine company to measure representative against other commercial index. This corpus is intended to replace EUSES.
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
@@ -89,27 +67,61 @@ The abstract goes here.
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
+\section{Call for Papers}
 
+\textbf{Data papers}. We want to encourage researchers to share their data. Data papers should describe data sets curated by their authors and made available to others. They are expected to be at most 4 pages long and should address the following: description of the data, including its source; methodology used to gather it; description of the schema used to store it, and any limitations and/or challenges of this data set. The data should be made available at the time of submission of the paper for review, but will be considered confidential until publication of the paper. Further details about data papers are available on the conference website. 
+
+\begin{enumerate}
+\item Description of the data.
+\item Methodology used to gather it
+\item Description of the schema used to store it
+\item Limitations and Challenges of data set
+\end{enumerate}
 
 \section{Introduction}
-% no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.7 and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
 
-\hfill mds
+spreadsheets as end-user programmers; focus on how spreadsheets are useful for software engineerig
 
-\hfill January 11, 2007
+
+all the problems
+euses sucks~~\cite{Fisher2005}
+
+similar in size to other large corpora
+representativeness against Google index
+metadata
+
+helps with tool evaluation
+
+accessible -- getting this for yourself is a high cost maybe 5k
+
+this set is reproducable
+compared with existing data sets, it is new -- the others are more than a decade old.
+
+even the enron corpus is 15000 spreadsheets -- whoopee. But it's good to compare against since it's a private corpus.
+
+The contribution of this paper is:
+
+\begin{itemize}
+\item Foo
+\end{itemize}
+
+go to figshare
+% http://figshare.com/articles/Enron_s_Spreadsheets_and_Related_Emails_A_Dataset_and_Analysis/1222882
 
 \subsection{Subsection Heading Here}
 Subsection text here.
 
+need a fancy table
+
+what metrics?
+
+happy medium between euses and google
 
 \subsubsection{Subsubsection Heading Here}
 Subsubsection text here.
+
+deliberate design decision to 
+intentionally spluit the data into metadata and binary phases
 
 
 % An example of a floating figure using the graphicx package.
@@ -194,11 +206,119 @@ Subsubsection text here.
 % footnotes above bottom floats. This can be corrected via the \fnbelowfloat
 % command of the stfloats package.
 
+\section{Data Extraction}
+
+needed to create WAT index files
+
+% dremel> select COUNT(doc.DocId) FROM docjoin.base WHERE doc.content.ContentType = 23;
+% +------------------+
+% | COUNT(doc.DocId) |
+% +------------------+
+% |          1635142 |
+% +------------------+
+% WARNING: Partition skipped
+% WARNING: ~0.0% of data was not scanned (see "settings min_completion_ratio")
+% 1 row in result set (319.28 sec)
+% Scan rate: 37.38M rows/sec, SWE cost: 7.28138s
+
+% dremel> select doc.DocId, RIGHT(doc.URL, 30), doc.Pagerank FROM docjoin.base WHERE doc.content.ContentType = 23 L
+% IMIT 20;
+% +----------------------+--------------------------------+--------------+
+% | doc.DocId            | RIGHT(doc.URL, 30)             | doc.Pagerank |
+% +----------------------+--------------------------------+--------------+
+% | 18262361551973990081 | Noticias/210111pssufal2011.xls |        45696 |
+% | 18262514318872388335 | E7%99%BB%E8%AE%B0%E8%A1%A8.xls |        53441 |
+% | 18262628117481929248 | ameck-cd57ffgym.fr/file/31037/ |        49536 |
+% | 18262462250520031836 | uation%20risque%20chimique.xls |            1 |
+% | 18262515209375261799 | 9206/file/4%20LISTE%202014.xls |        51664 |
+% | 18262601711327171729 | d_org=200054&id_dokumenty=1069 |        51318 |
+% | 18262429851281169486 | loads/2009/11/distributori.xls |        47265 |
+% | 18262677137761586621 | /03_Zahlungen_Schulversion.xls |        49376 |
+% | 18262497829673811111 | FULL_SCHOOL_LIST_1982-1983.xls |        55771 |
+% | 18098709049136093897 | 1_Guelleberechnungstabelle.XLS |        48219 |
+% | 18098336056523698774 | 46658c58776252a270492189fd.xls |        51278 |
+% | 18098420930462689378 | 2nd_and_3rd_Posting)_FINAL.xls |        46743 |
+% | 18221693724751189184 | /stories/papka_bossa/rosta.xls |            1 |
+% | 18221288433906859741 | mediaprodukciyu-22.12.2013.xls |        45065 |
+% | 18221490419625251728 | 75817255013/files/sadowara.xls |        52813 |
+% | 18221566511153360853 | ostnica-arhitektura_plosca.xls |        49301 |
+% | 18221440248932413652 | 83%D1%81%D0%BA%D0%B8%D0%B9.xls |        44383 |
+% | 18221602484570358598 | ents/0000000/44/25ichiran5.xls |        52927 |
+% | 18221337705568163749 | es/201011/2010111710570042.xls |        52262 |
+% | 18221462757268787142 | 20%D0%AF%D0%9D%D0%90%D0%9E.xls |        49763 |
+% +----------------------+--------------------------------+--------------+
+% 20 rows in result set (26.13 sec)
+% Scan rate: 0.04M rows/sec, SWE cost: 6.4e-05s
+
+how did we decide to filter? MSDN content-type
+
+% http://blogs.msdn.com/b/vsofficedeveloper/archive/2008/05/08/office-2007-open-xml-mime-types.aspx
+
+google obtained from proprietary database query that extracted from google index all spreadsheets with content type application/ms-excel.
+
+common crawl
+segments -> subproblems
+
+docjoiner
+
+\blindtext[3]
+\blindtext[3]
+
+\emph{cleaning}
+
+\section{Description of Spreadsheet Corpus}
+
+\begin{table*}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{A comparison of the EUSES, Common Crawl Index, and Proprietary Index\label{table_example}}
+\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{llll}
+\toprule
+& \textbf{EUSES} & \textbf{Common} & \textbf{Prop. Search Index}\\
+\midrule
+$n$ & 6,000 & 600,000 & $>$ 1,000,000\\
+size & 23.3 & 32 & 2\\
+Five & Six\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+A summary of your spreadsheet corpus can be found in Table~\ref{table_example}.
+
+\section{Data Schema}
+
+how do you get it?
+
+csv file
+mongodb recordobject warc extracts
+
+
+% TODO(tbarik): Switch this table.
+
+
+\section{Dataset Limitations}
+
 
 
 \section{Conclusion}
 The conclusion goes here.
 
+\section{Related Work}
+
+why do people use spreadsheets?
+
+what other corpora exists?
+
+
+\textbf{Existing corpora.}
+\textbf{Spreadsheet tools.}
 
 
 
@@ -208,8 +328,7 @@ The conclusion goes here.
 % use section* for acknowledgement
 \section*{Acknowledgment}
 
-
-The authors would like to thank...
+I did this all by myself.
 
 
 
@@ -225,27 +344,15 @@ The authors would like to thank...
 
 % references section
 
+\raggedright
 % can use a bibliography generated by BibTeX as a .bbl file
 % BibTeX documentation can be easily obtained at:
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
-\end{thebibliography}
-
-
+\bibliography{library}
 
 
 % that's all folks
