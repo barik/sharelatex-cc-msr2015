@@ -157,17 +157,20 @@ what metrics?
 happy medium between euses and google
 
 \subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
 
 deliberate design decision to 
 intentionally spluit the data into metadata and binary phases
 
-\section{Data Extraction}
-Initially, we extracted ??? candidate spreadsheets from the Common Crawl\footnote{\url{commoncrawl.org/}} index, which contains ???TB of uncompressed publicly available web crawl data. 
-The Common Crawl data set is divided into several segments and is periodically supplemented with updated sections of the crawl. 
-Our initial extraction targeted files that could potentially be spreadsheets, including files tagged with MSDN content types, and files with extensions containing ``.xls''.
+\section{Methodology}
+We selected the Common Crawl\footnote{\url{commoncrawl.org}} index as the primary source for our spreadsheet corpus, because it contains over ???TB of publicly available web crawl data and is regularly updated.
 
-Next we processed the files using Apache POI\footnote{\url{poi.apache.org/}} and Tika\footnote{\url{tika.apache.org/}} to identify the valid spreadsheets and extract metadata from each spreadsheet (see Section \ref{sec:schema}). After removing the invalid files detected in this step, ??? spreadsheets remained. Removing duplicates resulted in a final total of ??? spreadsheets. 
+To extract spreadsheets from this index, first we crawled all the available WAT files in the index targeting files that could potentially be spreadsheets, including files tagged with MSDN content types, and files with extensions containing ``.xls''. 
+This crawl was the most computationally intensive task in our pipeline, consuming approximately ??? hours of CPU time. 
+The crawl identified ??? candidate spreadsheets which we extracted from their associated WARC files. 
+
+Because the WAT files contained some incomplete and incorrect tags, we extracted some invalid spreadsheets in the first phase. We used Tika\footnote{\url{tika.apache.org}} to identify the valid spreadsheets and then filtered out the invalid files. This stage resulted in ??? valid spreadsheets.
+ 
+Next we processed the valid spreadsheets using Apache POI\footnote{\url{poi.apache.org}} to extract metadata from each spreadsheet (see Section \ref{sec:schema}). By computing a sha512 hash we identified and removed duplicate spreadsheets, resulting in a final total of ??? spreadsheets. 
 
 
 % https://publicsuffix.org/list/
