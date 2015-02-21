@@ -82,16 +82,19 @@ Spreadsheets provide a platform for formula-based and conditional computations.
 Within a spreadsheet, users can develop complex programs using macros. 
 Like traditional programming environments, researchers have studied code smells, refactoring, and debugging in spreadsheets~\cite{Pinzger2012,Badame2012,Abraham2007}.
 
-However, existing spreadsheet corpora CITEHERE exhibit several limitations.
+Such research is supported by some notable existing corpora, such as the EUSES spreadsheet corpus and the Enron spreadsheet dataset~\cite{Fisher2005}. CITE
+However, the available spreadsheet corpora exhibit several limitations.
 Currently spreadsheet corpora exist as snapshots; they do not provide mechanisms for reproduction or updates.
+Further, with 4498 spreadsheets, the EUSES dataset represents a small sample of all existing spreadsheets and the Enron dataset contains spreadsheets from only one company.
+Researchers who wish to use these corpora must manually reason about the properties of each spreadsheet as neither corpus provides spreadsheet-level metadata.
+For example, a researcher only interested in studying spreadsheet macros would have to download and inspect the contents of each spreadsheet from the EUSES corpus even though only 126 contain macros.
 
--Focused on one company
--No metadata
--No analysis tool
+Alternatively, we provide a corpus creation technique that overcomes many of these limitations. 
+Not only is our corpus larger, but our technique is open and reproducible.  
+We publicly release the scanning software used to create this corpus.
+Accordingly, we encourage researchers to validate our data and methods.
+Further, to help researchers navigate the dataset, we provide metadata for each spreadsheet in our corpus as well as the tool used to compute that metadata.
 
-Alternatively, we provide a corpus creation technique that overcomes many of these limitations. Not only is our corpus larger, but our technique is open and  reproducible.  Further, we provide metadata for each spreadsheet in our corpus to help researchers navigate the dataset.
--scales up (we release our scanning software)
--expands and stays up to date
 
 
 Our contributions are 
@@ -121,11 +124,6 @@ Our contributions are
 % Put an example of this issue in the methodology.
 %  {"WARC-Date":"2014-09-22T12:11:35Z","WARC-Record-ID":"<urn:uuid:0d670ac1-319f-42b0-89bf-7c52dd51e1dd>","Content-Length":1385,"WARC-Target-URI":"http://www.medcom.dk/dwn1514.xls","WARC-Content-Type":"application/json","Content":{"Envelope":{"Format":"WARC","WARC-Header-Length":"350","Block-Digest":"sha1:6JCTYB2KGCZ5YX63EFLECRMXB4KUBOQB","Actual-Content-Length":"263","WARC-Header-Metadata":{"WARC-Type":"request","WARC-Date":"2014-09-22T12:11:35Z","WARC-Warcinfo-ID":"<urn:uuid:1c4997f8-bc87-4ade-8efd-47f4cb8ce2a6>","Content-Length":"263","WARC-Record-ID":"<urn:uuid:81815bbd-d47d-4755-8e41-d820a1d05043>","WARC-Target-URI":"http://www.medcom.dk/dwn1514.xls","WARC-IP-Address":"91.193.139.41","Content-Type":"application/http; msgtype=request"},"Payload-Metadata":{"Trailing-Slop-Length":"4","HTTP-Request-Metadata":{"Headers":{"Accept-Language":"en-us,en-gb,en;q=0.7,*;q=0.3","Host":"www.medcom.dk","Accept-Encoding":"x-gzip, gzip, deflate","User-Agent":"CCBot/2.0 (http://commoncrawl.org/faq/)","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},"Headers-Length":"261","Entity-Length":"0","Entity-Trailing-Slop-Bytes":"0","Request-Message":{"Method":"GET","Version":"HTTP/1.0","Path":"/dwn1514.xls"},"Entity-Digest":"sha1:3I42H3S6NNFQ2MSVX7XZKYAYSCX5QBYJ"},"Actual-Content-Type":"application/http; msgtype=request"}},"Container":{"Compressed":true,"Gzip-Metadata":{"Footer-Length":"8","Deflate-Length":"418","Header-Length":"10","Inflated-CRC":"505390695","Inflated-Length":"617"},"Offset":"654053188","Filename":"CC-MAIN-20140914011217-00240-ip-10-234-18-248.ec2.internal.warc.gz"}},"WARC-Refers-To":"<urn:uuid:81815bbd-d47d-4755-8e41-d820a1d05043>","Path":"common-crawl/crawl-data/CC-MAIN-2014-41/segments/1410657137046.16/wat/CC-MAIN-20140914011217-00240-ip-10-234-18-248.ec2.internal.warc.wat.gz"}
 
-spreadsheets as end-user programmers; focus on how spreadsheets are useful for software engineerig
-
-
-all the problems
-euses sucks~~\cite{Fisher2005}
 
 similar in size to other large corpora
 representativeness against Google index
