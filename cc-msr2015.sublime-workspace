@@ -265,11 +265,17 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015"
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/figures"
 	],
 	"file_history":
 	[
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/figures/Figure1.tex",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/figures/pipeline.pdf_tex",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.tex",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/analysis/Figure1.tex",
+		"/C/Users/tbarik/Desktop/myPlot.tex",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.synctex.gz",
 		"/C/Users/tbarik/Documents/Research/version-control/commitbubbles-paper/NIER2015/icse15nier_reviews.txt",
 		"/C/Users/tbarik/AppData/Local/Temp/output.csv.log",
 		"/C/Users/tbarik/Desktop/wat.apr2014.paths",
@@ -391,12 +397,7 @@
 		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.791/segment.path",
 		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.021/MANIFEST.MF",
 		"/D/opt/hadoop-2.6.0/etc/hadoop/hdfs-site.xml",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.217/AwsConsoleApp.java",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.873/credentials",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.301/sample.properties",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.711/sample.properties",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.956/credentials",
-		"/D/Data/commoncrawl/wat_simple.path"
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.217/AwsConsoleApp.java"
 	],
 	"find":
 	{
@@ -415,6 +416,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"corrupt",
+			"corrupted",
+			"mapreduce",
+			"table",
+			"\\begin{tabular}",
+			"\\begin{table}",
+			"table",
+			"Fuse",
+			"warc-target-uri",
 			"2015-02-03 23:44:37       2392 ",
 			"table",
 			"xls",
@@ -533,16 +543,7 @@
 			"first example",
 			"artifact",
 			"barrier",
-			"space",
-			"\\ref{",
-			"Deep Gami",
-			"typical",
-			" \n",
-			"Malone",
-			"World of War",
-			"reward-based",
-			"TODO",
-			"aesthe"
+			"space"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -605,7 +606,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 102.0
+		"height": 279.0
 	},
 	"output.find_results":
 	{

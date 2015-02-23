@@ -1,0 +1,113 @@
+%% Creator: Inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'pipeline.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{736.35189507bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.3809729)%
+    \put(-0.00061006,0.32936795){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{CC WAT}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{pipeline.pdf}}%
+    \put(0.06111586,0.36665236){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{pipeline.pdf}}%
+    \put(0.23788688,0.36572857){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{pipeline.pdf}}%
+    \put(0.35199226,0.33369002){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(2,127,279)}}}%
+    \put(0.27378433,0.35494643){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Extract}}}%
+    \put(0.10268844,0.35476871){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Crawl}}}%
+    \put(0.75322792,0.28205089){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(719,211)}}}%
+    \put(0.45697729,0.35475545){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Filter}}}%
+    \put(0.44078716,0.27757993){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(719,223)}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{pipeline.pdf}}%
+    \put(0.76772069,0.20081317){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(???)}}}%
+    \put(0.64282963,0.35483768){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textit{Mixin}}}}%
+    \put(0.16174715,0.31426976){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{{\\   WARC-Record-ID: "r",\\    Content {\\     ...\\   }\\ }}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{pipeline.pdf}}%
+    \put(0.26576819,0.27283821){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{CC WARC}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{pipeline.pdf}}%
+    \put(0.65091797,0.30370936){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{InternetDomain}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{pipeline.pdf}}%
+    \put(0.65893727,0.2216427){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{POI Analysis}}}%
+    \put(0.74236262,0.27640255){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{{ \\   WARC-Record-ID: "r",\\   PTLD: "example.org" \\ }}}}%
+    \put(0.74236262,0.10829145){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{{ \\   WARC-Record-ID: "r",\\   Tokens: \\     ["finance", \\      "accounting"\\     ]\\ }}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{pipeline.pdf}}%
+    \put(0.49170813,0.32204481){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{{\\   WARC-Record-ID: "r",\\   Content {\\     ...\\   },\\   Tika {\\     Digest: "sha1:...",\\     Tika-Extension: ".xls",\\     Length: 32012\\   }\\ }}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{pipeline.pdf}}%
+    \put(0.8234541,0.35690422){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Merge}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{pipeline.pdf}}%
+    \put(0.4293941,0.13420443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{pipeline.pdf}}%
+    \put(0.66918767,0.13297344){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{LingPipe}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{pipeline.pdf}}%
+    \put(0.74236262,0.19434468){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{{ \\   WARC-Record-ID: "r",\\   Cells: 36,209,\\   Worksheets: 3\\ }}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{pipeline.pdf}}%
+    \put(0.41668101,0.36576918){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{pipeline.pdf}}%
+    \put(0.60114026,0.36438213){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{4}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{pipeline.pdf}}%
+    \put(0.63221298,0.31734016){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{4a}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{pipeline.pdf}}%
+    \put(0.63316361,0.23354871){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{4b}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{pipeline.pdf}}%
+    \put(0.63207718,0.1482634){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{4c}}}%
+    \put(0.4703742,0.19133559){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textbf{Spreadsheet}\textbf{\\ }\textbf{Binaries}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{pipeline.pdf}}%
+    \put(0.93017312,0.25968792){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\textbf{JSON}\textbf{\\ }\textbf{Documents}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{pipeline.pdf}}%
+    \put(0.78389351,0.36563738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{pipeline.pdf}}%
+    \put(0.88044549,0.23589421){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{{\\   WARC-Record-ID: "r",\\   Content {\\     ...\\   },\\   Tika {\\     Digest: "sha1:...",\\     Tika-Extension: ".xls",\\     Length: 32012\\   },\\   InternetDomain {\\     PTLD: "example.org",\\   },\\   Analysis {\\     Cells: 36209,\\     Worksheets: 3\\   },\\   LingPipe {\\     Tokens:\\       ["finance",\\        "accounting"\\       ]\\   }\\ }}}}%
+    \put(0.90265797,0.33369002){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(719,223)}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{pipeline.pdf}}%
+    \put(0.17434683,0.33369002){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(2,127,284)}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{pipeline.pdf}}%
+    \put(0.72316596,0.33369002){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(719,223)}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{pipeline.pdf}}%
+    \put(0.25783464,0.20078674){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(2,127,279)}}}%
+    \put(0.53543417,0.33369002){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(719,223)}}}%
+    \put(0.75387498,0.1116724){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(646,494)}}}%
+  \end{picture}%
+\endgroup%

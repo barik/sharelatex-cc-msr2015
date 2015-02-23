@@ -5,7 +5,15 @@
 \usepackage{blindtext}
 \usepackage{sepnum}
 \usepackage{url}
+\usepackage{listings}
+\usepackage{zi4}
+\usepackage{minted}
 
+\usepackage{tikz}
+
+\lstset{
+  basicstyle=\ttfamily,
+}
 
 \begin{document}
 %
@@ -14,27 +22,10 @@
 \title{\textsc{Fuse}: A Reproducable, Internet-scale\\Dataset of Spreadsheets}
 
 \author{
-\IEEEauthorblockN{Titus Barik\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}}
-\IEEEauthorblockA{\IEEEauthorrefmark{1}ABB Corporation Research\\
-Raleigh, North Carolina, USA\\
-titus.barik@us.abb.com
-}
-\and
-\IEEEauthorblockN{
-Kevin Lubick,
-Justin Smith,\\
-John Slankas
-Emerson Murphy-Hill}
-\IEEEauthorblockA{
-\IEEEauthorrefmark{2}North Carolina State University, Raleigh, USA\\
-\{kjlubick, jssmit11, jbslanka\}@ncsu.edu,\\emerson@csc.ncsu.edu}
-\and
-\IEEEauthorblockN{Felienne Hermans}
-\IEEEauthorblockA{Delft University of Technology\\
-Delft, Netherlands\\
-f.f.j.hermans@tudelft.n
-}
-}
+\IEEEauthorblockN{Titus Barik\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, Kevin Lubick, Justin Smith, John Slankas, Emerson Murphy-Hill}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}ABB Corporation Research, Raleigh, North Carolina, USA\\
+North Carolina State University, Raleigh, North Carolina USA
+}}
 
 \maketitle
 
@@ -63,20 +54,40 @@ We submit a corpus consisting of 1.5 million spreadsheets, extracted using the C
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-\section{Call for Papers}
+% Oops: we forgot to handle application/vnd.oasis.opendocument.spreadsheet.
 
-Oops: we forgot to handle application/vnd.oasis.opendocument.spreadsheet.
+% \textbf{Data papers}. We want to encourage researchers to share their data. Data papers should describe data sets curated by their authors and made available to others. They are expected to be at most 4 pages long and should address the following: description of the data, including its source; methodology used to gather it; description of the schema used to store it, and any limitations and/or challenges of this data set. The data should be made available at the time of submission of the paper for review, but will be considered confidential until publication of the paper. Further details about data papers are available on the conference website. 
 
-\textbf{Data papers}. We want to encourage researchers to share their data. Data papers should describe data sets curated by their authors and made available to others. They are expected to be at most 4 pages long and should address the following: description of the data, including its source; methodology used to gather it; description of the schema used to store it, and any limitations and/or challenges of this data set. The data should be made available at the time of submission of the paper for review, but will be considered confidential until publication of the paper. Further details about data papers are available on the conference website. 
-
-\begin{enumerate}
-\item Description of the data.
-\item Methodology used to gather it
-\item Description of the schema used to store it
-\item Limitations and Challenges of data set
-\end{enumerate}
+% \begin{enumerate}
+% \item Description of the data.
+% \item Methodology used to gather it
+% \item Description of the schema used to store it
+% \item Limitations and Challenges of data set
+% \end{enumerate}
 
 \section{Introduction}
+
+\begin{minted}{js}
+{
+    "WARC-Record-ID": "test"
+}
+\end{minted}
+
+% \begin{minted}[mathescape,
+%                linenos,
+%                numbersep=5pt,
+%                gobble=2,
+%                frame=lines,
+%                framesep=2mm]{csharp}
+% string title = "This is a Unicode in the sky"
+% /*
+% Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
+% of an $n$-sided regular polygon circumscribing a
+% circle of diameter $d$.
+% */
+% const double pi = 3.1415926535
+% \end{minted}
+
 Spreadsheets are one of the most common end user programming environments~\cite{Scaffidi2005}. 
 Spreadsheets provide a platform for formula-based and conditional computations. 
 Within a spreadsheet, users can develop complex programs using macros. 
@@ -95,7 +106,14 @@ We publicly release the scanning software used to create this corpus.
 Accordingly, we encourage researchers to validate our data and methods.
 Further, to help researchers navigate the dataset, we provide metadata for each spreadsheet in our corpus as well as the tool used to compute that metadata.
 
+Columwith is: The text height is \the\columnwidth
 
+% \begin{figure}[!t]
+% \centering
+% % \input{figures/Figure1.tex}
+% \caption{Test plot.}
+% \label{fig:testplot}
+% \end{figure}
 
 Our contributions are 
 \begin{enumerate}
@@ -104,20 +122,22 @@ Our contributions are
 \item A detailed set of metadata for this corpus and two other corpora [foo], [bar]  which allow researchers to make queries without having to download or analyze the entire spreadsheet corpus.  
 \end{enumerate}
 
+% \begin{figure}[!t]
+% \centering
+% \includegraphics[width=\columnwidth]{corpora}
+% \caption{Comparison matrix of available spreadsheet corpora. How does \textsc{Fuse} stack up?}
+% \label{fig:corpora}
+% \end{figure}
 
-\begin{figure}[!t]
+\begin{figure*}[!t]
 \centering
-\includegraphics[width=0.5\columnwidth]{corpora}
-\caption{Comparison matrix of available spreadsheet corpora. How does \textsc{Fuse} stack up?}
-\label{fig:corpora}
-\end{figure}
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=0.4\columnwidth]{SpreadsheetPipeline}
-\caption{MapReduce pipeline for spreadsheet extraction.}
+\includegraphics[width=\linewidth]{pipeline}
+\caption{The MapReduce pipeline for extracting spreadsheets and associated spreadsheet metadata from Common Crawl. In \textsc{Crawl} (Stage 1), WAT segments containing HTTP headers and offset information into WARC records are parsed. Records that heuristically match spreadsheets (e.g., a \texttt{Content-Type} of \texttt{application/vnd.ms-excel} are retained. In \textsc{Extract} (Stage 2), ...}
 \label{fig:mrpipeline}
-\end{figure}
+\end{figure*}
+
+% Improve display of JSON files
+% http://tex.aspcode.net/view/635399273629833626148902/how-to-improve-listings-display-of-json-files
 
 % TODO(tbarik)
 %  This WAT file is okay, but the corresponding WARC record is corrupt:
@@ -147,31 +167,70 @@ The contribution of this paper is:
 go to figshare
 % http://figshare.com/articles/Enron_s_Spreadsheets_and_Related_Emails_A_Dataset_and_Analysis/1222882
 
-\subsection{Subsection Heading Here}
-Subsection text here.
-
-need a fancy table
 
 what metrics?
 
 happy medium between euses and google
 
-\subsubsection{Subsubsection Heading Here}
-
 deliberate design decision to 
 intentionally spluit the data into metadata and binary phases
 
 \section{Methodology}
-We selected the Common Crawl\footnote{\url{commoncrawl.org}} index as the primary source for our spreadsheet corpus, because it contains over ???TB of publicly available web crawl data and is regularly updated.
+
+\begin{table}[!t]
+\caption{Common Crawl Archive\label{tab:ccrawl}}
+\centering
+\begin{tabular}{lll}
+\toprule
+Description & TB & Yield\\
+\midrule
+Summer 2013 & 30.6 & 42.14\%\\
+Winter 2013 & 35.1 & 33.46\% \\
+March 2014 & 36.4 & \\
+April 2014 & 41.2 & \\
+July 2014 & 59.2 & \\
+August 2014 & 46.6 & \\
+September 2014 & 48.9 & \\
+October 2014 & 59.1 & \\
+November 2014 & 31.4 & \\
+December 2014 & 35.2 & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+We selected the Common Crawl\footnote{\url{http://commoncrawl.org}} index as the primary source for our spreadsheet corpus, because it contains over ???TB of publicly available web crawl data and is regularly updated.
 
 To extract spreadsheets from this index, first we crawled all the available WAT files in the index targeting files that could potentially be spreadsheets, including files tagged with MSDN content types, and files with extensions containing ``.xls''. 
 This crawl was the most computationally intensive task in our pipeline, consuming approximately ??? hours of CPU time. 
 The crawl identified ??? candidate spreadsheets which we extracted from their associated WARC files. 
 
-Because the WAT files contained some incomplete and incorrect tags, we extracted some invalid spreadsheets in the first phase. We used Tika\footnote{\url{tika.apache.org}} to identify the valid spreadsheets and then filtered out the invalid files. This stage resulted in ??? valid spreadsheets.
+Because the WAT files contained some incomplete and incorrect tags, we extracted some invalid spreadsheets in the first phase. We used Tika\footnote{\url{http://tika.apache.org}} to identify the valid spreadsheets and then filtered out the invalid files. This stage resulted in ??? valid spreadsheets.
  
-Next we processed the valid spreadsheets using Apache POI\footnote{\url{poi.apache.org}} to extract metadata from each spreadsheet (see Section \ref{sec:schema}). By computing a sha512 hash we identified and removed duplicate spreadsheets, resulting in a final total of ??? spreadsheets. 
+Next we processed the valid spreadsheets using Apache POI\footnote{\url{http://poi.apache.org}} to extract metadata from each spreadsheet (see Section \ref{sec:schema}). By computing a sha512 hash we identified and removed duplicate spreadsheets, resulting in a final total of ??? spreadsheets. 
 
++ TODO(tbarik): Copy Mixin and JsonMerge, not shown, but utility tool to easily copy sets and merge them.
+
+\subsection{MapReduce Pipeline}
+
+\subsubsection{Crawl} 
+
+In this step, 
+
+\subsubsection{Extract} 
+
+In this step,
+
+\subsubsection{Filter} 
+
+In this step,
+\subsubsection{Mixin} 
+
+In this step,
+
+\subsubsection{Merge} 
+
+In this step,
 
 % https://publicsuffix.org/list/
 
@@ -182,6 +241,10 @@ Next we processed the valid spreadsheets using Apache POI\footnote{\url{poi.apac
 % https://publicsuffix.org/
 
 limitation: truncation, 2 MB, 5 MB?
+
+% http://www.statmethods.net/advgraphs/images/ggplotdensity.png
+
++ TODO(tbarik): Stages or tasks?
 
 needed to create WAT index files
 
@@ -244,7 +307,136 @@ docjoiner
 
 \emph{cleaning}
 
+put lingpipe
+put interndomain
+put analysistool
+
 \section{Description of Spreadsheet Corpus}
+
+% What domains are represented in the corpus?
+
+\begin{lstlisting}
+db.s.aggregate(
+    { "$project": 
+      {"InternetDomainName.Public-Suffix" : true } },
+    { "$group": 
+      {"_id": "$InternetDomainName.Public-Suffix", "count": {"$sum": 1} } },
+    { "$sort": { "count" : -1 } },
+    { "$limit": 10 }
+)
+\end{lstlisting}
+
+% TLD bias: http://w3techs.com/technologies/overview/top_level_domain/all
+
+since it's sdescription of corpus, should be descriptive?
+counts avg etc.
+
+absfrequency, relativefrequency
+gov, 250211
+org, 171845
+com, 112573
+edu, 63572
+gov.au, 43490
+pa.us, 7621
+net, 7409
+mn.us, 4641
+ac.uk, 3423
+ca.us, 3003
+
+% FOR SDL: topleveldomain
+
+absfreq, relfreq
+census.gov, 143135
+triathlon.org, 106486
+amamanualofstyle.com, 45118
+abs.gov.au, 42941
+utah.gov, 22242
+ohio.gov, 16739
+usda.gov, 13016
+worldbank.org, 11062
+theahl.com, 10350
+eia.gov, 8216
+
+\noindent\textbf{RQ: How many domains are represented?}
+
+4,381 domains. After dedup, 4,342.
+
+RQ what types of headers do people use?
+
+
+how canonical are urls?
+
+not very
+
+% db.s.aggregate(
+%     { "$project": {"Tika.Digest": true, "WARC-Target-URI": true } },
+%     { "$group": { "_id": { uri: "$WARC-Target-URI", sha: "$Tika.Digest" }, count: { "$sum": 1 } } },    
+%     { "$group": { "_id": { uri: "$_id.uri" }, count: { "$sum": 1 } } },
+%     { "$match": { "count" : { "$gte" : 2 } } },
+%     { "$sort": { "count" : -1 } }  
+% )
+
+
+
+
+results from this can be used to guide future crawls to increase the diversity of the spreadsheet corpus.
+
+% euses and cc overlap
+% sha1:24af0f8d6a5a18a44150a6b56587582546a0ba71  (1)
+%   Inventory control form www.edu.edu
+%    ./inventory/processed/InventoryControlForm.xls
+% sha1:70cc5c391b4e439c61e003f0c01ea573fcea544b (3/but all same)
+%     ncdenr.org
+%     ./modeling/processed/labrates050104.xls
+% sha1:9992cd834d4824cbb05c26b0ffcecff04509334c
+%     naaccr.org
+%     ./grades/processed/naaccr9a.xls
+% sha1:9a09b5a28eb4faf6516ddac8aaf7c90eddc47090
+%     http://www.courts.delaware.gov/forms/download.aspx?ID=21098
+%     http://www.courts.delaware.gov/forms/download.aspx?id=21098
+%     ./financial/processed/finanacial%20sheet.xls
+% sha1:d903ce9171061b482d92aa78bb2e60404ab16732
+%     nigc.gov
+%     ./inventory/processed/TableInventorySlipWorksheet.xls    
+
+% Media Type
+
+Actually looking at binaries, so this looks at dedup:
+
+application/vnd.ms-excel, 238673
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, 10555
+application/vnd.openxmlformats-officedocument.spreadsheetml.template, 148
+
+all zero:
+application/vnd.ms-excel.sheet.macroEnabled.12
+application/vnd.ms-excel.template.macroEnabled.12
+application/vnd.ms-excel.addin.macroEnabled.12
+application/vnd.ms-excel.sheet.binary.macroEnabled.12
+
+RQ: How much can you trust HTTP headers?
+
+RQ: Train a text classifier to identify topicality.
+
+RQ: Evolution of spreadsheets
+
+
+
+Breakdown of analysis:
+%db.spreadsheet.aggregate(
+%    { "$project": 
+%      {"Summary.errorNotification" : true } },
+%    { "$group": 
+%      {"_id": "$Summary.errorNotification", "count": {"$sum": 1} } },
+%    { "$sort": { "count" : -1 } },
+%    { "$limit": 10 })
+
+"OK", 112421
+"CORRUPT",87574
+"OTHER", 31676 
+"BIFF5",  17643 
+"ENCRYPTED",  62 
+
+
 
 % some ideas for things to show
 % http://blog.commoncrawl.org/2012/05/
@@ -264,11 +456,15 @@ place a non-shitty graph here
 %% than the plain LaTeX2e tabular which is used here.
 \begin{tabular}{lllll}
 \toprule
-& \textbf{\textsc{Fuse}} & \textbf{EUSES} & \textbf{Enron} & \textbf{Google (est.)}\\
+& \textbf{\textsc{Fuse}} & \textbf{EUSES} & \textbf{Enron}\\
 \midrule
-Size ($n$) & a & 6,000 & 15,570 & $>$ 1.5 million \\
-Space & b & c & 23.3\\
-Research access & All & Restricted to researchers & All & Google internal\\
+Size ($n$) & 249,376 & 6,000 & 15,570\\
+Space (GB) & b & 0.64 & 23.3\\
+Research access & All & Researchers & All\\
+Unique formulas & 894361 & 693266 & 84004\\
+Extendable & Yes & Not scalable & No\\
+Framework & Hadoop & Excel + VBA & Scantool\\
+TIme Period & 2006 & 2006 & 2006\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -276,6 +472,43 @@ Research access & All & Restricted to researchers & All & Google internal\\
 A summary of your spreadsheet corpus can be found in Table~\ref{tab:corpora}.
 
 \section{Results}
+
+\subsection{Classification of spreadsheets}
+
+
+\begin{table}[!t]
+\caption{Spreadsheet Classification\label{tab:ccrawl}}
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Category} & \textbf{\textsc{Fuse}} & \textbf{EUSES}\\
+\midrule
+Database & 4518 & 720\\
+Finance & 3058 & 780\\
+Grade & 2915 & 731\\
+Homework & 61 & 682\\
+Inventory & 2243 & 756\\
+Model & 2143 & 966\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The results in this section are intended to demonstrate the essential properties of the corpus.
+
+\subsection{RQ2: How diverse is the common common crawl corpus?}
+\subsection{RQ1: How stable are URIs?}
+\subsection{RQ3: NLP Extraction of Spreadsheet?}
+\subsection{RQ4: What types of formulas ar eused by end-user software programmers?}
+
+
+Top two formulas are the same across the three corpora: 
+1. Add up the three cells to my left
+2. Add up the two cells to my left
+And most of the top 10 are Add up n cells to my left.
+Fuse \#3 HYPERLINK("http://www.eia.doe.gov/totalenergy/data/monthly/dataunits.cfm","Note: Information about data precision and revisions.")
+Enron \#3 NOW()  
+
+give warc record ids
 
 % stage 1 metadata
 
@@ -288,6 +521,13 @@ In general, the entries summarize the contents of the cells.
 To list a few examples, the number of times a given Excel function (such as SUM or VLOOKUP) is used, the total number of input or data cells, the number of numeric input cells, the number of formulas used more than 50 times, the most common formula used, etc.
 
 
+render json
+
+\begin{lstlisting}
+asdfsdf
+\end{lstlisting}
+
+\section{Mixins}
 
 how do you get it?
 
@@ -298,7 +538,7 @@ mongodb recordobject warc extracts
 % TODO(tbarik): Switch this table.
 
 
-\section{Dataset Limitations}
+\section{Dataset Challenges and Limitations}
 
 % https://gist.github.com/anonymous/8373f8a08a357146c20b
 
@@ -319,6 +559,7 @@ The conclusion goes here.
 
 \section{Related Work}
 
+% http://link.springer.com/article/10.1007/s10664-011-9181-9
 
 \subsection{Why use spreadsheets}
 
@@ -337,8 +578,6 @@ EUSES~\cite{Fisher2005}
 
 ENRON find citation <-- icse seip 2015
 
-
-
 ~\cite{Chen2013} Automatically extract relational data from spreadsheets. Extracted 410,554 spreadsheets from clue09 web crawl.
 
 
@@ -354,6 +593,8 @@ ENRON find citation <-- icse seip 2015
 \section*{Acknowledgment}
 
 This material is based upon work supported in whole or in part with funding from the Laboratory for Analytic Sciences (LAS). Any opinions, findings, conclusions, or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the LAS and/or any agency or entity of the United States Government.
+
+Just kidding, I did this all by myself.
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
