@@ -22,9 +22,10 @@
 \title{\textsc{Fuse}: A Reproducable, Internet-scale\\Dataset of Spreadsheets}
 
 \author{
-\IEEEauthorblockN{Titus Barik\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, Kevin Lubick, Justin Smith, John Slankas, Emerson Murphy-Hill}
+\IEEEauthorblockN{Titus Barik\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, Kevin Lubick\IEEEauthorrefmark{2}, Justin Smith\IEEEauthorrefmark{2}, John Slankas\IEEEauthorrefmark{2}, Emerson Murphy-Hill\IEEEauthorrefmark{2}}
 \IEEEauthorblockA{\IEEEauthorrefmark{1}ABB Corporation Research, Raleigh, North Carolina, USA\\
-North Carolina State University, Raleigh, North Carolina USA
+\IEEEauthorrefmark{2}North Carolina State University, Raleigh, North Carolina USA\\
+titus.barik@us.abb.com, \{kjlubick, jssmit11, jbslanka\}@ncsu.edu, emerson@csc.ncsu.edu
 }}
 
 \maketitle
@@ -115,8 +116,10 @@ Columwith is: The text height is \the\columnwidth
 % \label{fig:testplot}
 % \end{figure}
 
-Our contributions are 
+The contributions of this data set are:
+
 \begin{enumerate}
+\item A 
 \item A corpus of ??? spreadsheets pulled from the pubic web
 \item A pipeline of tools that allows other researchers to more easily perform spreadsheet extraction and analysis at scale
 \item A detailed set of metadata for this corpus and two other corpora [foo], [bar]  which allow researchers to make queries without having to download or analyze the entire spreadsheet corpus.  
@@ -430,18 +433,38 @@ Breakdown of analysis:
 %    { "$sort": { "count" : -1 } },
 %    { "$limit": 10 })
 
-"OK", 112421
-"CORRUPT",87574
-"OTHER", 31676 
+"OK", 220760
 "BIFF5",  17643 
+"OTHER", 10782 
+"CORRUPT",129
 "ENCRYPTED",  62 
 
+%	db.fuse.aggregate(
+%    { "$group": 
+%      {"_id": "Input Cells", "count": {"$sum": "$totalInputCells"} } })
+Total Input cells: 357210294
 
-
+%	db.fuse.aggregate(
+%    { "$group": 
+%      {"_id": "Total Formula Cells", "count": {"$sum": "$totalFormulas"} } })
+Total Formula cells: 10776903
 % some ideas for things to show
 % http://blog.commoncrawl.org/2012/05/
 
+Total Non-empty cells: 357210294 + 10776903 = 367987197
+Average non-empty cells per workbook: 367987197/220760 = 1667
 
+Number of workbooks with formulas: 14782
+
+%db.fuse.aggregate(
+%    { "$group": 
+%      {"_id": "Total Sheets", "count": {"$sum": "$numSheets"} } })
+Total Sheets: 346247
+
+%db.fuse.aggregate(
+%	{ "$group": 
+%      {"_id": "Maximum Sheets", "count": {"$max": "$numSheets"} } })
+Maximum number of sheets: 147
 place a non-shitty graph here
 
 % http://www.felienne.com/archives/3634
