@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1424828054 "main.aux" "main.bbl" "main" 1424828136
+["bibtex main"] 1424825986 "main.aux" "main.bbl" "main" 1424826001
   "C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/bibtex/bst/ieeetran/IEEEtran.bst" 1222761240 59506 016987d9be15acf51cdd7252d40ecec2 ""
-  "library.bib" 1424828049 17863 3d19e216e423a263c27de912f34f449a ""
-  "main.aux" 1424828136 2385 09bf70120e19136f1013f98ad0f3cddc ""
+  "library.bib" 1424818085 17978 1eb65ef2ca922597cc5ed96242080a89 ""
+  "main.aux" 1424826001 3321 2229624a73215f60c8541f062498ece3 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1424828135 "C:\Users\tbarik\Dropbox\sharelatex\cc-msr2015\main.tex" "C:\Users\tbarik\Dropbox\sharelatex\cc-msr2015/main.pdf" "main" 1424828136
+["pdflatex"] 1424826000 "C:\Users\tbarik\Dropbox\sharelatex\cc-msr2015\main.tex" "C:\Users\tbarik\Dropbox\sharelatex\cc-msr2015/main.pdf" "main" 1424826001
   "C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc" 1164655380 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmb7t.tfm" 1136790254 2172 fd0c924230362ff848a33632ed45dc23 ""
   "C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmb8r.tfm" 1136790254 4524 6bce29db5bc272ba5f332261583fee9c ""
@@ -132,14 +132,15 @@
   "C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/upquote/upquote.sty" 1335531156 1088 517e01cde97c1c0baf72e69d43aa5a2e ""
   "C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/url/url.sty" 1197261360 21932 e3a9cf32ee9b853b42be14c2f25b873c ""
   "C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/xcolor/xcolor.sty" 1172312492 56673 a43bab84e0ac5e6efcaf9a98bde73a94 ""
-  "C:\Users\tbarik\Dropbox\sharelatex\cc-msr2015/main.aux" 1424828136 2385 09bf70120e19136f1013f98ad0f3cddc ""
-  "C:\Users\tbarik\Dropbox\sharelatex\cc-msr2015\main.tex" 1424828135 38398 9607521ee7176e6ede13015836bacc79 ""
+  "C:\Users\tbarik\Dropbox\sharelatex\cc-msr2015/main.aux" 1424826001 3321 2229624a73215f60c8541f062498ece3 ""
+  "C:\Users\tbarik\Dropbox\sharelatex\cc-msr2015\main.tex" 1424826000 35980 8be05b2f6eadf552f67afc1da8a6c898 ""
   "IEEEpreamble.sty" 1424116718 14429 6e550e97a2d225a1141f2fb81c5e2c3f ""
   "IEEEtran.cls" 1421789227 215484 3585e63204c3b8111bb2bf0eda265d43 ""
+  "figures/Rplot01.pdf" 1424749000 5206 cedbd3660c61eef51777476d2959edd9 ""
   "figures/pipeline.pdf" 1424666746 101501 e488b31bb1d867b092730b013e421887 ""
-  "main.aux" 1424828136 2385 09bf70120e19136f1013f98ad0f3cddc ""
-  "main.bbl" 1424828054 5191 fc0082f4560e3136d7fea8950fc7f798 "bibtex main"
-  "main.tex" 1424828135 38398 9607521ee7176e6ede13015836bacc79 ""
+  "main.aux" 1424826001 3321 2229624a73215f60c8541f062498ece3 ""
+  "main.bbl" 1424825986 5375 7d8ee2bd89859c088f252779048257db "bibtex main"
+  "main.tex" 1424826000 35980 8be05b2f6eadf552f67afc1da8a6c898 ""
   (generated)
   "C:\Users\tbarik\Dropbox\sharelatex\cc-msr2015/main.pdf"
   "C:/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.log"

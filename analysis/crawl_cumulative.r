@@ -1,19 +1,36 @@
 set.seed(1234)
 
+# http://www.cookbook-r.com/Graphs/Legends_%28ggplot2%29/
+
 library("ggplot2")
+library("scales")
 
-cond <- c("Unique Spreadsheet", "Unique Spreadsheet", "Unique Spreadsheet", "B", "B", "B", "C", "C", "C")
-stage1 <- c(5, 10, 20, 2, 3, 4, 1, 2, 4)
-x <- c(0, 1, 2, 0, 1, 2, 0, 1, 2)
+cbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
-df <- data.frame(cond = cond, x = x, rating = stage1)
+cbbPalette <- c("#56B4E9", "#E69F00", "#999999", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
-# http://docs.ggplot2.org/current/stat_density.html
 
-m <- ggplot(data = df, aes(x = x, y = stage1, fill = cond))
-m + geom_area(alpha = 0.4)
+df <- read.csv('stackarea.csv')
 
-# tikz(file = "Figure1.tex", width = 2.5, height = 2.5)
+m <- ggplot(data = df, aes(x = Group, y = Count, fill = factor(Type))) + 
+  geom_area() +  
+  scale_fill_discrete("Spreadsheet Type", breaks=c(1:3), labels=c("Unique", "Duplicate", "Invalid Candidate")) + 
+  guides(fill = guide_legend(reverse=TRUE)) +   
+  ylab("Count of Cumulative Candidate Spreadsheets") +
+  xlab("Common Crawl") + scale_x_continuous(breaks=c(0:9), 
+                                            labels=c("Sum13",
+                                                     "Win13",
+                                                     "Mar14",
+                                                     "Apr14",                                                                                                          
+                                                     "Jul14",
+                                                     "Aug14",
+                                                     "Sep14",
+                                                     "Oct14",
+                                                     "Nov14",
+                                                     "Dec14"
+                                                     ))
+
+print(m)
 
 
 

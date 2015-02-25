@@ -31,6 +31,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "main.tex",
+			"settings":
+			{
+				"buffer_size": 29173,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "library.bib",
+			"settings":
+			{
+				"buffer_size": 17544,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -270,6 +286,8 @@
 	],
 	"file_history":
 	[
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/analysis/stackarea.csv",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/analysis/stack.tex",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/figures/Figure1.tex",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/figures/pipeline.pdf_tex",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.tex",
@@ -395,9 +413,7 @@
 		"/C/Users/tbarik/Desktop/gemconv_wrapper/awspush_initial.py",
 		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.905/LICENSE.txt",
 		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.791/segment.path",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.021/MANIFEST.MF",
-		"/D/opt/hadoop-2.6.0/etc/hadoop/hdfs-site.xml",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.217/AwsConsoleApp.java"
+		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.021/MANIFEST.MF"
 	],
 	"find":
 	{
@@ -416,6 +432,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"contained",
+			"data set",
+			"The contributions of this",
+			"EUSES",
+			"the spreadsheet",
+			"abraham2007",
+			"blackwell",
+			"first steps",
+			",$",
 			"corrupt",
 			"corrupted",
 			"mapreduce",
@@ -534,16 +559,7 @@
 			"Research Ques",
 			"tabular",
 			"tikzpicture",
-			"A stupid figure",
-			"\\input",
-			"input",
-			"activi",
-			"software engineering researchers",
-			"\\textit{",
-			"first example",
-			"artifact",
-			"barrier",
-			"space"
+			"A stupid figure"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -568,8 +584,71 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "main.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11588,
+								11588
+							]
+						],
+						"settings":
+						{
+							"WordCountShouldRun": true,
+							"WordCountSyntax": "latex",
+							"spell_check": true,
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3138.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "library.bib",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17544,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1578,
+								1578
+							]
+						],
+						"settings":
+						{
+							"WordCountShouldRun": true,
+							"WordCountSyntax": "bibtex",
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 132.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
