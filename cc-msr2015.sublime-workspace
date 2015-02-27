@@ -591,7 +591,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -607,8 +607,8 @@
 						"selection":
 						[
 							[
-								986,
-								1804
+								43441,
+								43794
 							]
 						],
 						"settings":
@@ -619,10 +619,10 @@
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 14030.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -638,12 +638,11 @@
 						[
 							[
 								798,
-								0
+								798
 							]
 						],
 						"settings":
 						{
-							"WordCountShouldRun": true,
 							"WordCountSyntax": "plain text",
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
@@ -651,7 +650,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
