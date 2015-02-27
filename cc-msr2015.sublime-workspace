@@ -35,15 +35,23 @@
 			"file": "main.tex",
 			"settings":
 			{
-				"buffer_size": 29173,
+				"buffer_size": 44579,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Spreadsheets are perhaps the most ubiquitous form of end-user programming software. This paper describes a dataset, called Fuse, containing information about 2,127,284 spreadsheet-related HTTP responses, 719,223 of which are linked to 249,376 unique binary spreadsheets, obtained using 60,000 hours of computation on a public web crawl of over 26.83 billion pages. The resulting dataset offers several useful properties over prior spreadsheet corpora, including reproducibility and extendability. The dataset is unencumbered by any license agreements, available to all, and intended for wide usage by end-user software engineering researchers. In this paper, we detail the data and the spreadsheet extraction process, describe the data schema, and discuss the trade-offs of Fuse with other corpora.",
+			"settings":
+			{
+				"buffer_size": 798,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "library.bib",
 			"settings":
 			{
-				"buffer_size": 17544,
+				"buffer_size": 16723,
 				"line_ending": "Unix"
 			}
 		}
@@ -281,16 +289,31 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015",
-		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/figures"
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015"
 	],
 	"file_history":
 	[
+		"/D/Downloads/000d9b7b-f891-44b8-8430-14bc8a607639",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.out.pyg",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/latexmkrc",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.tex",
+		"/D/Downloads/0000034b-0f71-4ed3-b849-1b6529cd0dfb",
+		"/X/public_html/static/fuse/index.php",
+		"/X/public_html/static/fuse/3e061145-7fbf-48e1-b369-e48b445f6823.metadata.txt",
+		"/C/Users/tbarik/Desktop/3e061145-7fbf-48e1-b369-e48b445f6823",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/library.bib",
+		"/D/Downloads/00001ca0-d715-4250-bba8-f416281ffb1c(1)",
+		"/D/Downloads/cc.dedup.withsha1.path",
+		"/D/Downloads/0000399e-5ae3-4bcd-8292-de1cf646da21(1)",
+		"/D/Downloads/00001ca0-d715-4250-bba8-f416281ffb1c(3)",
+		"/D/Downloads/00001ca0-d715-4250-bba8-f416281ffb1c(2)",
+		"/D/Downloads/00001ca0-d715-4250-bba8-f416281ffb1c",
+		"/D/Downloads/0000399e-5ae3-4bcd-8292-de1cf646da21",
+		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.bbl",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/analysis/stackarea.csv",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/analysis/stack.tex",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/figures/Figure1.tex",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/figures/pipeline.pdf_tex",
-		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.tex",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/analysis/Figure1.tex",
 		"/C/Users/tbarik/Desktop/myPlot.tex",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.synctex.gz",
@@ -378,7 +401,6 @@
 		"/C/Users/tbarik/Documents/Research/grants/amazon_proposal.txt",
 		"/D/Downloads/639a339b-40aa-4aca-a629-186c9adbe2a2(2)",
 		"/D/Downloads/0d2c39c4-db5e-4e5f-85b6-531a198b0ff2",
-		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/library.bib",
 		"/C/Users/tbarik/Dropbox/sharelatex/cc-msr2015/cc-msr2015.sublime-project",
 		"/C/Users/tbarik/Dropbox/sharelatex/qualifier/references.bib",
 		"/C/Users/tbarik/Dropbox/sharelatex/qualifier/library.bib",
@@ -398,22 +420,7 @@
 		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.626/wat.path",
 		"/D/Downloads/639a339b-40aa-4aca-a629-186c9adbe2a2",
 		"/D/Downloads/639a339b-40aa-4aca-a629-186c9adbe2a2(1)",
-		"/C/Users/tbarik/Desktop/foxyproxy-settings.xml",
-		"/C/Users/tbarik/Documents/Research/msr2015/crawlerdl/ec2_builds/mapred-merge.xml",
-		"/C/Users/tbarik/Documents/Research/msr2015/crawlerdl/ec2_builds/yarn-merge.xml",
-		"/D/opt/hadoop-2.6.0/etc/hadoop/mapred-site.xml.templatecat",
-		"/C/Users/tbarik/Desktop/yarn-site.xml",
-		"/D/opt/hadoop-2.6.0/etc/hadoop/yarn-site.xml",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.814/README.md",
-		"/Z/attic/Documents/Research/boto/bootstrap.sh",
-		"/C/Users/tbarik/aws-java-sdk/1.9.14/samples/AmazonEC2SpotInstances-Advanced/Requests.java",
-		"/C/Users/tbarik/Documents/Research/msr2015/pycrawler/pyproto_extract.py",
-		"/C/Users/tbarik/Documents/tmp/heroku/hellodjango/venv/Lib/site-packages/gunicorn-0.17.4-py2.7.egg-info/entry_points.txt",
-		"/C/Users/tbarik/Desktop/gemconv_wrapper/gemconv_wrapper.py",
-		"/C/Users/tbarik/Desktop/gemconv_wrapper/awspush_initial.py",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.905/LICENSE.txt",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.791/segment.path",
-		"/C/Users/tbarik/AppData/Local/Temp/Rar$DIa0.021/MANIFEST.MF"
+		"/C/Users/tbarik/Desktop/foxyproxy-settings.xml"
 	],
 	"find":
 	{
@@ -432,6 +439,43 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"CORRUPT",
+			"pipeline",
+			"Binary Analysis",
+			"intended",
+			"acknowledg",
+			"1000",
+			"msdn",
+			"MIning",
+			"Acknowledg",
+			"metadata",
+			"mich",
+			"michigin",
+			"minted",
+			"joel",
+			"2012",
+			"code smell",
+			"summer 2013",
+			"normalized instance",
+			"OK",
+			"32",
+			"36",
+			"formulas",
+			"140",
+			"formulas",
+			"change",
+			"stable",
+			"domain",
+			"candidate",
+			"finance",
+			"euses",
+			"graph",
+			"stable",
+			"Public",
+			"interest",
+			"Available",
+			"2012",
+			"\\texttt{Con",
 			"contained",
 			"data set",
 			"The contributions of this",
@@ -522,44 +566,7 @@
 			"install",
 			"goal",
 			".intellij",
-			"Yoonki",
-			"barik",
-			"Ant",
-			"85\\%",
-			"ALPHA",
-			"Motivating ",
-			"Lipford",
-			"Why don't",
-			"Ferr",
-			"Ferriera",
-			"programming environment",
-			"compare_resul",
-			"We mined 24",
-			"simultaneously",
-			"simutaneously",
-			"keywords",
-			"The percentage",
-			"Summary of results",
-			"Workflow",
-			"Suggested fix",
-			"\\begin{figure",
-			"figure",
-			"Workflow",
-			"For the Catch E",
-			"408",
-			"fix_ce",
-			"a notifi",
-			"A follow-through",
-			"multicolumn",
-			"toprule",
-			"toprl",
-			"tabular",
-			"Visually",
-			"wilcoxon",
-			"Research Ques",
-			"tabular",
-			"tikzpicture",
-			"A stupid figure"
+			"Yoonki"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -584,7 +591,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -593,15 +600,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 29173,
+						"buffer_size": 44579,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11588,
-								11588
+								986,
+								1804
 							]
 						],
 						"settings":
@@ -612,41 +619,69 @@
 							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3138.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "library.bib",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 17544,
+						"buffer_size": 798,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1578,
-								1578
+								798,
+								0
 							]
 						],
 						"settings":
 						{
 							"WordCountShouldRun": true,
+							"WordCountSyntax": "plain text",
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "library.bib",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1817,
+								1817
+							]
+						],
+						"settings":
+						{
 							"WordCountSyntax": "bibtex",
 							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 132.0,
+						"translation.x": 0.0,
+						"translation.y": 168.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -797,7 +832,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 232.0,
+	"side_bar_width": 239.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

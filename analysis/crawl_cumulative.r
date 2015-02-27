@@ -14,9 +14,9 @@ df <- read.csv('stackarea.csv')
 
 m <- ggplot(data = df, aes(x = Group, y = Count, fill = factor(Type))) + 
   geom_area() +  
-  scale_fill_discrete("Spreadsheet Type", breaks=c(1:3), labels=c("Unique", "Duplicate", "Invalid Candidate")) + 
+  scale_fill_discrete("Spreadsheet Layer", breaks=c(1:3), labels=c("Unique Analysis", "Binary Analysis ", "Web Analysis")) + 
   guides(fill = guide_legend(reverse=TRUE)) +   
-  ylab("Count of Cumulative Candidate Spreadsheets") +
+  ylab("Cumulative Count of Spreadsheets") +
   xlab("Common Crawl") + scale_x_continuous(breaks=c(0:9), 
                                             labels=c("Sum13",
                                                      "Win13",

@@ -19,7 +19,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{\textsc{Fuse}: A Reproducible, Extendable, Internet-scale\\Dataset of Spreadsheets}
+\title{\textsc{Fuse}: A Reproducable, Extendable, Internet-scale\\Dataset of Spreadsheets}
 
 \author{
 \IEEEauthorblockN{Titus Barik\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, Kevin Lubick\IEEEauthorrefmark{2}, Justin Smith\IEEEauthorrefmark{2}, John Slankas\IEEEauthorrefmark{2}, Emerson Murphy-Hill\IEEEauthorrefmark{2}}
@@ -31,8 +31,7 @@ titus.barik@us.abb.com, \{kjlubick, jssmit11, jbslanka\}@ncsu.edu, emerson@csc.n
 \maketitle
 
 \begin{abstract}
-Spreadsheets are perhaps the most ubiquitous form of end-user programming software. This paper describes a dataset, called \textsc{Fuse}, containing information about 2,127,284 spreadsheet-related HTTP responses, 
-719,223 of which are linked to 249,376 unique binary spreadsheets, obtained using 60,000 hours of computation on a public web crawl of over 26.83 billion pages. The resulting dataset offers several useful properties over prior spreadsheet corpora, including reproducibility and extendability. The dataset is unencumbered by any license agreements, available to all, and intended for wide usage by end-user software engineering researchers. In this paper, we detail the data and the spreadsheet extraction process, describe the data schema, and discuss the trade-offs of \textsc{Fuse} with other corpora.
+Spreadsheets are perhaps the most ubiquitous, widely used form of end-user programming software. This paper describes a dataset, called \textsc{Fuse}, consisting of metadata information for 719,223 spreadsheet accesses and their corresponding 249,376 binary files from a public web crawl of over 26.83 billion pages. The resulting dataset offers several useful properties over prior spreadsheet corpora, including reproducibility, extendability, and queryability. The dataset is unencumbered by any license agreements, available to all, and intended for wide usage by end-user software engineering researchers. In this paper, we detail the spreadsheet extraction process, describe the data schema, and discuss the limitations and challenges of \textsc{Fuse}.
 \end{abstract}
 
 
@@ -57,16 +56,15 @@ Although these users are typically not professional software developers, their r
 
 % As Nardi and Miller observe, these non-programmers are not simply under-skilled programmers; they are not programmers at all~\cite{Nardi1990}.
 
-Perhaps the most ubiquitous form~\cite{Scaffidi2005} of end-user programming software are \emph{spreadsheets}, a table-oriented visual interface that serves as the underlying model for the users' applications~\cite{Nardi1990}. \emph{Cells} within these tables are augmented with computation, such as functions and macros~\cite{Nardi1990}. This interplay between presentation and computation within the spreadsheet environment has, unsurprisingly, garnered significant interest from the software engineering research community~\cite{Burnett2009}. In noticing the similarities and differences with traditional programming environments, researchers have adopted techniques and approaches to studying errors~\cite{Pinzger2012}, code smells~\cite{Badame2012}, and debugging in spreadsheets~\cite{Powell2008}. 
-
+Perhaps the most ubiquitous and widely used form~\cite{Scaffidi2005} of end-user programming software are \emph{spreadsheets}, a table-oriented visual interface that serves as the underlying model for the users' applications~\cite{Nardi1990}. \emph{Cells} within these tables are augmented with computational techniques, such as functions and macros, that are expressive and yet simultaneously shield users from the low-level details of traditional programming~\cite{Nardi1990}.
 
 % \footnote{``Spreadsheets are not just tools for doing “what-if” analysis. They provide a specific data structure: a table. Most Excel users never enter a formula. They use Excel when they need a table. The gridlines are the most important feature of Excel.'' \url{http://www.joelonsoftware.com/items/2012/01/06.html}}.
 
+This interplay between presentation and computation within the spreadsheet environment has, unsurprisingly, garnered significant interest from the software engineering research community~\cite{Burnett2009}. In noticing the similarities and differences with traditional programming environments, researchers have adopted techniques and approaches to studying errors~\cite{Pinzger2012}, code smells~\cite{Badame2012}, and debugging in spreadsheets~\cite{Powell2008}. 
 
 % For example, Abraham and Erwig exploit the spatial arrangements of tables within spreadsheets, a visual property inapplicable to traditional programming languages, to infer templates that help end-users safely edit spreadsheets~\cite{Abraham2006}.
 
-To better understand end-user activities and design tools to assist end-users, researchers have responded by curating spreadsheet corpora to support spreadsheet studies~\cite{Fisher2005,Hermans2015,Chen2013}. This paper presents one such spreadsheet corpus, called \textsc{Fuse}, extracted from the over 26.83 billion web pages in the Common Crawl index. We believe that \textsc{Fuse} offers several useful traits not found in prior corpora; 
-for example, \textsc{Fuse} is obtained in such a way that researchers can independently reproduce an identical corpus from source materials.
+To better understand end-user activities and design tools to assist end-users, researchers have responded by curating spreadsheet corpora to support spreadsheet studies. This paper presents one such corpus spreadsheet corpus, called \textsc{Fuse}, extracted from the over 26.83 billion web pages in the Common Crawl index. We believe that \textsc{Fuse} offers several useful traits not found in previous corpora.
 
 % http://www.felienne.com/archives/3634
 % \begin{table}[!t]
@@ -104,7 +102,6 @@ for example, \textsc{Fuse} is obtained in such a way that researchers can indepe
 % TODO(tbarik): Just for reference. Remove for submission.
 % The text height is \the\columnwidth -- should 252.0pt or 3.5in.
 
-% TODO(tbarik): Kevin's POI Analysis is not available. We need the counts for the figure.
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\linewidth]{pipeline}
@@ -115,8 +112,8 @@ for example, \textsc{Fuse} is obtained in such a way that researchers can indepe
 The contributions of this paper are:
 
  \begin{itemize}
- \item A corpus of metadata, augmented with our analysis, and binary spreadsheets extracted from public web sites through the Common Crawl archive, made accessible to the research community.\footnote{The corpus metadata, binary spreadsheets, tools, and other documentation can be obtained at \url{http://go.barik.net/fuse}.}
- \item A modular, open-source tool pipeline, implemented using MapReduce. Our tool is scalable and can process over 1 million spreadsheets in under an hour.
+ \item A corpus of metadata and binary spreadsheets extracted from public web sites through the Common Crawl archive, made accessible to the research community.\footnote{The corpus metdata, binary spreadsheets, tools, and other documentation can be obtained at \url{http://go.barik.net/fuse}. This URL is currently intended only for examination by the review committee.}
+ \item A modular, open-source tool pipeline, implemented using MapReduce. Our tool supports scalability from the ground up, and can cost-effectively process over 1 million spreadsheets in under an hour.
  \end{itemize}
 
 % \begin{figure}[!t]
@@ -139,26 +136,28 @@ The contributions of this paper are:
 
 The Common Crawl\footnote{\url{http://commoncrawl.org}} non-profit organization is dedicated to providing a copy of the Internet, and democratizing the data so that it is accessible to everyone. 
 %
-Of specific interest to us is that the corpus contains not only the HTTP responses of web pages, but also the raw content of each of these resource, including binaries. It is from these updated-monthly Web crawls that we extract binary spreadsheets, and make available corresponding metadata tailored for researchers.
+Of specific interest to us is that the corpus contains not only the metadata of web pages, but also the raw content of each resource, including binaries. Importantly, these crawls occur periodically, at a frequency of approximately once per month. 
 
 
 \begin{figure}[!t]
 \centering
 % \input{figures/stack.tex}
 \includegraphics[width=\columnwidth]{Rplot01}
-\caption{Cumulative count of spreadsheets obtained with each additional crawl. Spreadsheet records are faceted into three layers, with each layer containing more specific information about the spreadsheet (but fewer spreadsheets) than the one before.\label{fig:rplot}}
+\caption{Cumulative count of candidate spreadsheets with each additional crawl. One problem is that unless the diversity of the crawl increases, unique spreadsheets are reaching a local maximum.}
+\label{fig:testplot}
 \end{figure}
 
-The result, \textsc{Fuse}, is characterized through three, hierarchical layers (Figure~\ref{fig:rplot}): 1) as a corpus that contains the target URL and HTTP response headers of spreadsheets on the Web, 2) as a corpus that captures the associated binary spreadsheets for a subset of those URLs, described through metadata using our analysis tools, and 3) as a corpus of unique spreadsheets extracted from the Web, where the binary content itself is primarily of interest.\\
 
-\textbf{Web Analysis Layer:} Contains 2,127,284 spreadsheet-related URLs and HTTP responses, across 51,380 distinct domain names. Primarily, this layer is intended for tasks that automatically crawl the live Internet, and as a result, binary contents from this stage are not reproducible.
+While space limitations do not permit a detailed discussion of our analysis, we describe general properties to highlight the utility of \textsc{Fuse}.  It is useful to segment \textsc{Fuse} at three, hierarchical layers of analysis: 1) as a corpus that contains the target URL and HTTP response headers of spreadsheets on the Web, 2) as a corpus that captures the associated binary spreadsheets for a subset of those URLs, and augments these spreadsheets with our analysis tools, and 3) as a corpus of unique spreadsheets extracted from the Web, where the binary content is primarily of interest.\\
 
-\textbf{Binary Analysis Layer:} 719,223 of the records in the web analysis layer have valid, associated binary content stored alongside the record Web Analysis layer, this layer is stable because it represents a fixed snapshot in time. Having content information, we find that URLs are not necessarily canonical. For example, we found 32,325 URIs in the corpora refer to a different spreadsheet, depending on the time of access.
+\textbf{URL Layer:} Contains 2,127,284 spreadsheet-related URLs and HTTP responses, across 51,380 distinct domain names. However, this layer should be considered unstable, since Internet resources are subject to be removed or changed. 
+
+\textbf{Binary Analysis Layer:} 719,223 of the records in the URL layer have valid, associated binary content stored alongside the record. Unlike the URL layer, this layer is stable because it represented a fixed snapshot in time.
 
 % 35,325, the largest of which change 61 times.
 % Only propagated 589 times, and that the highest number of spreadsheets is only presented across 3 domains.
 
-\textbf{Unique Binary Analysis Layer:} Of the 719,223 records in the binary analysis layer, a spreadsheet may appear multiple times. The simplest case where this occurs is when multiple Web sites host the same spreadsheet. For researchers who are only interested in content analysis of the spreadsheets, these unwanted duplicates will bias the analysis. This layer contains 249,336 binary spreadsheets. Through this layer, we learned that \texttt{SUM} is the most frequently used function, and that it is found in 8.7\% of all formula cells. We also discover that \texttt{=SUM(R[[-3]C:R[-1]C)} is the most common formula, in which a cell is the sum of the three cells to its left, and that it appears in 1,322 spreadsheets. In contrast with domain specific corpora, such as Enron, our general spreadsheet corpora has fewer formulas. We identified that only 6.95\% (147282) of our spreadsheets as containing any formula, where as 59.4\% of Enron spreadsheets contain formulas, which is consistent with anecdotal findings of the Microsoft Excel team.\footnote{Joel Spolsky writes, ``Everybody thought of Excel as a financial modeling application, [but] we visited dozens of Excel customers, and did not see anyone using Excel to actually perform what you would call `calculations.' Almost all of them were using Excel because it was a convenient way to create a table.'' --- \url{http://www.joelonsoftware.com/items/2012/01/06.html}}\\
+\textbf{Unique Binary Analysis Layer:} Of the 719,223 records in the binary analysis tier, the a unique spreadsheet may appear multiple times. The simplest case where this occurs is when multiple Web sites host the same spreadsheet. For researchers who are only interested in content analysis of the spreadsheets, these unwanted duplicates will bias the analysis. This layer contains 249,336 binary spreadsheets. Through this layer, we learned that \texttt{SUM} is the most frequently used function, and that it is found in 8.7\% of all formula cells. We also discover that \texttt{=SUM(R[[-3]C:R[-1]C)} is the most common formula, in which a cell is the sum of the three cells to its left, and that it appears in 1,322 spreadsheets. In contast with domain specific corpora, such as Enron, our general spreadsheet corpora has fewer formulas. We identified that only 6.95\% (147282) of our spreadsheets as containing any formula, where as 59.4\% of Enron spreadsheets contain formulas, which is consistent with the findings of the Microsoft Excel team.\footnote{Joel Spolsky writes, ``Everybody thought of Excel as a financial modeling application, [but] we visited dozens of Excel customers, and did not see anyone using Excel to actually perform what you would call `calculations.' Almost all of them were using Excel because it was a convenient way to create a table.'' \url{\url{http://www.joelonsoftware.com/items/2012/01/06.html}}}
 
 % 14782 -> 2127279 (6.95\%)
 % 8673 -> 14,600 (59.4\%)
@@ -168,7 +167,7 @@ The result, \textsc{Fuse}, is characterized through three, hierarchical layers (
 % across 1322 spreadsheets
 % 1210 had  SUM(R[[-2]C:R[-1]C)  
 
-A consequence of this layering technique is that \textsc{Fuse} has several properties desirable to researchers. First, the corpus is reproducible, at several layers. At the URL layer, an independent research should always obtain the same set of spreadsheet-related URLs, when using our same heuristics. Because the binary analysis layers and unique analysis layers are obtained from content embedded in the Common Crawl corpus, these too are static, reproducible resources. A second property of our corpus is that it is open to extension, without sacrificing reproducibility. Common Crawl releases a new data set a frequency, these crawls can be incorporated into \textsc{Fuse} using our toolchain. A third useful property of the dataset is related not to the dataset itself, but to its broader ecosystem: \textsc{Fuse} is unencumbered by any licensing requirements, available to all, and includes an open source toolchain.
+A consequence of this layering technique is that \textsc{Fuse} has several properties desirable to researchers. First, the corpus is reproducable, at several layers. At the URL layer, an independent research should always obtain the same set of spreadsheet-related URLs, when using our same heuristics. Because the binary analysis layers and unique analysis layers are obtained from content embedded in the Common Crawl corpus, these too are static, reproducable resources. A second property of our corpus is that it is open to extension, without sacrificing reproducablity. Common Crawl releases a new data set a frequency, these crawls can be incorporated into \textsc{Fuse} using our toolchain. A third useful property of the dataset is related not to the dataset itself, but to 
 
 
 % \begin{table}[!t]
@@ -256,6 +255,8 @@ The Common Crawl is available as a public data set on Amazon, and crawl data is 
 
 We considered spreadsheets from the period of Summer 2013 through December 2014, which consists of 26.83 billion web pages, compressed as 423.8 TB (1.9 PB uncompressed). To support parallelization, this data is split into 481,427 segments, such that segment requests can be computed independently by a task node in a cluster. Extracting such a dataset from a single desktop machine is computationally intractable, and thus we extracted the spreadsheets using the Amazon Elastic MapReduce service.
 
+We now describe our MapReduce architecture. For each stage in the architecture, we compute the cost in terms of normalized instance hours, that is, the approximate number of compute hours for the stage based on a 1 vCPU, 1.7 GiB machine --- that is, roughly comparable to a typical, single end-user desktop machine.
+
 % \footnote{The \emph{actual time} to completion is actually inconsequential. Since our pipeline is embarrassingly parallel, one need only choose an arbitrary time constraint under which they wish to complete the work, then provising an inversely proportional number of vCPUs to meet the deadline. In practice, we restricted our pipeline to slightly less than 1,600 vCPUs, for a total cost of approximately \$2,500 USD.}
 
  
@@ -263,19 +264,19 @@ We considered spreadsheets from the period of Summer 2013 through December 2014,
 
 \subsection{Hadoop MapReduce Pipeline}
 
-We now describe our MapReduce architecture. Our overall framework is illustrated in Figure~\ref{fig:mrpipeline}, and consists of five MapReduce tasks that comprise a pipeline. In this section, we consider each of the stages in this pipeline. For each stage in the architecture, we compute the cost in terms of normalized instance hours, that is, the approximate number of compute hours for the stage based on a 1 vCPU, 1.7 GiB machine --- in order worth, roughly comparable to a single end-user desktop machine.
+Our overall framework is illustrated in Figure~\ref{fig:mrpipeline}, and consists of five MapReduce tasks that comprise a pipeline. In this section, we consider each of the stages in this pipeline.
 
 \subsubsection{Crawl} 
 
-The first stage of the pipeline is also the most expensive computationally, because it requires that we traverse every JSON metadata record in the 481,427 WAT segments and heuristically tag spreadsheet-related records, which we call candidate spreadsheets. This is a heuristic process because cannot know for sure that a record is actually a spreadsheet until we inspect the corresponding WARC file. First, we check if the HTTP response payload \texttt{Content-Type} field corresponds to one of seven spreadsheet MIME types as supported by Microsoft Excel.\footnote{\url{https://technet.microsoft.com/en-us/library/ee309278.aspx}} However, some records contain a generic binary \texttt{Content-Type} of \texttt{application/octet-stream}, in which case \texttt{Content-Disposition} is checked via a file pattern matching ``\texttt{.xls*}''. If either of these conditions are true, we save the record using the \texttt{WARC-Record-ID} as the key. This key is propagated through the pipeline. After filtering through the some 26.83 billion records, we identified 2,127,284 candidate spreadsheets. This stage requires approximately 55,000 normalized instance hours to process.
+The first stage of the pipeline is also the most expensive computationally, because it requires that we traverse every JSON metadata record in the 481,427 WAT segments and heuristically tag spreadsheet-related records, which we call candidate spreadsheets. This is a heuristic process because cannot know for sure that a record is actually a spreadsheet until we inspect the corresponding WARC file. First, we check if the HTTP response payload \texttt{Content-Type} field corresponds to one of seven spreadsheet MIME types, as listed in MSDN. However, some records contain a generic binary \texttt{Content-Type} of \texttt{application/octet-stream}, in which case \texttt{Content-Disposition} is checked via a file pattern matching ``\texttt{.xls*}''. If either of these conditions are true, we save the record using the \texttt{WARC-Record-ID} as this key. This key is propagated through the pipeline. After filtering through the some 26.83 billion records, we identified 2,127,284 candidate spreadsheets. This stage requires approximately 55,000 normalized instance hours\footnote{A normalized instance hour is the amount of computation it would require for a \texttt{m1.small} compute node to complete the task.} to process.
 
 \subsubsection{Extract} 
 
-In this stage of the pipeline, the extract process loads the 2,127,284 candidate spreadsheets records. Using the Filename, Offset, and Deflate-Length fields of the record, the corresponding WAT record is extracted into memory. The WARC record is then stripped of its header information (e.g., the HTTP response), and the remaining content is saved to S3, again using the \texttt{WARC-Record-ID} from the WAT file as the key. Theoretically, this process should yield the same number of records as crawl stage; however, five records had corrupted \texttt{gzip} entries, yielding 2,127,279 candidate spreadsheets. This stage requires approximately 1,000 normalized instance hours to complete.
+In this stage of the pipeline, the extract process loads the 2,127,284 candidate spreadsheets records. Using the Filename, Offset, and Deflate-Length fields of the record, the corresponding WAT record is extracted into memory. The WARC record is then stripped of its header information (e.g., the HTTP response), and the remaining content is saved to S3, again using the \texttt{WARC-Record-ID} from the WAT file as the key. Theoretically, this process should yield the same number of records as crawl stage; however, five records had corrupted \texttt{gzip} entries, yielding 2,127,279 candidate spreadsheets. This stage requires approximately 1000 normalized instance hours to complete.
 
 \subsubsection{Filter} 
 
-The third stage of the pipeline, filter, checks the extracted file and tag those that are actually spreadsheets. Using Apache Tika, this stage uses Tika's built-in MimeType detector, which returns the actual Content-Type of the file. If this result is one of the spreadsheet content types, the record is retained. During this stage, we also compute the length (in bytes) of the spreadsheet, identify the most appropriate file extension (e.g., ``\texttt{.xlsx}''), and generate a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets are retained in the pipeline, although many of these may be duplicates. This stage requires 420 normalized instance hours to complete.
+The third stage of the pipeline, filter, checks the extracted file and tag those that are actually spreadsheets. Using Apache Tika, this stage uses Tika's built-in MimeType detector, which returns the actual Content-Type of the file. If this result is one of the spreadsheet content types, the record is retained. During this stage, we also compute the length (in bytes) of the spreadsheet, identify the most appropriate file extension (e.g., ``.xlsx''), and generate a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets are retained in the pipeline, although many of these may be duplicates. This stage requires 420 normalized instance hours to complete.
 
 \subsubsection{Mixin} 
 
@@ -286,7 +287,8 @@ The final stage of the pipeline simply takes the resulting JSON files from all p
 
 \subsection{Local Operations}
 
-Using the SHA-1 hash of the records, a local (non-MapReduce), deterministic de-duplication operation is performed. The result of this operation is 249,376 unique spreadsheets. Locally, the JSON metadata documents for the three layers of \textsc{Fuse} are also converted to a form readable by MongoDB.
+Using the SHA-1 hash of the records, a local de-duplication operation is performed. The result of this operation is 249,376 unique spreadsheets, and can be downloaded from our site, or preferably, directly from S3 using the script provided on our site. The output of our pipeline also generates 719,223 JSON documents, which are intended for import into document-centric databases such as MongoDB.\footnote{\url{http://www.mongodb.org/}.} In this section, we describe the important records in this document.
+
 
 
 % https://publicsuffix.org/list/
@@ -309,7 +311,7 @@ Using the SHA-1 hash of the records, a local (non-MapReduce), deterministic de-d
 
 The most relevant elements from the WARC record are \texttt{WARC-Target-URI}, that is, the URL from which the spreadsheet and downloaded, and \texttt{Container}, the containing CommonCrawl file and offset used to extract the spreadsheet from the crawl. The \texttt{WARC-Date} element may also be of interest, since it contains the time and date of the access. Using the \texttt{Content-Disposition} element, one can often extract the original spreadsheet file name.
 
-The Apache Tika JSON element contains four fields, which looks something like this:
+The Tika JSON element contains four fields, which looks something like this:
 
 \usemintedstyle{borland}
 \begin{minted}{json}
@@ -324,21 +326,21 @@ The Apache Tika JSON element contains four fields, which looks something like th
 }
 \end{minted}
 
-The \texttt{InternetDomain} element is useful for analysis relating to the origin of a spreadsheet. It uses the \texttt{WARC-Target-URI} and extracts the host, the top private domain, and a public suffix\footnote{\url{https://publicsuffix.org/}}:
+These fields are self-explanatory. The \texttt{InternetDomain} element is also relatively straight-forward; we provide it because the individual domain components are useful for analysis, and because this extraction is non-trivial to perform once the data is already in a database.
 
 \begin{minted}{json}
 {
-  "WARC-Target-URI": 
-      "http://www.example.org/results/test.xls",
   "InternetDomainName": {
     "Host": "www.example.org",    
-    "Top-Private-Domain": "example.org",    
+    "Top-Private-Domain": "example.org",
+    "WARC-Target-URI": 
+      "http://www.example.org/results/test.xls",
     "Public-Suffix": "org"
   }
 }
 \end{minted}
 
-Next, we also provide an Alias-i \texttt{LingPipe} element, which extracts the token stream from spreadsheets, lowercases the tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers). Again, the representation of this is simple:
+Next, we also provide a \texttt{LingPipe} element, which extracts the token stream from spreadsheets, lowercases the tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers). Again, the representation of this is simple:
 
 \begin{minted}{json}
 {
@@ -352,7 +354,7 @@ Next, we also provide an Alias-i \texttt{LingPipe} element, which extracts the t
 }
 \end{minted}
 
-Finally, to get a high-level overview of the content of the spreadsheets, we used Apache POI (namespace, \texttt{POI}) to gather spreadsheet metrics. There are over 450 such metrics, which include the number of times a given Excel function (such as \texttt{SUM} or \texttt{VLOOKUP}) is used, the total number of input cells (i.e. cells that are not formulas), the number of numeric input cells, the most common formula used, and so on.
+Finally, to get a high-level overview of the content of the spreadsheets, as well as to aid other researchers in narrowing their queries, we used Apache POI to analyze the content of the spreadsheets and provide a summary. There are over 450 entries, which include the number of times a given Excel function (such as \texttt{SUM} or \texttt{VLOOKUP}) is used, the total number of input cells (i.e. cells that are not formulas), the number of numeric input cells, the number of formulas used more than 50 times, the most common formula used, and so on.
 
 % The metadata file can be downloaded from HERE, unzipped, and then loaded into mongoDB\footnote{https://www.mongodb.org/} using the following command:
 % \texttt{mongoimport --db spreadsheets --collection fuse --file fuse.metadata.json}
@@ -608,15 +610,22 @@ Finally, to get a high-level overview of the content of the spreadsheets, we use
 % <urn:uuid:3e061145-7fbf-48e1-b369-e48b445f6823>
 
 \section{Trade-offs}
-\label{sec:trade-offs}
 
-In this section, we articulate the trade-offs of \textsc{Fuse} in the context of other corpora that provide binary spreadsheets. The EUSES corpus of 4,498 unique spreadsheets is obtained predominately through parsing the top-ranked Google search results for simple keywords, such as ``finance''~\cite{Fisher2005}. In contrast, Fuse has no explicit classification for each spreadsheet, though it may be possible to infer a classification using the \texttt{LingPipe} tokens. However, unlike \textsc{Fuse}, EUSES is not reproducible. First, it provides no URL information to obtain the origin for each spreadsheet. Second, the methodology is fundamentally non-deterministic, because Google search results are non-deterministic.
+In this section, we articule the trade-offs of our corpora in the context of other corpora. The EUSES corpus of 4,498 unique spreadsheets is obtained predominately through parsing Google the top-ranked search results for simple keywords, such as ``finance''~\cite{Fisher2005}. In contrast, Fuse has no explicit classification for each spreadsheet, though it may be possible to infer a classification using the \texttt{LingPipe} tokens. However, unlike \textsc{Fuse}, EUSES is not reproducible. First, it provides no URL information to obtain the origin for each spreadsheet. Second, the methodology is fundamentally non-deterministic, because Google search results are non-deterministic.
 
-The Enron corpus contains 15,770 spreadsheets extracted from e-mails obtained as legal evidence~\cite{Hermans2015}. Unlike \textsc{Fuse}, Enron is a domain-specific corpus, accounting, and consequently each spreadsheet contains significantly more formulas than a general corpus such as ours. In the same vein, \textsc{Fuse} can only offer spreadsheets that are intentionally (or inadvertently) made publicly accessible, and a result, may contain fewer errors than spreadsheets not for public dissemination. On the other hand, \textsc{Fuse} results suggest that formula-heavy accounting spreadsheets are not representative of general spreadsheet users. Finally, the Enron corpus is forever fixed.
+The Enron corpus contains 15,770 spreadsheets extracted from e-mails obtained during legal evidence~\cite{Hermans2015}. Unlike \textsc{Fuse}, Enron is a domain-specific corpus, accounting, and consequently each spreadsheet contains significantly more formulas than a general corpus such as ours. In the same vein, \textsc{Fuse} can only offer spreadsheets that are intended (or inadvertently) made publicly accessible.
 
-Irrespective of other corpora, \textsc{Fuse} has other challenges and limitations. A significant limitation is that Common Crawl restricts its storage of binary files to 1 MB. As a result, large spreadsheets are not available in \textsc{Fuse}. However, if one is willing to give up reproducibility, they may use the \texttt{WARC-Target-URI} from the Web Analysis Layer to download them using a similar technique as WEB~\cite{Chen2013}, which provided researchers with a list of spreadsheet URLs from a 2009 web crawl. Yet another limitation is that the methodology for Common Crawl primarily geared towards text-based HTML pages, not binary files. Consequently, any spreadsheets within Common Crawl are only incidental, and not by design. Finally, our analysis tools do not support very old, so-called \texttt{BIFF5} format spreadsheets.
 
-Researchers should consider these trade-offs and limitations before using choosing \textsc{Fuse}.
+In some contexts, this advantage is also a limitation: \textsc{Fuse}results suggests that formula-heavy accounting spreadsheets are not representative of general spreadsheet users. Finally, Enron corpus is forever fixed.
+
+Irrespective of other corpus, \textsc{Fuse} has other challenges and limitations. A significant limitation is that Common Crawl restricts its storage of binary files to 1 MB. As a result, large spreadsheets are not available in \textsc{Fuse}. However, if one is willing to give up reproducibility, they may use the \texttt{WARC-Target-URI} from the URL layer to download them using a similar technique as WEB. 
+
+
+
+Yet another challenge is that it is impossible to provide a set of metadata that is satisfactory to all researchers, since the potential features of interest within a binary spreadsheet are innumerable. It is expected that researchers will have to integrate into our mixin stage to obtain specific metrics of interest. However, this process is considerably simpler and less expensive than having to obtain the spreadsheets from the original Common Crawl data.
+
+
+Researchers should consider these trade-offs before using choosing \textsc{Fuse}.
 
 
 
@@ -636,7 +645,7 @@ Researchers should consider these trade-offs and limitations before using choosi
 
 \section{Conclusion}
 
-This paper contributes a spreadsheet corpus, \textsc{Fuse}, derived from the Common Crawl. \textsc{Fuse} offers properties not available in existing corpora, including reproducibility and extensibility. Mining software repositories is an inherently cyclic activity: mining data informs insights that require further mining. Our JSON metadata bootstraps this process with a broad set of binaries and metadata, but it is only through custom mixins developed by other researchers that the full potential of \textsc{Fuse} can be realized.
+This paper contributes a spreadsheet corpus, \textsc{Fuse}, which is derived from the Common Crawl. 
 
 % In comparison with other corpora, \textsc{Fuse} stacks up well. \textsc{Fuse} is a relatively balanced dataset that contains a significant number of spreadsheets, can be queried because of its associated JSON metadata documents, and is easily reproducible and extendable because because it derives from a source that couples both the metadata with the raw crawl data. It is also more up-to-date than existing corpora, and can remain up-to-date as additional crawls can be incorporated into \textsc{Fuse}.
 
@@ -667,8 +676,7 @@ This paper contributes a spreadsheet corpus, \textsc{Fuse}, derived from the Com
 % use section* for acknowledgement
 % \section*{Acknowledgment}
 
-% This material is based upon work supported in whole or in part with funding from the Laboratory for Analytic Sciences (LAS). 
-% Any opinions, findings, conclusions, or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the LAS and/or any agency or entity of the United States Government.
+% This material is based upon work supported in whole or in part with funding from the Laboratory for Analytic Sciences (LAS). Any opinions, findings, conclusions, or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the LAS and/or any agency or entity of the United States Government.
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page

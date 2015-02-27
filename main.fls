@@ -86,6 +86,34 @@ INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/textcomp.sty
 INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/textcomp.sty
 INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/ts1enc.def
 INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/ts1enc.def
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/minted/minted.sty
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/minted/minted.sty
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/fancyvrb/fancyvrb.sty
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/fancyvrb/fancyvrb.sty
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/xcolor/xcolor.sty
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/xcolor/xcolor.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/00miktex/color.cfg
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/00miktex/color.cfg
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/float/float.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/float/float.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/ifthen.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/base/ifthen.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/tools/calc.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/latex/tools/calc.sty
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/ifplatform/ifplatform.sty
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/ifplatform/ifplatform.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/pdftexcmds.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/pdftexcmds.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ifluatex.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ifluatex.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ifpdf.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/ifpdf.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/catchfile.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/catchfile.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/etexcmds.sty
+INPUT C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/etexcmds.sty
+INPUT nul:.tex
+INPUT main.aex
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/pgf/frontendlayer/tikz.sty
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/pgf/basiclayer/pgf.sty
@@ -114,10 +142,6 @@ INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/generic/pgf/systemlayer/pgf
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
-INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/xcolor/xcolor.sty
-INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/xcolor/xcolor.sty
-INPUT C:/Program Files/MiKTeX 2.9/tex/latex/00miktex/color.cfg
-INPUT C:/Program Files/MiKTeX 2.9/tex/latex/00miktex/color.cfg
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/generic/pgf/basiclayer/pgfcore.code.tex
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/generic/pgf/basiclayer/pgfcore.code.tex
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/generic/pgf/math/pgfmath.code.tex
@@ -177,6 +201,8 @@ INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/context/base/supp-pdf.mkii
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/context/base/supp-pdf.mkii
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/upquote/upquote.sty
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/upquote/upquote.sty
+INPUT main.pyg
+INPUT main.pyg
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmrc7t.tfm
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/public/cm/cmr10.tfm
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/public/cm/cmr8.tfm
@@ -192,12 +218,12 @@ INPUT C:/Program Files/MiKTeX 2.9/tex/latex/psnfss/omsptm.fd
 INPUT C:/Program Files/MiKTeX 2.9/tex/latex/psnfss/omsptm.fd
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmbc7t.tfm
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmrc7t.tfm
-INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmrc7t.tfm
-INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmbc7t.tfm
 INPUT figures/pipeline.pdf
 OUTPUT C:/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.pdf
 INPUT ./figures/pipeline.pdf
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT figures/Rplot01.pdf
+INPUT ./figures/Rplot01.pdf
 INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmrc7t.vf
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr8r.tfm
@@ -218,21 +244,27 @@ INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmri7t.vf
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmr7t.vf
-INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmrc7t.vf
+INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmr7t.vf
 INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmbc7t.vf
-INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmb8r.tfm
-INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmb8r.tfm
+INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmr7t.vf
+INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/inconsolata/ot1zi4.fd
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/inconsolata/ot1zi4.fd
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmb7t.vf
-INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmr7t.vf
-INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmr7t.vf
-INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/inconsolata/ot1zi4.fd
-INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/tex/latex/inconsolata/ot1zi4.fd
-INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
-INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
-INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
+INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmb8r.tfm
+INPUT main.pyg
+INPUT main.pyg
+OUTPUT C:/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.pyg
+INPUT main.out.pyg
+INPUT main.out.pyg
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/inconsolata/ot1-zi4b-0.tfm
+OUTPUT C:/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.pyg
+INPUT main.out.pyg
+INPUT main.out.pyg
+OUTPUT C:/Users/tbarik/Dropbox/sharelatex/cc-msr2015/main.pyg
+INPUT main.out.pyg
+INPUT main.out.pyg
 INPUT main.bbl
 INPUT main.bbl
 INPUT C:/Program Files/MiKTeX 2.9/fonts/vf/adobe/times/ptmri7t.vf
@@ -240,8 +272,8 @@ INPUT C:/Program Files/MiKTeX 2.9/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT main.aux
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/fonts/enc/inconsolata/i4-ot1-0.enc
 INPUT C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc
+INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb
 INPUT C:/Users/tbarik/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb
-INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
