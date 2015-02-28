@@ -13,6 +13,7 @@
 
 \newcommand{\urlcount}{2,127,284}
 \newcommand{\xlscount}{249,376}
+\newcommand{\urlcountunique}{292,043}
 
 \lstset{
   basicstyle=\small\ttfamily
@@ -35,7 +36,7 @@ titus.barik@us.abb.com, \{kjlubick, jssmit11, jbslanka\}@ncsu.edu, emerson@csc.n
 
 \begin{abstract}
 Spreadsheets are perhaps the most ubiquitous form of end-user programming software. This paper describes a corpus, called \textsc{Fuse}, containing 
-\urlcount{} URLs that return spreadsheets, and \xlscount{} unique spreadsheets, contained within a public web archive of over 26.83 billion pages. Obtained using nearly 60,000 hours of computation, the resulting dataset offers several useful properties over prior spreadsheet corpora, including reproducibility and extendability. The dataset is unencumbered by any license agreements, available to all, and intended for wide usage by end-user software engineering researchers. In this paper, we detail the data and the spreadsheet extraction process, describe the data schema, and discuss the trade-offs of \textsc{Fuse} with other corpora.
+\urlcount{} URLs (and their HTTP server responses) that return spreadsheets, and \xlscount{} unique spreadsheets, contained within a public web archive of over 26.83 billion pages. Obtained using nearly 60,000 hours of computation, the resulting dataset offers several useful properties over prior spreadsheet corpora, including reproducibility and extendability. The dataset is unencumbered by any license agreements, available to all, and intended for wide usage by end-user software engineering researchers. In this paper, we detail the data and the spreadsheet extraction process, describe the data schema, and discuss the trade-offs of \textsc{Fuse} with other corpora.
 \end{abstract}
 
 
@@ -137,8 +138,16 @@ The contributions of this paper are two related datasets, which together constit
 \centering
 % \input{figures/stack.tex}
 \includegraphics[width=\columnwidth]{figures/stack}
-\caption{Cumulative count of spreadsheets obtained with each additional crawl. Spreadsheet records are faceted into three layers, with each layer containing more specific information about the spreadsheet (but with fewer spreadsheets) than the one before.\label{fig:rplot}}
+\caption{Cumulative count of spreadsheets obtained with each additional crawl. Web Analysis contains all URLs and associated HTTP server responses, while the Binary Analysis contains the actual spreadsheets for subset of the Web Analysis, archived within Common Crawl.\label{fig:rplot}}
 \end{figure}
+
+% TODO(tbarik): Kevin's POI Analysis is not available. We need the counts for the figure. Looks like the count is 680876.
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\linewidth]{pipeline}
+\caption{The MapReduce pipeline for extracting spreadsheets and associated spreadsheet metadata from Common Crawl.\label{fig:mrpipeline}}
+\end{figure*}
+
 
 The Common Crawl\footnote{\url{http://commoncrawl.org}} non-profit organization is dedicated to providing a copy of the Internet, and democratizing the web crawl data so that it is accessible to everyone. 
 %
@@ -146,11 +155,12 @@ Of specific interest to us is that the corpus contains not only the HTTP respons
 
 % The result, \textsc{Fuse}, is characterized through two, hierarchical datasets: 1) a Web Analysis dataset that contains the target URL and HTTP response headers of spreadsheets on the Web, and 2) a corpus that captures the associated spreadsheets for a subset of those URLs, described through metadata using our analysis tools, and 3) a corpus of unique spreadsheets extracted from the Web, where the binary content itself is primarily of interest.
 
-
-The result, \textsc{Fuse}, is characterized through two, hierarchical datasets (Figure~\ref{fig:rplot}): 1) a Web Analysis dataset that contains the target URL and HTTP response headers of spreadsheets on the Web, and 2) a corpus that captures the associated spreadsheets for a subset of those URLs, described through metadata using our analysis tools, and 3) a corpus of unique spreadsheets extracted from the Web, where the binary content itself is primarily of interest.\\
+The result, \textsc{Fuse}, is characterized through two, hierarchical datasets (Figure~\ref{fig:rplot}): a Web Analysis dataset, and a Binary Analysis dataset.
 
 %TODO: What is this layer for?? Why is it not reproducible?
-\textbf{Web Analysis:} Contains 2,127,284 spreadsheet-related URLs and HTTP responses, across \textbf{51,380} distinct domain names. Primarily, this layer is intended for tasks that automatically crawl the live Internet, and as a result, binary contents from this stage are not reproducible.
+% 627,831 .org 2,127,284 (29.5\%)
+% 589.928 .com 2,127,284 (27.7\%)
+\textbf{Web Analysis:} Contains 2,127,284 spreadsheet-related URLs and HTTP responses. 292,043 of these responses point to a unique URL, and the top domain is \texttt{.org} (29.5\%), followed by \texttt{.gov} (27.7\%). The analysis contains 6,316 distinct domain names. The Web Analysis is intended for tasks that automatically crawl the live Internet, but as a result, binary contents from this stage are not reproducible.
 
 % \textbf{Binary Analysis Layer:} 719,223 of the records in the web analysis layer have valid spreadsheet content stored alongside the record Web Analysis layer, this layer is stable because it represents a fixed snapshot in time. Having content information, we find that URLs are not necessarily canonical. For example, we found 32,325 URIs in the corpora refer to more than one spreadsheet, depending on the time of access.
 
@@ -159,7 +169,7 @@ The result, \textsc{Fuse}, is characterized through two, hierarchical datasets (
 
 \textbf{Binary Analysis:}  This layer contains \xlscount{} unique spreadsheets.  Throughout the crawl, a spreadsheet may appear multiple times. The simplest case where this occurs is when multiple Web sites host the same spreadsheet. For researchers who are only interested in content analysis of the spreadsheets, duplicates may bias analyses. 
 
-Analyzing this layer, we discovered that \texttt{IF} is the most frequently used function, found in 17.8\% of all formula cells, giving evidence that spreadsheets require non-trivial computation. We also discovered that \texttt{=SUM(R[[-3]C:R[-1]C)} is the most common formula, in which a cell is the sum of the three cells to its left, and that it appears in 1,322 spreadsheets. In contrast with domain specific corpora, such as Enron, our general spreadsheet corpora has fewer formulas. Interestingly, only 6.95\% (147282) of our spreadsheets contain any formula, as opposed to 59.4\% of Enron spreadsheets, which is consistent with anecdotal findings of the Microsoft Excel team.\footnote{Joel Spolsky writes, ``Everybody thought of Excel as a financial modeling application, [but] we visited dozens of Excel customers, and did not see anyone using Excel to actually perform what you would call `calculations.' Almost all of them were using Excel because it was a convenient way to create a table.'' --- \url{http://www.joelonsoftware.com/items/2012/01/06.html}}\\
+Analyzing this layer, we discovered that \texttt{IF} is the most frequently used function, found in 17.8\% of all formula cells, giving evidence that spreadsheets require non-trivial computation. We also discovered that \texttt{=SUM(R[[-3]C:R[-1]C)} is the most common formula, in which a cell is the sum of the three cells to its left, and that it appears in 1,322 spreadsheets. In contrast with domain specific corpora, such as Enron, our general spreadsheet corpora has fewer formulas. Interestingly, only 7.00\% of our spreadsheets contain any formula, as opposed to 59.4\% of Enron spreadsheets, which is consistent with anecdotal findings of the Excel team.\footnote{Joel Spolsky writes, ``Everybody thought of Excel as a financial modeling application, [but] we visited dozens of Excel customers, and did not see anyone using Excel to actually perform what you would call `calculations.' Almost all of them were using Excel because it was a convenient way to create a table.'' --- \url{http://www.joelonsoftware.com/items/2012/01/06.html}}\\
 
 % 14782 -> 2127279 (6.95\%)
 % 8673 -> 14,600 (59.4\%)
@@ -248,14 +258,6 @@ Because the binary analysis layer is obtained from content embedded in the Commo
 % No one corpus is sufficient for all possible end-user research, but we believe our extendable, scalable approach will give a wide variety for researchers now, and as it grows over the coming years.
 
 \section{Methodology}
-
-% TODO(tbarik): Kevin's POI Analysis is not available. We need the counts for the figure. Looks like the count is 680876.
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=\linewidth]{pipeline}
-\caption{The MapReduce pipeline for extracting spreadsheets and associated spreadsheet metadata from Common Crawl.\label{fig:mrpipeline}}
-\end{figure*}
-
 
 This section describes our approach to extracting spreadsheets and their associated data from Common Crawl.
 
@@ -358,8 +360,7 @@ Next, we also provide an Alias-i \texttt{LingPipe} element, which extracts the t
 {
   "LingPipe": {    
     "Tokens": [
-      "finance",
-      "branch",      
+      "finance",      
       "city"      
     ]
   }
@@ -626,11 +627,11 @@ Finally, to get a high-level overview of the content of the spreadsheets, we use
 
 In this section, we articulate the trade-offs of \textsc{Fuse} in the context of other corpora that provide spreadsheets. The EUSES corpus of 4,498 unique spreadsheets, last updated in 2006, is obtained predominately through parsing the top-ranked Google search results for simple keywords, such as ``finance''~\cite{Fisher2005}. In contrast, Fuse has no explicit classification for each spreadsheet, though it may be possible to infer a classification using the \texttt{LingPipe} tokens. However, unlike \textsc{Fuse}, EUSES is not reproducible. First, it provides no URL information to obtain the origin for each spreadsheet. Second, the methodology is fundamentally non-deterministic, because Google search results are non-deterministic.
 
-The Enron corpus contains 15,770 spreadsheets extracted from e-mails obtained as legal evidence~\cite{Hermans2015}. Unlike \textsc{Fuse}, Enron is a domain-specific corpus and, consequently, each spreadsheet contains significantly more financial formulas than a general corpus such as ours. In the same vein, \textsc{Fuse} can only offer spreadsheets that are intentionally (or inadvertently) made publicly accessible, and a result, may contain fewer errors than spreadsheets not for public dissemination. On the other hand, \textsc{Fuse} results suggest that formula-heavy accounting spreadsheets are not representative of general spreadsheet users. Finally, the Enron corpus is forever fixed.
+The Enron corpus contains 15,770 spreadsheets extracted from e-mails obtained as legal evidence~\cite{Hermans2015}. Unlike \textsc{Fuse}, Enron is a domain-specific corpus and, consequently, each spreadsheet contains significantly more financial formulas than a general corpus such as ours. In the same vein, \textsc{Fuse} can only offer spreadsheets that are intentionally (or inadvertently) made publicly accessible, and a result, may contain fewer errors than spreadsheets not for public dissemination. On the other hand, \textsc{Fuse} results suggest that formula-heavy accounting spreadsheets are not representative of general spreadsheet users. Finally, the Enron corpus is forever fixed. In contrast, \textsc{Fuse} can accumulate new URLs and spreadsheets as new Common Crawl archives are made available.
 
 % WEB: http://wwweb.eecs.umich.edu/db/sheets/datasets.html (clueweb09 crawl)
 % Our Web dataset consists of 410,554 Microsoft Excel files from 51,252 distinct Internet domains. They total 101 GB. We found the spreadsheets by looking for Excel-style file endings among the roughly 10 billion URLs in the ClueWeb09 Web crawl.
-Irrespective of other corpora, \textsc{Fuse} has other challenges and limitations. A significant limitation is that Common Crawl restricts its storage of binary files to 1 MB. As a result, large spreadsheets are not available in \textsc{Fuse}. However, if one is willing to give up reproducibility, they may use the \texttt{WARC-Target-URI} from the Web Analysis Layer, containing 2,127,284 URLs, and download them using a similar technique as WEB~\cite{Chen2013}, which provided researchers with a list of spreadsheet 410,554 URLs from a 2009 web crawl. 
+Irrespective of other corpora, \textsc{Fuse} has other challenges and limitations. A significant limitation is that Common Crawl restricts its storage of binary files to 1 MB. As a result, large spreadsheets are not available in \textsc{Fuse}. However, if one is willing to give up reproducibility, they may use the \texttt{WARC-Target-URI} from the Web Analysis Layer, containing distinct \urlcountunique{} URLs, and download them using a similar technique as WEB~\cite{Chen2013}, which provided researchers with a list of spreadsheet 410,554 URLs from a 2009 web crawl. Though \textsc{Fuse} is not as large as WEB, one advantage is that \textsc{Fuse} contains not only the URL, but also the HTTP response, which includes the crawl access date and \texttt{Content-Type} header.
 
 Yet another limitation is that the methodology for Common Crawl primarily geared towards text-based HTML pages, not binary files. Consequently, any spreadsheets within Common Crawl are only incidental, and not by design. Finally, our analysis tools do not support very old \texttt{BIFF5} format spreadsheets.
 
