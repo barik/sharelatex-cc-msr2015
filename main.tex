@@ -169,7 +169,7 @@ The result, \textsc{Fuse}, is characterized through two, hierarchical datasets (
 
 \textbf{Binary Analysis:}  To address the limitations of Web Analysis, the Binary Analysis dataset contains \xlscount{} unique spreadsheets, extracted directly from the raw data contained within Common Crawl archives, rather than the Internet. Since each monthly Common Crawl archive is a permanent snapshot in time, Binary Analysis is always reproducible.
 
-Analyzing this layer, we discovered that \texttt{IF} is the most frequently used function, found in 17.8\% of all formula cells, giving evidence that spreadsheets require non-trivial computation. We also discovered that \texttt{=SUM(R[[-3]C:R[-1]C)} is the most common formula, in which a cell is the sum of the three cells to its left, and that it appears in 1,322 spreadsheets. In contrast with domain specific corpora, such as Enron, our general spreadsheet corpora has fewer formulas. Interestingly, only 7.00\% of our spreadsheets contain any formula, as opposed to 59.4\% of Enron spreadsheets, which is consistent with anecdotal findings of the Excel team.\footnote{Joel Spolsky writes, ``Everybody thought of Excel as a financial modeling application, [but] we visited dozens of Excel customers, and did not see anyone using Excel to actually perform what you would call `calculations.' Almost all of them were using Excel because it was a convenient way to create a table.'' --- \url{http://www.joelonsoftware.com/items/2012/01/06.html}}\\
+Analyzing these spreadsheets, we discovered that \texttt{IF} is the most frequently used function, found in 17.8\% of all formula cells, giving evidence that spreadsheets require non-trivial computation. We also discovered that \texttt{=SUM(R[[-3]C:R[-1]C)} is the most common formula, in which a cell is the sum of the three cells to its left, and that it appears in 1,322 spreadsheets. In contrast with domain specific corpora, such as Enron, our general spreadsheet corpora has fewer formulas. Interestingly, only 7.00\% of our spreadsheets contain any formula, as opposed to 59.4\% of Enron spreadsheets, which is consistent with anecdotal findings of the Excel team.\footnote{Joel Spolsky writes, ``Everybody thought of Excel as a financial modeling application, [but] we visited dozens of Excel customers, and did not see anyone using Excel to actually perform what you would call `calculations.' Almost all of them were using Excel because it was a convenient way to create a table.'' --- \url{http://www.joelonsoftware.com/items/2012/01/06.html}}\\
 
 % 14782 -> 2127279 (6.95\%)
 % 8673 -> 14,600 (59.4\%)
@@ -181,7 +181,7 @@ Analyzing this layer, we discovered that \texttt{IF} is the most frequently used
 
 This analysis hierarchy has several properties desirable to researchers, the first of which is reproducibility.
 In Web Analysis, an independent researcher should always obtain the same set of spreadsheet-related URLs, provided they use the same spreadsheet detection heuristic.
-Because the binary analysis layer is obtained from content embedded in the Common Crawl corpus, these too are static, reproducible resources. A second property of our corpus is that it is open to extension, without sacrificing reproducibility. When Common Crawl releases a new dataset, these crawls can be incrementally incorporated into \textsc{Fuse}. A third useful property of corpus is related not to the data itself, but to its broader ecosystem: \textsc{Fuse} is unencumbered by any licensing requirements, available to all, and includes a scalable, open source toolchain.
+Because the spreadsheets from Binary Analysis are obtained from content embedded in the Common Crawl corpus, they are reproducible resources. A second property of our corpus is that it is open to extension, without sacrificing reproducibility. When Common Crawl releases a new dataset, these crawls can be incrementally incorporated into \textsc{Fuse}. A third useful property of our corpus is related not to the data itself, but to its broader ecosystem: \textsc{Fuse} is unencumbered by any licensing requirements, available to all, and includes a scalable, open source toolchain.
 
 
 % \begin{table}[!t]
@@ -288,11 +288,11 @@ The extract stage loaded the 2,127,284 candidate spreadsheets records. Using the
 
 \subsubsection{Filter} 
 
-The filter stage checks the extracted file and tags those that are actually spreadsheets. Using Apache Tika's built-in MimeType detector was used to return the actual Content-Type of the file. If this result was one of the spreadsheet content types, the record was retained. During this stage, we also computed the length (in bytes) of the spreadsheet, identified the most appropriate file extension (e.g., ``\texttt{.xlsx}''), and generated a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets were retained in the pipeline, although many of these may be duplicates. This stage required 420 normalized instance hours to complete.
+The filter stage checks the extracted file and tags those that are actually spreadsheets. Apache Tika's built-in MimeType detector was used to return the actual Content-Type of the file. If this result was one of the spreadsheet content types, the record was retained. During this stage, we also computed the length (in bytes) of the spreadsheet, identified the most appropriate file extension (e.g., ``\texttt{.xlsx}''), and generated a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets were retained in the pipeline, although many of these may be duplicates. This stage required 420 normalized instance hours to complete.
 
 \subsubsection{Plugins} 
 
-The fourth stage of the pipeline is actually a meta-stage, in which researchers can augment the framework with their own analysis using plugins. For our corpus, we augmented the JSON document with three plugins: \texttt{InternetDomain}, which uses the Google guava library to extracts domain-related information from the \texttt{WARC-Target-URI}; Apache POI, which obtains metrics on the content of the spreadsheets, such as the use of functions; and LingPipe, which extracts language-related information from the spreadsheet. These JSON records were all saved to S3 by their \texttt{WARC-Record-ID}. For various reasons, not all APIs can analyze all spreadsheets, even when they open in Microsoft Excel. This stage required about 300 normalized instance hours per plugin. Researchers wishing to build on our approach will be able to insert their own plugins at this stage, without having to recompute the first three stages, saving research time and effort. For convenience, we also retroactively ran the \texttt{InternetDomain} plugin on the JSON output from the \texttt{Match} stage to generate the Web Analysis dataset.
+The fourth stage of the pipeline is actually a meta-stage, in which researchers can augment the framework using plugins fortheir own analysis. For our corpus, we augmented the JSON document with three plugins: \texttt{InternetDomain}, which uses the Google guava library to extracts domain-related information from the \texttt{WARC-Target-URI}; Apache POI, which obtains metrics on the content of the spreadsheets, such as the use of functions; and LingPipe, which extracts language-related information from the spreadsheet. These JSON records were all saved to S3 by their \texttt{WARC-Record-ID}. For various reasons, not all APIs can analyze all spreadsheets, even when they open in Microsoft Excel. This stage required about 400 normalized instance hours per plugin. Researchers wishing to build on our approach will be able to insert their own plugins at this stage, without having to recompute the first three stages, saving research time and effort. For convenience, we also retroactively ran the \texttt{InternetDomain} plugin on the JSON output from the \texttt{Match} stage to generate the Web Analysis dataset.
 
 \subsubsection{Merge} 
 
@@ -302,7 +302,7 @@ The merge stage simply takes the resulting JSON files from all previous stages a
 
 % Finally, we eliminate any duplicate spreadsheets by removing records based upon match SHA-1 hash values where the record I'd is not the lowest value.
 
-We compute a SHA-1 hash of the records from Binary Analysis, from which we perform a local (non-MapReduce), deterministic de-duplication operation. The result of this operation is 249,376 unique spreadsheets. Locally, we also converted all JSON documents \textsc{Fuse} to MongoDB format.
+We compute a SHA-1 hash of the records from Binary Analysis, from which we performed a local (non-MapReduce), deterministic de-duplication operation. The result of this operation is 249,376 unique spreadsheets. Locally, we also converted all JSON documents \textsc{Fuse} to MongoDB format.
 
 
 % https://publicsuffix.org/list/
@@ -354,7 +354,7 @@ The \texttt{InternetDomain} element is useful for analysis relating to the origi
 }
 \end{minted}
 
-Next, we also provide an Alias-i \texttt{LingPipe} element, which extracts the token stream from spreadsheets, lowercases the tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers). Again, the representation of this is simple:
+Next, we also provide an Alias-i \texttt{LingPipe} element, which extracts the token stream (keywords) from spreadsheets, lowercases these tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers). Again, the representation of this is simple:
 
 \begin{minted}{json}
 {
