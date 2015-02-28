@@ -302,7 +302,7 @@ The merge stage simply takes the resulting JSON files from all previous stages a
 
 % Finally, we eliminate any duplicate spreadsheets by removing records based upon match SHA-1 hash values where the record I'd is not the lowest value.
 
-We compute a SHA-1 hash of the records from Binary Analysis, from which we perform a local (non-MapReduce), deterministic de-duplication operation. The result of this operation is 249,376 unique spreadsheets. Locally, we also converted all JSON documents to MongoDB format.
+We computed a SHA-1 hash of the records from Binary Analysis, from which we performed a local (non-MapReduce), deterministic de-duplication operation. The result of this operation was 249,376 unique spreadsheets. Locally, we also converted all JSON documents to MongoDB format.
 
 
 % https://publicsuffix.org/list/
