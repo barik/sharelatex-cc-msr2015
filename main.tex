@@ -323,9 +323,9 @@ We compute a SHA-1 hash of the records from Binary Analysis, from which we perfo
 % Size of uncompressed, deduped binaries: 22 GB (22937824).
 % Size of uncompressed, full binaries: 82 GB (85358856).
 
-The most relevant elements from the WARC record are \texttt{WARC-Target-URI}, that is, the URL from which the spreadsheet and downloaded, and \texttt{Container}, the containing CommonCrawl file and offset used to extract the spreadsheet from the crawl. The \texttt{WARC-Date} element may also be of interest, since it contains the time and date of the access. Using the \texttt{Content-Disposition} element, one can often extract the original spreadsheet file name.
+The most relevant elements from the Common Crawl WARC record are \texttt{WARC-Target-URI}, that is, the URL from which the spreadsheet and downloaded, and \texttt{Container}, which indicates the Common Crawl file and offset used to extract the spreadsheet from the crawl. The \texttt{WARC-Date} element may also be of interest, since it contains the time and date of the access. Using the \texttt{Content-Disposition} element, one can often extract the original spreadsheet file name.
 
-The Apache Tika JSON element contains four fields, which looks something like this:
+The Apache Tika JSON element contains four fields, which include the \texttt{MIME} type, best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet:
 
 \usemintedstyle{borland}
 \begin{minted}{json}
