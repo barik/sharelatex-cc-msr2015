@@ -179,9 +179,9 @@ Analyzing this layer, we discovered that \texttt{IF} is the most frequently used
 % across 1322 spreadsheets
 % 1210 had  SUM(R[[-2]C:R[-1]C)  
 
-A consequence of this layering technique is that \textsc{Fuse} has several properties desirable to researchers. First, the corpus is reproducible, at several layers. 
-At the Web Analysis layer, an independent researcher should always obtain the same set of spreadsheet-related URLs, when using our same heuristics. %TODO What Heuristics?
-Because the binary analysis layer is obtained from content embedded in the Common Crawl corpus, these too are static, reproducible resources. A second property of our corpus is that it is open to extension, without sacrificing reproducibility. Common Crawl releases a new data set a frequency, these crawls can be incorporated into \textsc{Fuse} using our toolchain. A third useful property of corpus is related not to the data itself, but to its broader ecosystem: \textsc{Fuse} is unencumbered by any licensing requirements, available to all, and includes an open source toolchain.
+This analysis hierarchy has several properties desirable to researchers, the first of which is reproducibility.
+In Web Analysis, an independent researcher should always obtain the same set of spreadsheet-related URLs, provided they use the same spreadsheet detection heuristic.
+Because the binary analysis layer is obtained from content embedded in the Common Crawl corpus, these too are static, reproducible resources. A second property of our corpus is that it is open to extension, without sacrificing reproducibility. When Common Crawl releases a new dataset, these crawls can be incrementally incorporated into \textsc{Fuse}. A third useful property of corpus is related not to the data itself, but to its broader ecosystem: \textsc{Fuse} is unencumbered by any licensing requirements, available to all, and includes a scalable, open source toolchain.
 
 
 % \begin{table}[!t]
