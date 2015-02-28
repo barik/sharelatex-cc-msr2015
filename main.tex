@@ -292,7 +292,7 @@ The filter stage checks the extracted file and tags those that are actually spre
 
 \subsubsection{Plugins} 
 
-The fourth stage of the pipeline is actually a meta-stage, in which researchers can augment the framework using plugins fortheir own analysis. For our corpus, we augmented the JSON document with three plugins: \texttt{InternetDomain}, which uses the Google guava library to extracts domain-related information from the \texttt{WARC-Target-URI}; Apache POI, which obtains metrics on the content of the spreadsheets, such as the use of functions; and LingPipe, which extracts language-related information from the spreadsheet. These JSON records were all saved to S3 by their \texttt{WARC-Record-ID}. For various reasons, not all APIs can analyze all spreadsheets, even when they open in Microsoft Excel. This stage required about 400 normalized instance hours per plugin. Researchers wishing to build on our approach will be able to insert their own plugins at this stage, without having to recompute the first three stages, saving research time and effort. For convenience, we also retroactively ran the \texttt{InternetDomain} plugin on the JSON output from the \texttt{Match} stage to generate the Web Analysis dataset.
+The fourth stage of the pipeline is actually a meta-stage, in which researchers can augment the framework using plugins for their own analysis. For our corpus, we augmented the JSON document with three plugins: \texttt{InternetDomain}, which uses the Google guava library to extracts domain-related information from the \texttt{WARC-Target-URI}; Apache POI, which obtains metrics on the content of the spreadsheets, such as the use of functions; and LingPipe, which extracts language-related information from the spreadsheet. These JSON records were all saved to S3 by their \texttt{WARC-Record-ID}. For various reasons, not all APIs can analyze all spreadsheets, even when they open in Microsoft Excel. This stage required about 400 normalized instance hours per plugin. Researchers wishing to build on our approach will be able to insert their own plugins at this stage, without having to recompute the first three stages, saving research time and effort. For convenience, we also retroactively ran the \texttt{InternetDomain} plugin on the JSON output from the \texttt{Match} stage to generate the Web Analysis dataset.
 
 \subsubsection{Merge} 
 
@@ -302,7 +302,7 @@ The merge stage simply takes the resulting JSON files from all previous stages a
 
 % Finally, we eliminate any duplicate spreadsheets by removing records based upon match SHA-1 hash values where the record I'd is not the lowest value.
 
-We compute a SHA-1 hash of the records from Binary Analysis, from which we performed a local (non-MapReduce), deterministic de-duplication operation. The result of this operation is 249,376 unique spreadsheets. Locally, we also converted all JSON documents \textsc{Fuse} to MongoDB format.
+We computed a SHA-1 hash of the records from Binary Analysis, from which we performed a local (non-MapReduce), deterministic de-duplication operation. The result of this operation was 249,376 unique spreadsheets. Locally, we also converted all JSON documents to MongoDB format.
 
 
 % https://publicsuffix.org/list/
@@ -323,7 +323,7 @@ We compute a SHA-1 hash of the records from Binary Analysis, from which we perfo
 % Size of uncompressed, deduped binaries: 22 GB (22937824).
 % Size of uncompressed, full binaries: 82 GB (85358856).
 
-The most relevant elements from the Common Crawl WARC record are \texttt{WARC-Target-URI}, that is, the URL from which the spreadsheet and downloaded, and \texttt{Container}, which indicates the Common Crawl file and offset used to extract the spreadsheet from the crawl. The \texttt{WARC-Date} element may also be of interest, since it contains the time and date of the access. Using the \texttt{Content-Disposition} element, one can often extract the original spreadsheet file name.
+The most relevant elements from the Common Crawl WARC record are \texttt{WARC-Target-URI}, that is, the URL from which the spreadsheet can be downloaded, and \texttt{Container}, which indicates the Common Crawl file and offset used to extract the spreadsheet from the raw crawl data. The \texttt{WARC-Date} element may also be of interest, since it contains the time and date of the access. Using the \texttt{Content-Disposition} element, one can often extract the original spreadsheet file name.
 
 The Apache Tika JSON element contains four fields, which include the \texttt{MIME} type, best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet:
 
