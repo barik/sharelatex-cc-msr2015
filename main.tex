@@ -63,7 +63,7 @@ Perhaps the most ubiquitous form~\cite{Scaffidi2005} of end-user programming sof
 This interplay between presentation and computation within the spreadsheet environment has garnered significant interest from the software engineering research community~\cite{Burnett2009}. 
 Researchers have adopted techniques and approaches to studying errors~\cite{Powell2008}, code smells~\cite{Pinzger2012}, and refactoring in spreadsheets~\cite{Badame2012}, similar to traditional programming environments. 
 
-% \footnote{``Spreadsheets are not just tools for doing “what-if” analysis. They provide a specific data structure: a table. Most Excel users never enter a formula. They use Excel when they need a table. The gridlines are the most important feature of Excel.'' \url{http://www.joelonsoftware.com/items/2012/01/06.html}}.
+% \footnote{``Spreadsheets are not just tools for doing ``what-if'' analysis. They provide a specific data structure: a table. Most Excel users never enter a formula. They use Excel when they need a table. The gridlines are the most important feature of Excel.'' \url{http://www.joelonsoftware.com/items/2012/01/06.html}}.
 
 To better understand end-user activities and design tools to assist end-users, researchers have responded by curating spreadsheet corpora to support spreadsheet studies~\cite{Fisher2005,Hermans2015,Chen2013}. This paper presents one such spreadsheet corpus, called \textsc{Fuse}, extracted from the over 26.83 billion web pages in the Common Crawl index. We believe that \textsc{Fuse} offers several useful traits not found in prior corpora; 
 for example, \textsc{Fuse} is obtained in such a way that researchers can independently reproduce an identical corpus from source materials.
@@ -620,6 +620,54 @@ Finally, to get a high-level overview of the content of the spreadsheets, we use
 
 % A good WARC record to use is:
 % <urn:uuid:3e061145-7fbf-48e1-b369-e48b445f6823>
+
+% Summary of Spreadsheets:
+% \begin{table}[h]
+% \begin{tabular}{lll}
+% Count         & Input cells & Formula cells \\
+% 0             & 28976       & 234594        \\
+% 1-4           & 40          & 3596          \\
+% 5-10          & 1636        & 1087          \\
+% 11-32         & 18779       & 2159          \\
+% 33-100        & 26271       & 2131          \\
+% 101-316       & 84466       & 2078          \\
+% 317-1000      & 53247       & 1854          \\
+% 1001-3163     & 15879       & 1111          \\
+% 3164-10000    & 12573       & 566           \\
+% 10001-31623   & 5347        & 175           \\
+% 31624-100000  & 2070        & 25            \\
+% 100000-316228 & 92          & 0            
+% \end{tabular}
+% \end{table}
+
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $eq: 0 } } },{ "$group": {"_id": "0 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 1, $lte:4 } } },{ "$group": {"_id": "1-4 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 5, $lte:10 } } },{ "$group": {"_id": "5-10 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 11, $lte:32 } } },{ "$group": {"_id": "11-32 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 33, $lte:100 } } },{ "$group": {"_id": "33-100 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 101, $lte:316 } } },{ "$group": {"_id": "101-316 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 317, $lte:1000 } } },{ "$group": {"_id": "317-1000 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 1001, $lte:3163 } } },{ "$group": {"_id": "1001-3163 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 3164, $lte:10000 } } },{ "$group": {"_id": "3164-10000 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 10001, $lte:31623 } } },{ "$group": {"_id": "10001-31623 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 31624, $lte:100000 } } },{ "$group": {"_id": "31624-100000 input cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalInputCells" : { $gte: 100000, $lte:316228 } } },{ "$group": {"_id": "100000-316228 input cells","count": {"$sum": 1} } })
+
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $eq: 0 } } },{ "$group": {"_id": "0 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 1, $lte:4 } } },{ "$group": {"_id": "1-4 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 5, $lte:10 } } },{ "$group": {"_id": "5-10 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 11, $lte:32 } } },{ "$group": {"_id": "11-32 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 33, $lte:100 } } },{ "$group": {"_id": "33-100 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 101, $lte:316 } } },{ "$group": {"_id": "101-316 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 317, $lte:1000 } } },{ "$group": {"_id": "317-1000 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 1001, $lte:3163 } } },{ "$group": {"_id": "1001-3163 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 3164, $lte:10000 } } },{ "$group": {"_id": "3164-10000 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 10001, $lte:31623 } } },{ "$group": {"_id": "10001-31623 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 31624, $lte:100000 } } },{ "$group": {"_id": "31624-100000 Formula cells","count": {"$sum": 1} } })
+% db.poi.aggregate({ "$match": {"POI.totalFormulas" : { $gte: 100000, $lte:316228 } } },{ "$group": {"_id": "100000-316228 Formula cells","count": {"$sum": 1} } })
+
+
+
 
 \section{Trade-offs}
 \label{sec:trade-offs}
