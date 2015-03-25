@@ -287,7 +287,7 @@ The extract stage loaded the 2,127,284 candidate spreadsheets records. Using the
 
 \subsubsection{Filter} 
 
-The filter stage checks the extracted file and tags those that are actually spreadsheets. Apache Tika's built-in \texttt{MimeType} detector was used to return the actual \texttt{Content-Type} of the file. If this result was one of the spreadsheet content types, the record was retained. During this stage, we also computed the length (in bytes) of the spreadsheet, identified the most appropriate file extension (e.g., ``\texttt{.xlsx}''), and generated a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets were retained in the pipeline, although many of these may be duplicates. This stage required about 420 normalized instance hours to complete.
+The filter stage checks the extracted file and tags those that are actually spreadsheets. We used Apache Tika\footnote{https://tika.apache.org/} to detect to return the actual \texttt{Content-Type} of the file. If this result was one of the spreadsheet \texttt{MimeType}s, the record was retained. During this stage, we also computed the length (in bytes) of the spreadsheet, identified the most appropriate file extension (e.g., ``\texttt{.xlsx}''), and generated a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets were retained in the pipeline, although many of these may be duplicates. This stage required about 420 normalized instance hours to complete.
 
 \subsubsection{Plugins} 
 
@@ -324,7 +324,7 @@ We computed a SHA-1 digest of the records from Binary Analysis, from which we pe
 
 The most relevant elements from the Common Crawl WARC record are \texttt{WARC-Target-URI}, that is, the URL from which the spreadsheet can be downloaded, and \texttt{Container}, which indicates the Common Crawl file and offset used to extract the spreadsheet from the raw crawl data. The \texttt{WARC-Date} element may also be of interest, since it contains the time and date of the access. Using the \texttt{Content-Disposition} element, one can often extract the original spreadsheet file name.
 
-The Apache Tika JSON element contains four fields, which include the \texttt{MIME} type, best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet:
+The Apache Tika element contains four fields related to the file metadata, which include the \texttt{MIME} type, best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet:
 
 \usemintedstyle{borland}
 \begin{minted}{json}
@@ -339,19 +339,19 @@ The Apache Tika JSON element contains four fields, which include the \texttt{MIM
 }
 \end{minted}
 
-The \texttt{InternetDomain} element is useful for analysis relating to the origin of a spreadsheet. It uses the \texttt{WARC-Target-URI} and extracts the host, the top private domain, and a public suffix\footnote{\url{https://publicsuffix.org/}}:
+The \texttt{InternetDomain} element is useful for analysis relating to the origin of a spreadsheet. It uses the \texttt{WARC-Target-URI} and extracts the host, the top private domain, and a public suffix\footnote{\url{https://publicsuffix.org/}}.
 
-\begin{minted}{json}
-{
-  "WARC-Target-URI": 
-      "http://www.example.org/results/test.xls",
-  "InternetDomainName": {
-    "Host": "www.example.org",    
-    "Top-Private-Domain": "example.org",    
-    "Public-Suffix": "org"
-  }
-}
-\end{minted}
+% \begin{minted}{json}
+% {
+%   "WARC-Target-URI": 
+%       "http://www.example.org/results/test.xls",
+%   "InternetDomainName": {
+%     "Host": "www.example.org",    
+%     "Top-Private-Domain": "example.org",    
+%     "Public-Suffix": "org"
+%   }
+% }
+% \end{minted}
 
 Next, we also provide an Alias-i \texttt{LingPipe} element, which extracts the token stream (keywords) from spreadsheets, lowercases these tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers). Again, the representation of this is simple:
 
