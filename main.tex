@@ -680,7 +680,7 @@ The Enron corpus contains 15,770 spreadsheets extracted from e-mails obtained as
 % Our Web dataset consists of 410,554 Microsoft Excel files from 51,252 distinct Internet domains. They total 101 GB. We found the spreadsheets by looking for Excel-style file endings among the roughly 10 billion URLs in the ClueWeb09 Web crawl.
 Irrespective of other corpora, \textsc{Fuse} has other challenges and limitations. A significant limitation is that Common Crawl restricts its storage of binary files to 1 MB. As a result, large spreadsheets are not available in \textsc{Fuse}. However, if one is willing to give up reproducibility, they may use the \urlcountunique{} distinct \texttt{WARC-Target-URI}s from the Web Analysis and download them using a similar technique as WEB~\cite{Chen2013}. Though \textsc{Fuse} is not as large as WEB ($n$ = 410,554), one advantage is that \textsc{Fuse} contains not only the URL, but also the HTTP response, which includes the crawl access date and \texttt{Content-Type} header.
 
-Yet another limitation is that the methodology for Common Crawl is primarily geared towards text-based HTML pages, not binary files. Consequently, any spreadsheets within Common Crawl are only incidental, and not by design. Finally, our analysis tools do not support very old \texttt{BIFF5} format spreadsheets.
+Yet another limitation is that the methodology for Common Crawl is primarily geared towards text-based HTML pages, not binary files. Consequently, any spreadsheets within Common Crawl are only incidental, and not by design. Finally, our analysis tools do not support pre-1995 (\texttt{BIFF5} format) spreadsheets, although we still include them in the corpus.
 
 % https://gist.github.com/anonymous/8373f8a08a357146c20b
 
