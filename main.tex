@@ -299,7 +299,7 @@ The filter stage checks the extracted file and tags those that are actually spre
 
 \subsubsection{Plugins} 
 
-The fourth stage of the pipeline is actually a meta-stage, in which researchers can augment the framework using plugins for their own analysis. For our corpus, we augmented the JSON document with three plugins: \texttt{InternetDomain}, which uses the Google Guava\footnote{\url{https://github.com/google/guava}} library to extracts domain-related information from the \texttt{WARC-Target-URI}; \texttt{Apache POI}\footnote{\url{http://poi.apache.org/}}, which obtains metrics on the content of the spreadsheets, such as the use of functions; and \texttt{LingPipe}\footnote{\url{http://alias-i.com/lingpipe/}}, which extracts language-related information from the spreadsheet. These JSON records were all saved to S3 by their \texttt{WARC-Record-ID}. For various reasons, not all APIs can analyze all spreadsheets, even when they open in Microsoft Excel. This stage required about 400 normalized instance hours per plugin. Researchers wishing to build on our approach will be able to insert their own plugins at this stage, without having to recompute the first three stages, saving research time and effort. For convenience, we also retroactively ran the \texttt{InternetDomain} plugin on the JSON output from the \texttt{Match} stage to generate the Web Analysis dataset.
+The fourth stage of the pipeline is actually a meta-stage, in which researchers can augment the framework using plugins for their own analysis. For our corpus, we augmented the JSON document with three plugins: \texttt{InternetDomain}, which uses the Google Guava\footnote{\url{https://github.com/google/guava}} library to extracts domain-related information from the \texttt{WARC-Target-URI}; \texttt{Apache POI}\footnote{\url{http://poi.apache.org/}}, which obtains metrics on the content of the spreadsheets, such as the use of functions; and \texttt{LingPipe}\footnote{\url{http://alias-i.com/lingpipe/}}, which extracts language-related information from the spreadsheet. These JSON records were all saved to S3 by their \texttt{WARC-Record-ID}. This stage required about 400 normalized instance hours per plugin. Researchers wishing to build on our approach will be able to insert their own plugins at this stage, without having to recompute the first three stages, saving research time and effort. For convenience, we also retroactively ran the \texttt{InternetDomain} plugin on the JSON output from the \texttt{Match} stage to generate the Web Analysis dataset.
 
 \subsubsection{Merge} 
 
@@ -656,7 +656,11 @@ One limitation is that Common Crawl restricts its storage of binary files to 1 M
 %
 However, if one is willing to give up reproducibility, they may use the \urlcountunique{} distinct \texttt{WARC-Target-URI}s from the Web Analysis and download them using a similar technique as WEB~\cite{Chen2013}. Though \textsc{Fuse} is not as large as WEB ($n$ = 410,554), one advantage is that \textsc{Fuse} contains not only the URL, but also the HTTP response, which includes the crawl access date and \texttt{Content-Type} header.
 
-Yet another limitation is that the methodology for Common Crawl is primarily geared towards text-based HTML pages, not binary files. Consequently, any spreadsheets within Common Crawl are only incidental, and not by design. Finally, our analysis tools do not support pre-1995 (\texttt{BIFF5} format) spreadsheets, although we still include them in the corpus.
+Yet another limitation is that the methodology for Common Crawl is primarily geared towards text-based HTML pages, not binary files. Consequently, any spreadsheets within Common Crawl are only incidental, and not by design. 
+%
+Finally, for various reasons, not all plugins can analyze all spreadsheets, even when they open in Microsoft Excel. 
+%
+For example, our analysis tools do not support pre-1995 (\texttt{BIFF5} format) spreadsheets, although we still include them in the corpus.
 
 % https://gist.github.com/anonymous/8373f8a08a357146c20b
 
