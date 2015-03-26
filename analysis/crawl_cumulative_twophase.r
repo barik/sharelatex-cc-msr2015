@@ -31,7 +31,7 @@ m <- ggplot(data = df, aes(x = Group, y = Count, fill = factor(Type))) +
                                                      "Oct14",
                                                      "Nov14",
                                                      "Dec14"
-                                                     ))
+                                                     )) + scale_y_continuous(labels=comma)
 
 # print(m)
 
