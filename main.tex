@@ -643,7 +643,7 @@ The Enron corpus contains 15,770 spreadsheets extracted from e-mails obtained as
 
 % WEB: http://wwweb.eecs.umich.edu/db/sheets/datasets.html (clueweb09 crawl)
 % Our Web dataset consists of 410,554 Microsoft Excel files from 51,252 distinct Internet domains. They total 101 GB. We found the spreadsheets by looking for Excel-style file endings among the roughly 10 billion URLs in the ClueWeb09 Web crawl.
-One limitation is that Common Crawl restricts its storage of binary files to 1 MB. As a result, large spreadsheets are not available in \textsc{Fuse}. By comparison, spreadsheets larger than 1 MB make up about 1.0\% of EUSES and 2.3\% of Enron.
+One limitation is that Common Crawl restricts its storage of binary files to 1 MB. As a result, large spreadsheets are not available in \textsc{Fuse}. On the other hand, spreadsheets larger than 1 MB make up only about 1.0\% of EUSES and 2.3\% of Enron.
 %
 However, if one is willing to give up reproducibility, they may use the \urlcountunique{} distinct \texttt{WARC-Target-URI}s from the Web Analysis and download them using a similar technique as WEB~\cite{Chen2013}. Though \textsc{Fuse} is not as large as WEB ($n$ = 410,554), one advantage is that \textsc{Fuse} contains not only the URL, but also the HTTP response, which includes the crawl access date and \texttt{Content-Type} header.
 
