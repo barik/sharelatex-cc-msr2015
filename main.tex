@@ -340,34 +340,43 @@ The Apache Tika element contains four fields related to the file metadata, which
 }
 \end{minted}
 
-The \texttt{InternetDomain} element is useful for analysis relating to the origin of a spreadsheet. It uses the \texttt{WARC-Target-URI} and extracts the host, the top private domain, and a public suffix\footnote{\url{https://publicsuffix.org/}}:
+The \texttt{InternetDomain} element is useful for analysis relating to the origin of a spreadsheet. It uses the \texttt{WARC-Target-URI} and extracts the host (e.g., \texttt{www.example.org}), the top private domain (e.g., \texttt{example.org}), and a public suffix\footnote{\url{https://publicsuffix.org/}} (e.g., \texttt{org}).
 
-\begin{minted}{json}
-{
-  "WARC-Target-URI": 
-      "http://www.example.org/results/test.xls",
-  "InternetDomainName": {
-    "Host": "www.example.org",    
-    "Top-Private-Domain": "example.org",    
-    "Public-Suffix": "org"
-  }
-}
-\end{minted}
+% \begin{minted}{json}
+% {
+%   "WARC-Target-URI": 
+%       "http://www.example.org/results/test.xls",
+%   "InternetDomainName": {
+%     "Host": "www.example.org",    
+%     "Top-Private-Domain": "example.org",    
+%     "Public-Suffix": "org"
+%   }
+% }
+% \end{minted}
 
-Next, we also provide an Alias-i \texttt{LingPipe} element, which extracts the token stream (keywords) from spreadsheets, lowercases these tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers):
+Next, we provide an Alias-i \texttt{LingPipe} element, which extracts the token stream (keywords) from spreadsheets, lowercases these tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers).
 
-\begin{minted}{json}
-{
-  "LingPipe": {    
-    "Tokens": [
-      "finance",      
-      "city"      
-    ]
-  }
-}
-\end{minted}
+% \begin{minted}{json}
+% {
+%   "LingPipe": {    
+%     "Tokens": [
+%       "finance",      
+%       "city"      
+%     ]
+%   }
+% }
+% \end{minted}
 
-Finally, to get a high-level overview of the content of the spreadsheets, we used Apache POI to gather spreadsheet metrics. There are over 450 such metrics, which include the number of times a given Excel function (such as \texttt{SUM} or \texttt{VLOOKUP}) is used, the total number of input cells (i.e., cells that are not formulas), the number of numeric input cells, and the most common formula used.
+Finally, to get a high-level overview of the content of the spreadsheets, we used Apache POI to gather spreadsheet metrics. There are over 450 such metrics, which include the number of times a given Excel function (such as \texttt{SUM} or \texttt{VLOOKUP}) is used, the total number of input cells (i.e., cells that are not formulas), the number of numeric input cells, and the most common formula used. 
+%
+Figure \ref{fig:corpus_overview} shows the distributions of input cells and formula cells across all of \textsc{Fuse}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\columnwidth]{figures/corpus_overview}
+\caption{The distributions of all input and formula cells across all spreadsheets in \textsc{Fuse}.  There were 28,976 spreadsheets with no input cells and 234,594 spreadsheets with no formula cells. \label{fig:corpus_overview}}
+\end{figure}
+
 
 % The metadata file can be downloaded from HERE, unzipped, and then loaded into mongoDB\footnote{https://www.mongodb.org/} using the following command:
 % \texttt{mongoimport --db spreadsheets --collection fuse --file fuse.metadata.json}
