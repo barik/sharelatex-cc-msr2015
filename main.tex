@@ -287,7 +287,7 @@ The extract stage loaded the 2,127,284 candidate spreadsheets records. Using the
 
 \subsubsection{Filter}
 
-The filter stage checks the extracted file and tags those that are actually spreadsheets. We used Apache Tika\footnote{https://tika.apache.org/}, a content analysis library, to detect the \texttt{Content-Type} of the file. If this result was one of the spreadsheet \texttt{MimeType}s, the record was retained. During this stage, we also computed the length (in bytes) of the spreadsheet, identified the most appropriate file extension (e.g., ``\texttt{.xlsx}''), and generated a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets were retained in the pipeline, although many of these may be duplicates. This stage required about 420 normalized instance hours to complete.
+The filter stage checks the extracted file and tags those that are actually spreadsheets. We used Apache Tika\footnote{\url{https://tika.apache.org/}}, a content analysis library, to detect the \texttt{Content-Type} of the file. If this result was one of the spreadsheet \texttt{MimeType}s, the record was retained. During this stage, we also computed the length (in bytes) of the spreadsheet, identified the most appropriate file extension (e.g., ``\texttt{.xlsx}''), and generated a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets were retained in the pipeline, although many of these may be duplicates. This stage required about 420 normalized instance hours to complete.
 
 \subsubsection{Plugins} 
 
