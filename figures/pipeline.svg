@@ -15,7 +15,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="pipeline.svg">
+   sodipodi:docname="pipeline.svg"
+   inkscape:export-filename="C:\Users\KevinLubick\Documents\GitHub\sharelatex-cc-msr2015\figures\pipeline.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4">
     <marker
@@ -620,14 +623,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="487.59658"
+     inkscape:cx="565.23697"
      inkscape:cy="214.40787"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="1592"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="0"
@@ -644,7 +647,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -897,7 +900,7 @@
          x="136.2756"
          y="142.8345"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan6529">   Content {</tspan><tspan
+         id="tspan6529">   Content: {</tspan><tspan
          sodipodi:role="line"
          x="136.2756"
          y="152.2095"
@@ -1089,7 +1092,7 @@
          x="437.98486"
          y="142.8345"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan14791">  Content {</tspan><tspan
+         id="tspan14791">  Content: {</tspan><tspan
          sodipodi:role="line"
          x="437.98486"
          y="152.2095"
@@ -1104,7 +1107,7 @@
          x="437.98486"
          y="170.9595"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan14836">  Tika {</tspan><tspan
+         id="tspan14836">  Tika: {</tspan><tspan
          sodipodi:role="line"
          x="437.98486"
          y="180.3345"
@@ -1244,12 +1247,12 @@
          x="670.69727"
          y="253.21834"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan7780-9-4">  Cells: 36,209,</tspan><tspan
+         id="tspan7780-9-4">  Input_Cells: 6209,</tspan><tspan
          sodipodi:role="line"
          x="670.69727"
          y="262.59332"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan7813-7">  Worksheets: 3</tspan><tspan
+         id="tspan7813-7">  Formula_Cells: 117</tspan><tspan
          sodipodi:role="line"
          x="670.69727"
          y="271.96832"
@@ -1528,7 +1531,7 @@
          x="777.79425"
          y="214.97449"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan6529-3">  Content {</tspan><tspan
+         id="tspan6529-3">  Content: {</tspan><tspan
          sodipodi:role="line"
          x="777.79425"
          y="224.34949"
@@ -1543,7 +1546,7 @@
          x="777.79425"
          y="243.09949"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan14826">  Tika {</tspan><tspan
+         id="tspan14826">  Tika: {</tspan><tspan
          sodipodi:role="line"
          x="777.79425"
          y="252.47449"
@@ -1568,7 +1571,7 @@
          x="777.79425"
          y="289.97449"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan14862">  InternetDomain {</tspan><tspan
+         id="tspan14862">  InternetDomain: {</tspan><tspan
          sodipodi:role="line"
          x="777.79425"
          y="299.34949"
@@ -1583,17 +1586,17 @@
          x="777.79425"
          y="318.09949"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan14868">  Analysis {</tspan><tspan
+         id="tspan14868">  POI: {</tspan><tspan
          sodipodi:role="line"
          x="777.79425"
          y="327.47449"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan14884">    Cells: 36209,</tspan><tspan
+         id="tspan14884">    Input_Cells: 6209,</tspan><tspan
          sodipodi:role="line"
          x="777.79425"
          y="336.84949"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan14886">    Worksheets: 3</tspan><tspan
+         id="tspan14886">    Formula_Cells: 117</tspan><tspan
          sodipodi:role="line"
          x="777.79425"
          y="346.22449"
@@ -1603,7 +1606,7 @@
          x="777.79425"
          y="355.59949"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5px;font-family:Consolas;-inkscape-font-specification:Consolas"
-         id="tspan14872">  LingPipe {</tspan><tspan
+         id="tspan14872">  LingPipe: {</tspan><tspan
          sodipodi:role="line"
          x="777.79425"
          y="364.97449"
