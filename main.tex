@@ -140,7 +140,7 @@ The contributions of this paper are two related datasets, which together constit
 \begin{figure}[!t]
 \centering
 % \input{figures/stack.tex}
-\includegraphics[width=0.8\columnwidth]{figures/stack}
+\includegraphics[width=0.85\columnwidth]{figures/stack}
 \caption{Cumulative count of spreadsheets obtained with each additional crawl. Web Analysis contains all URLs and associated HTTP server responses, while Binary Analysis contains the actual spreadsheets for a subset of Web Analysis, archived within Common Crawl.\label{fig:rplot}}
 \end{figure}
 
@@ -374,7 +374,7 @@ and input cells across all of \textsc{Fuse}. Formula cells and input cells have 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\columnwidth]{figures/cellcount}
+\includegraphics[width=0.85\columnwidth]{figures/cellcount}
 \caption{
 A log-log distribution of spreadsheets in \textsc{Fuse} by input and formula cell count. 28,616 spreadsheets were unreadable by POI. For presentation clarity, the graph omits 360 spreadsheets with zero input cells and 205,978 spreadsheets with zero formula cells.    
 \label{fig:corpus_overview}}
@@ -643,7 +643,7 @@ The Enron corpus contains 15,770 spreadsheets extracted from e-mails obtained as
 
 % WEB: http://wwweb.eecs.umich.edu/db/sheets/datasets.html (clueweb09 crawl)
 % Our Web dataset consists of 410,554 Microsoft Excel files from 51,252 distinct Internet domains. They total 101 GB. We found the spreadsheets by looking for Excel-style file endings among the roughly 10 billion URLs in the ClueWeb09 Web crawl.
-Irrespective of other corpora, \textsc{Fuse} has other challenges and limitations. One limitation is that Common Crawl restricts its storage of binary files to 1 MB. As a result, large spreadsheets are not available in \textsc{Fuse}. By comparison, spreadsheets larger than 1 MB make up about 1.0\% of EUSES and 2.3\% of Enron.
+One limitation is that Common Crawl restricts its storage of binary files to 1 MB. As a result, large spreadsheets are not available in \textsc{Fuse}. By comparison, spreadsheets larger than 1 MB make up about 1.0\% of EUSES and 2.3\% of Enron.
 %
 However, if one is willing to give up reproducibility, they may use the \urlcountunique{} distinct \texttt{WARC-Target-URI}s from the Web Analysis and download them using a similar technique as WEB~\cite{Chen2013}. Though \textsc{Fuse} is not as large as WEB ($n$ = 410,554), one advantage is that \textsc{Fuse} contains not only the URL, but also the HTTP response, which includes the crawl access date and \texttt{Content-Type} header.
 
