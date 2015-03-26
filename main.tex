@@ -19,6 +19,13 @@
   basicstyle=\small\ttfamily
 }
 
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+\usepackage{balance}
+\usepackage{microtype}
+
 \begin{document}
 %
 % paper title
@@ -636,6 +643,8 @@ A log-log distribution of spreadsheets in \textsc{Fuse} by input and formula cel
 
 \section{Trade-offs}
 \label{sec:trade-offs}
+
+\balance
 
 In this section, we articulate the trade-offs of \textsc{Fuse} in the context of other corpora that provide spreadsheets. The EUSES corpus of 4,498 unique spreadsheets, last updated in 2005, is obtained predominately through parsing the top-ranked Google search results for simple keywords, such as ``finance''~\cite{Fisher2005}. In contrast, \textsc{Fuse} has no explicit classification for each spreadsheet, though it may be possible to infer a classification using the \texttt{LingPipe} tokens. However, unlike \textsc{Fuse}, EUSES is not reproducible. First, it provides no URL information to obtain the origin for each spreadsheet. Second, the methodology is fundamentally non-deterministic, because Google search results are non-deterministic.
 
