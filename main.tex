@@ -285,9 +285,9 @@ This stage required that we traverse every JSON-formatted URL and HTTP response 
 
 The extract stage loaded the 2,127,284 candidate spreadsheets records. Using the \texttt{Filename}, \texttt{Offset}, and \texttt{Deflate-Length} fields of the record, the corresponding WAT record was extracted into memory. The WARC record was then stripped of its header information (e.g., the HTTP response), and the remaining content was saved to S3, again using the \texttt{WARC-Record-ID} from the WAT file as the key. Theoretically, this process should yield the same number of records as crawl stage; however, five records had corrupted \texttt{gzip} entries, yielding 2,127,279 candidate spreadsheets. This stage required about 1,000 normalized instance hours to complete.
 
-\subsubsection{Filter} 
+\subsubsection{Filter}
 
-The filter stage checks the extracted file and tags those that are actually spreadsheets. Apache Tika's built-in \texttt{MimeType} detector was used to return the actual \texttt{Content-Type} of the file. If this result was one of the spreadsheet content types, the record was retained. During this stage, we also computed the length (in bytes) of the spreadsheet, identified the most appropriate file extension (e.g., ``\texttt{.xlsx}''), and generated a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets were retained in the pipeline, although many of these may be duplicates. This stage required about 420 normalized instance hours to complete.
+The filter stage checks the extracted file and tags those that are actually spreadsheets. We used Apache Tika\footnote{https://tika.apache.org/}, a content analysis library, to detect the \texttt{Content-Type} of the file. If this result was one of the spreadsheet \texttt{MimeType}s, the record was retained. During this stage, we also computed the length (in bytes) of the spreadsheet, identified the most appropriate file extension (e.g., ``\texttt{.xlsx}''), and generated a SHA-1 digest of the spreadsheet content.  At this stage, 719,223 spreadsheets were retained in the pipeline, although many of these may be duplicates. This stage required about 420 normalized instance hours to complete.
 
 \subsubsection{Plugins} 
 
@@ -324,7 +324,7 @@ We computed a SHA-1 digest of the records from Binary Analysis, from which we pe
 
 The most relevant elements from the Common Crawl WARC record are \texttt{WARC-Target-URI}, that is, the URL from which the spreadsheet can be downloaded, and \texttt{Container}, which indicates the Common Crawl file and offset used to extract the spreadsheet from the raw crawl data. The \texttt{WARC-Date} element may also be of interest, since it contains the time and date of the access. Using the \texttt{Content-Disposition} element, one can often extract the original spreadsheet file name.
 
-The Apache Tika JSON element contains four fields, which include the \texttt{MIME} type, best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet:
+The Apache Tika element contains four fields related to the file metadata, which include the \texttt{MIME} type, best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet:
 
 \usemintedstyle{borland}
 \begin{minted}{json}
