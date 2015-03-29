@@ -330,7 +330,9 @@ We computed a SHA-1 digest of the records from Binary Analysis, from which we pe
 % Size of uncompressed, deduped binaries: 22 GB (22937824).
 % Size of uncompressed, full binaries: 82 GB (85358856).
 
-We provide the entire data schema as JSON-formatted records. The most relevant elements from the Common Crawl WARC record are \texttt{WARC-Target-URI}, that is, the URL from which the spreadsheet can be downloaded, and \texttt{Container}, which indicates the Common Crawl file and offset used to extract the spreadsheet from the raw crawl data. The \texttt{WARC-Date} element may also be of interest, since it contains the time and date of the access. Using the \texttt{Content-Disposition} element, one can often extract the original spreadsheet file name.
+We provide the entire data schema as JSON-formatted records. An individual record contains the elements of the original Common Crawl WARC record for that spreadsheet, merged with our analysis results as the record propagated through the pipeline (Figure~\ref{fig:mrpipeline}).
+
+The most relevant elements from the Common Crawl WARC record are \texttt{WARC-Target-URI}, that is, the URL from which the spreadsheet can be downloaded, and \texttt{Container}, which indicates the Common Crawl file and offset used to extract the spreadsheet from the raw crawl data. The \texttt{WARC-Date} element may also be of interest, since it contains the time and date of the access. Using the \texttt{Content-Disposition} element, one can often extract the original spreadsheet file name.
 
 The \texttt{Tika} element contains four fields related to the file metadata, which include the MIME type, a best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet.
 
