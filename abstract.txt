@@ -1,1 +1,9 @@
+Fuse: A Reproducible, Extendable, Internet-scale Corpus of Spreadsheets
+
+Titus Barik,Kevin Lubick,Justin Smith,John Slankas,Emerson Murphy-Hill
+
 Spreadsheets are perhaps the most ubiquitous form of end-user programming software. This paper describes a corpus, called Fuse, containing 2,127,284 URLs that return spreadsheets (and their HTTP server responses), and 249,376 unique spreadsheets, contained within a public web archive of over 26.83 billion pages. Obtained using nearly 60,000 hours of computation, the resulting corpus exhibits several useful properties over prior spreadsheet corpora, including reproducibility and extendability. Our corpus is unencumbered by any license agreements, available to all, and intended for wide usage by end-user software engineering researchers. In this paper, we detail the data and the spreadsheet extraction process, describe the data schema, and discuss the trade-offs of Fuse with other corpora.
+
+Keywords: spreadsheets, corpus, dataset, end-user software engineering, MapReduce
+
+Paper ID: ICSE15-MSR-04-p214
