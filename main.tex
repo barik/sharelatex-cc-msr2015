@@ -299,7 +299,7 @@ The filter stage checked the extracted file and tagged those that were actually 
 
 \subsubsection{Plugins} 
 
-The fourth stage of the pipeline is actually a meta-stage, in which researchers can augment the framework using plugins for their own analysis. For our corpus, we augmented the JSON document with three plugins: \texttt{InternetDomain}, which uses the Google Guava\footnote{\url{https://github.com/google/guava}} library to extract domain-related information from the \texttt{WARC-Target-URI}; Apache \texttt{POI}\footnote{\url{http://poi.apache.org/}}, which obtains metrics on the content of the spreadsheets, such as the use of functions; and \texttt{LingPipe}\footnote{\url{http://alias-i.com/lingpipe/}}, which extracts language-related information from the spreadsheet. These JSON records were all saved to S3 by their \texttt{WARC-Record-ID}. This stage required about 400 normalized instance hours per plugin. Researchers wishing to build on our approach will be able to insert their own plugins at this stage, without having to recompute the first three stages, saving research time and effort. For convenience, we also retroactively ran the \texttt{InternetDomain} plugin on the JSON output from the \texttt{Match} stage to generate the Web Analysis dataset.
+The fourth stage of the pipeline is actually a meta-stage, in which researchers can augment the framework using plugins for their own analysis. For our corpus, we augmented the JSON record with three plugins: \texttt{InternetDomain}, which uses the Google Guava\footnote{\url{https://github.com/google/guava}} library to extract domain-related information from the \texttt{WARC-Target-URI}; Apache \texttt{POI}\footnote{\url{http://poi.apache.org/}}, which obtains metrics on the content of the spreadsheets, such as the use of functions; and \texttt{LingPipe}\footnote{\url{http://alias-i.com/lingpipe/}}, which extracts language-related information from the spreadsheet. These JSON records were all saved to S3 by their \texttt{WARC-Record-ID}. This stage required about 400 normalized instance hours per plugin. Researchers wishing to build on our approach will be able to insert their own plugins at this stage, without having to recompute the first three stages, saving research time and effort. For convenience, we also retroactively ran the \texttt{InternetDomain} plugin on the JSON output from the \texttt{Match} stage to generate the Web Analysis dataset.
 
 \subsubsection{Merge} 
 
@@ -309,7 +309,7 @@ The merge stage simply took the resulting JSON files from all previous stages an
 
 % Finally, we eliminate any duplicate spreadsheets by removing records based upon match SHA-1 hash values where the record I'd is not the lowest value.
 
-We computed a SHA-1 digest of the records from Binary Analysis, from which we performed a local (non-MapReduce), deterministic de-duplication operation. The result of this operation was 249,376 unique spreadsheets. Locally, we also converted all JSON documents to MongoDB format.
+We computed a SHA-1 digest of the records from Binary Analysis, from which we performed a local (non-MapReduce), deterministic de-duplication operation. The result of this operation was 249,376 unique spreadsheets. Locally, we also converted all JSON records to MongoDB format.
 
 
 % https://publicsuffix.org/list/
