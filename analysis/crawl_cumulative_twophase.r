@@ -32,11 +32,12 @@ m <- ggplot(data = df, aes(x = Group, y = Count, fill = factor(Type))) +
                                                      "Nov14",
                                                      "Dec14"
                                                      )) + scale_y_continuous(labels=comma)
+#print(m)
 
-# print(m)
+png(width=8000,height=4500,res=600)
 
-svg("stack.svg", width=5.5, height=3.5)
-print(m)
+#svg("stack.svg", width=5.5, height=3.5)
+plot(m)
 dev.off()
 
 
