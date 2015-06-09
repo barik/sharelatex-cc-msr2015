@@ -19,9 +19,13 @@
 <node CREATED="1433380931931" ID="ID_394769257" MODIFIED="1433380967332" TEXT="A comparison of Euses, Fuse and Enron (where possible, using Felienne&apos;s table)"/>
 <node CREATED="1433381305601" ID="ID_463634144" MODIFIED="1433381323143" TEXT="Add more about what our analysis metadata consists of"/>
 <node CREATED="1433381391847" ID="ID_1485637343" MODIFIED="1433381405282" TEXT="Tika types we omitted and cost to re-evaluate"/>
+<node CREATED="1433855806823" ID="ID_777383415" MODIFIED="1433855813194" TEXT="Co-ocurring functions"/>
+<node CREATED="1433855973369" ID="ID_174914197" MODIFIED="1433856153151" TEXT="Errors in spreadsheets"/>
 </node>
 <node CREATED="1433380253345" ID="ID_1296747801" MODIFIED="1433380790374" POSITION="right" TEXT="Other things we should change">
 <node CREATED="1433380790374" ID="ID_715664423" MODIFIED="1433380794527" TEXT="Make figures bigger"/>
+<node CREATED="1433856516556" ID="ID_1371022904" MODIFIED="1433856522908" TEXT="Add in more methodology details"/>
+<node CREATED="1433856523695" ID="ID_774077252" MODIFIED="1433856523695" TEXT=""/>
 </node>
 <node CREATED="1433380258290" ID="ID_1944862310" MODIFIED="1433380394253" POSITION="right" TEXT="Reviewer&apos;s comments we could not address due to space"/>
 </node>
