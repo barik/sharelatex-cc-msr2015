@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node CREATED="1433769803145" ID="ID_957739977" MODIFIED="1433769910489" STYLE="fork" TEXT="data challenge">
+<node CREATED="1433769803145" ID="ID_957739977" MODIFIED="1433857552157" STYLE="fork" TEXT="data challenge">
 <node CREATED="1433769900751" ID="ID_941494571" MODIFIED="1433770384199" POSITION="right" TEXT="Motivational points">
 <node CREATED="1433772444953" ID="ID_1203238999" MODIFIED="1433772455009" TEXT="Similar to MSR paper"/>
 </node>
@@ -78,5 +78,46 @@
 <node CREATED="1433770253270" ID="ID_635775684" MODIFIED="1433770268264" POSITION="left" TEXT="Any research that has used the dataset or a similar dataset up to this point"/>
 <node CREATED="1433770268497" ID="ID_1954756080" MODIFIED="1433770279232" POSITION="left" TEXT="Any other details the authors feel is appropriate"/>
 <node CREATED="1433770279585" ID="ID_1965016259" MODIFIED="1433770286850" POSITION="left" TEXT="Short bio of the authors"/>
+<node CREATED="1433857552831" ID="ID_853890615" MODIFIED="1433857560829" POSITION="right" TEXT="Outline">
+<node CREATED="1433857560832" ID="ID_1134246640" MODIFIED="1433857568385" TEXT="Introduction/Motiviation">
+<node CREATED="1433857711029" ID="ID_1813931443" MODIFIED="1433857717228" TEXT="Spreadsheets are ubiquitous"/>
+<node CREATED="1433857717946" ID="ID_1088276092" MODIFIED="1433857870535" TEXT="IF is the most common function"/>
+<node CREATED="1433857871070" ID="ID_1249890394" MODIFIED="1433857888731" TEXT="What other insights can we get about end user programmers?"/>
+</node>
+<node CREATED="1433857569358" ID="ID_1809641821" MODIFIED="1433857700326" TEXT="The data">
+<node CREATED="1433857896154" ID="ID_1757122992" MODIFIED="1433857905671" TEXT="We have a large corpus of spreadsheets"/>
+<node CREATED="1433857906446" ID="ID_806687486" MODIFIED="1433857962406" TEXT="We have a large corpus of links that claim to be spreadsheets"/>
+<node CREATED="1433857963108" ID="ID_466744678" MODIFIED="1433857976549" TEXT="We have our analysis metadata of the spreadsheets"/>
+</node>
+<node CREATED="1433857651259" ID="ID_742092048" MODIFIED="1433857658252" TEXT="Things to make and do with Spreadsheets">
+<node CREATED="1433771735477" ID="ID_161022209" MODIFIED="1433771794577" TEXT="Small % of spreadsheets use formulas.  Can you detect spreadsheets that could use formulas but don&apos;t?">
+<node CREATED="1433771325276" ID="ID_906592828" MODIFIED="1433771330853" TEXT="Cunha 2012"/>
+</node>
+<node CREATED="1433771990169" ID="ID_1941352751" MODIFIED="1433772014649" TEXT="How do spreadsheets and their formulas change over time?">
+<node CREATED="1433771060318" ID="ID_839337389" MODIFIED="1433771067558" TEXT="Chambers 2010"/>
+</node>
+<node CREATED="1433772088492" ID="ID_1280393627" MODIFIED="1433772219669" TEXT="What are the precision/recall of various static analyses">
+<node CREATED="1433770785388" ID="ID_1649355570" MODIFIED="1433770790401" TEXT="Hermans 2012"/>
+<node CREATED="1433771325276" ID="ID_1097497036" MODIFIED="1433771330853" TEXT="Cunha 2012"/>
+<node CREATED="1433771100539" ID="ID_194545107" MODIFIED="1433771108386" TEXT="Jannach 2014"/>
+</node>
+<node CREATED="1433772375987" ID="ID_1607400875" MODIFIED="1433772430103" TEXT="How likely are formulas to co-exist across sheets?  can we do collaboritive filtering or something to recommend them?">
+<node CREATED="1433771000599" ID="ID_1748742282" MODIFIED="1433771012612" TEXT="Le 2014"/>
+</node>
+<node CREATED="1433858427932" ID="ID_285187831" MODIFIED="1433858563630" TEXT="Can you tell what data is about based on its structure?  &quot;This looks like a gradebook and this looks like an inventory&quot;">
+<node CREATED="1433770619526" ID="ID_974303571" MODIFIED="1433770627999" TEXT="Abraham 2006"/>
+</node>
+<node CREATED="1433860030213" ID="ID_1541721364" MODIFIED="1433860043542" TEXT="Co-ocurring functions and potential new functions?"/>
+</node>
+<node CREATED="1433857658819" ID="ID_1251909189" MODIFIED="1433857679544" TEXT="Tooling that may assist researchers">
+<node CREATED="1433859145940" ID="ID_380940043" MODIFIED="1433859156235" TEXT="Using Mongodb and pre-analysis"/>
+<node CREATED="1433770399436" ID="ID_1461020464" MODIFIED="1433770463594" TEXT="Apache POI overview">
+<node CREATED="1433770467673" ID="ID_1372292520" MODIFIED="1433770471857" TEXT="R1C1 notation"/>
+<node CREATED="1433770473139" ID="ID_1033092995" MODIFIED="1433770503688" TEXT="Ram consumption"/>
+<node CREATED="1433770504247" ID="ID_1673304130" MODIFIED="1433770541686" TEXT="Look at test cases for counts/verification"/>
+</node>
+</node>
+<node CREATED="1433857690390" ID="ID_1041027712" MODIFIED="1433859460293" TEXT="Author Bios"/>
+</node>
 </node>
 </map>
