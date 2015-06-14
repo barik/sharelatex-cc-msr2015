@@ -167,6 +167,10 @@ The contributions of this paper are two related datasets, which together constit
 % Put an example of this issue in the methodology.
 %  {"WARC-Date":"2014-09-22T12:11:35Z","WARC-Record-ID":"<urn:uuid:0d670ac1-319f-42b0-89bf-7c52dd51e1dd>","Content-Length":1385,"WARC-Target-URI":"http://www.medcom.dk/dwn1514.xls","WARC-Content-Type":"application/json","Content":{"Envelope":{"Format":"WARC","WARC-Header-Length":"350","Block-Digest":"sha1:6JCTYB2KGCZ5YX63EFLECRMXB4KUBOQB","Actual-Content-Length":"263","WARC-Header-Metadata":{"WARC-Type":"request","WARC-Date":"2014-09-22T12:11:35Z","WARC-Warcinfo-ID":"<urn:uuid:1c4997f8-bc87-4ade-8efd-47f4cb8ce2a6>","Content-Length":"263","WARC-Record-ID":"<urn:uuid:81815bbd-d47d-4755-8e41-d820a1d05043>","WARC-Target-URI":"http://www.medcom.dk/dwn1514.xls","WARC-IP-Address":"91.193.139.41","Content-Type":"application/http; msgtype=request"},"Payload-Metadata":{"Trailing-Slop-Length":"4","HTTP-Request-Metadata":{"Headers":{"Accept-Language":"en-us,en-gb,en;q=0.7,*;q=0.3","Host":"www.medcom.dk","Accept-Encoding":"x-gzip, gzip, deflate","User-Agent":"CCBot/2.0 (http://commoncrawl.org/faq/)","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},"Headers-Length":"261","Entity-Length":"0","Entity-Trailing-Slop-Bytes":"0","Request-Message":{"Method":"GET","Version":"HTTP/1.0","Path":"/dwn1514.xls"},"Entity-Digest":"sha1:3I42H3S6NNFQ2MSVX7XZKYAYSCX5QBYJ"},"Actual-Content-Type":"application/http; msgtype=request"}},"Container":{"Compressed":true,"Gzip-Metadata":{"Footer-Length":"8","Deflate-Length":"418","Header-Length":"10","Inflated-CRC":"505390695","Inflated-Length":"617"},"Offset":"654053188","Filename":"CC-MAIN-20140914011217-00240-ip-10-234-18-248.ec2.internal.warc.gz"}},"WARC-Refers-To":"<urn:uuid:81815bbd-d47d-4755-8e41-d820a1d05043>","Path":"common-crawl/crawl-data/CC-MAIN-2014-41/segments/1410657137046.16/wat/CC-MAIN-20140914011217-00240-ip-10-234-18-248.ec2.internal.warc.wat.gz"}
 
+\section{Research Questions}
+% TODO()
+% Frame the work in terms of research questions
+
 \section{Description of Data}
 
 \begin{figure}[!t]
@@ -326,6 +330,14 @@ The filter stage checked the extracted file and tagged those that were actually 
 
 The fourth stage of the pipeline is actually a meta-stage, in which researchers can augment the framework using plugins for their own analysis. For our corpus, we augmented the JSON record with three plugins: \texttt{InternetDomain}, which uses the Google Guava\footnote{\url{https://github.com/google/guava}} library to extract domain-related information from the \texttt{WARC-Target-URI}; Apache \texttt{POI}\footnote{\url{http://poi.apache.org/}}, which obtains metrics on the content of the spreadsheets, such as the use of functions; and \texttt{LingPipe}\footnote{\url{http://alias-i.com/lingpipe/}}, which extracts language-related information from the spreadsheet. These JSON records were all saved to S3 by their \texttt{WARC-Record-ID}. This stage required about 400 normalized instance hours per plugin. Researchers wishing to build on our approach will be able to insert their own plugins at this stage, without having to recompute the first three stages, saving research time and effort. For convenience, we also retroactively ran the \texttt{InternetDomain} plugin on the JSON output from the match stage to generate the Web Analysis dataset.
 
+\textbf{InternetDomain Plugin}
+%TODO()
+Separate and give more details on how each plugin works 
+
+\textbf{POI Plugin}
+
+\textbf{LingPipe Plugin}
+
 \subsubsection{Merge} 
 
 The merge stage simply took the resulting JSON files from all previous stages and combined them with the original WAT record to facilitate downstream analysis. This stage required about 130 normalized instance hours for each plugin. The output of merge, combined with the spreadsheets from the filter stage, comprise the Binary Analysis dataset.
@@ -347,6 +359,8 @@ We used the SHA-1 digests from the filter stage and performed a local (non-MapRe
 
 % http://www.statmethods.net/advgraphs/images/ggplotdensity.png
 
+\section{Extending Fuse}
+%TODO()
 
 \section{Data Schema}
 \label{sec:schema}
@@ -400,6 +414,11 @@ Next, we provide an Alias-i \texttt{LingPipe} element, which extracts the token 
 %   }
 % }
 % \end{minted}
+
+\section{The Dataset}
+%TODO
+Give descriptive statistics of the dataset, compare to other datasets see tables in Enron paper
+
 
 Finally, to get a high-level overview of the content of the spreadsheets, we used Apache \texttt{POI} to gather spreadsheet metrics. There are over 450 such metrics, which include the number of times a given Excel function (such as \texttt{SUM} or \texttt{VLOOKUP}) is used, the total number of input cells (i.e., cells that are not formulas), the number of numeric input cells, and the most common formula used. 
 %
