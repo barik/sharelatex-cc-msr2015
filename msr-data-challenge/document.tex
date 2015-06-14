@@ -1,6 +1,9 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{IEEEpreamble}
 
+\usepackage{url}
+\usepackage{csquotes}
+
 \newcommand{\urlcount}{2,127,284}
 \newcommand{\xlscount}{249,376}
 \newcommand{\urlcountunique}{292,043}
@@ -26,23 +29,113 @@ titus.barik@us.abb.com, \{kjlubick, jssmit11, jbslanka\}@ncsu.edu, emerson@csc.n
 \maketitle
 
 \begin{abstract}
-The \textsc{Fuse} corpus contains \xlscount{} spreadsheets, which are the most ubiquitous form of end-user programming software. 
-Studying this large quantity of spreadsheets will offer large benefits to the end-user and software engineering community.
-We outline the data set and propose some promising lines of research.
-We conclude with an overview of the tools we provide to aid researchers.
+We are proposing the \textsc{Fuse} corpus to be used as the data set for the MSR 2016 data challenge.
+The \textsc{Fuse} corpus was presented at the MSR 2015 data showcase, containing \xlscount{} unique spreadsheets --- an order of magnitude larger than previous corpora.
+In this paper we briefly revisit how the corpus was made, make a case for how this large quantity of spreadsheets will offer large benefits to the end-user and software engineering community and propose some promising lines of research.
+We conclude with an overview of the tools we provide to aid researchers who will use our dataset for the challenge.
 
 \end{abstract}
 
 
 \IEEEpeerreviewmaketitle
 
-\section{Introd}
+\section{The Origins of \textsc{Fuse}}
 
-Plain text.
+\subsection{The Common Crawl Web Index}
 
-\subsection{Another subtitle}
+This data came from the Common Crawl web dump.
 
-More plain text.
+This paper presents one such spreadsheet corpus, called \textsc{Fuse}, extracted from the over 26.83 billion web pages in the Common Crawl. 
+The Common Crawl non-profit organization provides this index to companies and individuals at no cost for the purpose of research and analysis\footnote{For more information, see \url{http://www.commoncrawl.org}}
 
+\subsection{Extracting the spreadsheets from a 2 PB Index}
+
+A brief overview of the previous paper
+
+
+\section{Obtaining \textsc{Fuse} and Making Sense of It}
+
+The data can be directly loaded from go.ncsu.edu/fuse.
+\section{What types of data the dataset contains}
+There is a 7 GB zip file with all 250000 spreadsheets.
+
+We also provide an assortment of metadata in 3ish different formats.
+
+%If you really need to, you can take the deduped binary spreadsheet and expand them back into their full set. The first column of the fuse-dedup.map-dec2014.txt  file contains the WARC-Record-ID of the original spreadsheet. The second column contains the equivalent deduped WARC-Record-ID. Thus, for each record, one must simply copy the deduped file to the expanded file. There are any number of ways to do this:
+
+%cat cc.dedup.map.txt | \ 
+%awk '{print "src/" $2 "\n" "dst/" $1 "\n"}' | \ 
+%xargs -n 2 cp
+
+%\todo{tbarik} : look at the last 10 years of data challenges and make a table to show it's a bunch of the same
+
+\section{Motivation for why the dataset is appropriate}
+
+We believe this dataset is a good fit for MSR 2016 data challenge because in our initial analysis of the data, we noticed clues that these spreadsheets contain non-trivial programming, most of which is done by end-users.
+[citation for end users being a non-neglible portion of the Software development community].  
+Fuse offers a chance to shed some deep insights into the type of code end users find themselves needing to write.
+For example, IF was the most common function used across all \xlscount{} spreadsheets, more common than SUM, AVERAGE, even basic operations like addition, subtraction, etc.
+In 29.6\% of these uses of IF, formulas contained at least two IF clauses, in some cases nested 20 or more times in a single cell.
+End user programmers are making actual software, and now we have a large corpus to see how they do it.
+
+One additional motivation for why we think this dataset would make a good challenge paper is that the dataset is large enough that we, the curators, don't even have a good sense of what it entails.
+This challenge will require participants to apply clever machine learning techniques at scale, which is something previous corpora haven't necesitated (The original Euses was analyzed on a laptop computer over the course of a few weeks with an Excel VB script.)
+Additionally, we are fortunate to have these previous corpora to compare Fuse to (Euses, Enron), which opens up a dynamic range of analysis.
+
+
+\section{A sample list of ways the data could be used}
+
+There are many ways spreadsheets have been studied in the past.  
+In this section, we present a few of them as well as a few of our own with the hope of sparking the minds of the creative MSR community.
+
+One similarity that spreadsheet corpora have is that not every spreadsheet uses formulas.  
+In fact, the proportion of formula-containing spreadsheets is typically less than half.
+This has been noticed by even the developers of Excel:
+\begin{displayquote}
+Everybody thought of Excel as a financial modeling application, [but] we visited dozens of Excel customers, and did not see anyone using Excel to actually perform what you would call `calculations.' Almost all of them were using Excel because it was a convenient way to create a table.
+
+ --- Joel Spolsky~\cite{JoelOnSoftware}
+\end{displayquote}
+The open question we have is \textbf{Can you detect spreadsheets that could use formulas but don't using techniques like machine learning?}
+As far as we know, no one has directly answered this.
+
+Several researchers have investigated techniques of determining the quality of spreadsheets through static analysis, using theoretically similar approaches to their software engineering counterparts.
+For example, Cunha and colleagues have created a quality model of Spreadsheets~\cite{Cunha2012}.
+The work by Pinzger and others introduced the idea of code smells to spreadsheets\cite{Pinzger2012}.
+Most recently, Jannach and colleagues came up with a technique for automatically finding and fixing spreadsheet errors~\cite{jannach2014}.
+One downside to these recent approaches is that they all relied on the well-known EUSES corpus~\cite{Fisher2005}, which contained about 5,000 spreadsheets from 2005.
+It would be interesting to \textbf{replicate findings of these static analysis tools on \textsc{Fuse}}, and \textbf{to expand these techniques to include modern spreadsheet tools and functions}.
+
+We found some spreadsheets that changed at least once over the course of the Common Crawl.
+The fact that \textsc{Fuse} has this temporal component opens the door to literally a new dimension of analysis, such as \textbf{How do spreadsheets and their formulas change over time?}
+We anticipate that researchers will be able to use a spreadsheet-diffing tool like SheetDiff created by Chambers and colleagues~\cite{chambers2010} to assist with answering this family of research questions.
+
+The final set of research questions digs into the structure of spreadsheets and clustering or otherwise drawing conclusions about the set.
+The work by Abraham and colleagues \cite{Abraham2006} looked at \textbf{what can you extrapolate about a spreadsheet based on its structure}, such as "This looks like a gradebook and this looks like an inventory".
+Along this vein, \textbf{How likely are formulas to co-exist across sheets?} 
+\textbf{Do some functions cluster together? }
+\textbf{Can we do collaborative filtering or a similar technique and make recommendations to users? }
+Small examples like those created by Le and Gulwani's Flash Extraction technique~\cite{le2014}.  
+
+
+\section{Any research that has used the dataset or a similar dataset up to this point}
+We made the data set available in March 2015.  
+
+Since then, we have had tens of downloads and are currently aware of at least three researchers or research groups using Fuse.  
+\footnote{Links to known researchers or research labs using Fuse: \url{http://emeryberger.com/research/}, \url{http://research.csc.ncsu.edu/dlf/}, and \url{http://www.felienne.com/}}
+
+
+
+\section{Any other details the authors feel is appropriate}
+Don't put this in ACM.  Make all references to the MSR data paper.
+
+We intend this paper to be instructions for the MSR data challenge.  
+However, we request that our msr 2015 paper be cited as a part of the challenge
+\section{Short bio of the authors}
+
+
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{library}
 
 \end{document}
