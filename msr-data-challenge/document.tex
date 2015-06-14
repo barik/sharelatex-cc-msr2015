@@ -33,7 +33,7 @@ titus.barik@us.abb.com, \{kjlubick, jssmit11, jbslanka\}@ncsu.edu, emerson@csc.n
 We are proposing the \textsc{Fuse} corpus to be used as the data set for the MSR 2016 data challenge.
 The \textsc{Fuse} corpus was presented at the MSR 2015 data showcase, containing \xlscount{} unique spreadsheets --- an order of magnitude larger than previous corpora.
 In this paper we briefly revisit how the corpus was made, make a case for how this large quantity of spreadsheets will offer large benefits to the end-user and software engineering community and propose some promising lines of research.
-We conclude with an overview of the tools we provide to aid researchers who will use our dataset for the challenge.
+We conclude with an overview of the tools we provide to aid researchers who will use our data set for the challenge.
 
 \end{abstract}
 
@@ -131,6 +131,8 @@ Previous MSR challenges have been predominantly focused on the types of activiti
 
 We propose that spreadsheet corpora, such as \textsc{Fuse}, serve as the data source for next year's challenge. First, we think that such a challenge would increase the diversity of the MSR community, by garnering interesting from researchers in the end-user communities. Second, spreadsheets may serve as a data source to allow software engineering researchers to try their tools and techniques, such as static analysis, on a very different domain than what they typically study. Finally, we hope that this MSR challenge will inspire new tools and generate new insights about end-user programmers, and that such findings will drive the research direction of future end-user research.
 
+%Todo(tbarik): Diversity adds a bunch of stuff.  Stack overflow gave Pat his aging developers talk.  Youtube comments + github comments let him do interesting things
+
 \section{The Origins of \textsc{Fuse}}
 
 \subsection{The Common Crawl Web Index}
@@ -157,7 +159,19 @@ The analysis contains 6,316 distinct domain names. Unfortunately, relying solely
 \textbf{Binary Analysis:}  Due to the fact that the content pointed to by the links in Web Analysis can change over time, the Binary Analysis dataset contains \xlscount{} unique spreadsheets, extracted directly from the raw data contained within Common Crawl archives, rather than the Internet. 
 Since each monthly Common Crawl archive is a permanent snapshot in time, the spreadsheets in Binary Analysis are always reproducible.
 
-We have augmented the Binary Analysis to also contain some metadata to help index the spreadsheets.
+We augmented the Binary Analysis to also contain some metadata to help index the spreadsheets.
+For our corpus, we augmented the JSON record with three plugins: 
+\texttt{InternetDomain}, which uses the Google Guava\footnote{\url{https://github.com/google/guava}} library to extract domain-related information from the \texttt{WARC-Target-URI};
+Apache \texttt{POI}\footnote{\url{http://poi.apache.org/}}, which obtains metrics on the content of the spreadsheets, such as the use of functions;
+and \texttt{LingPipe}\footnote{\url{http://alias-i.com/lingpipe/}}, which extracts language-related information from the spreadsheet. 
+
+The \texttt{Tika} element contains four fields related to the file metadata, which include the MIME type, a best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet.
+
+The \texttt{InternetDomain} element is useful for analysis relating to the origin of a spreadsheet. It uses the \texttt{WARC-Target-URI} and extracts the host (e.g., \texttt{www.example.org}), the top private domain (e.g., \texttt{example.org}), and a public suffix\footnote{\url{https://publicsuffix.org/}} (e.g., \texttt{org}).
+
+Next, we provide an Alias-i \texttt{LingPipe} element, which extracts the token stream (keywords) from spreadsheets, lowercases these tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers).
+
+Finally, to get a high-level overview of the content of the spreadsheets, we used Apache \texttt{POI} to gather spreadsheet metrics. There are over 450 such metrics, which include the number of times a given Excel function (such as \texttt{SUM} or \texttt{VLOOKUP}) is used, the total number of input cells (i.e., cells that are not formulas), the number of numeric input cells, and the most common formula used. 
 
 %If you really need to, you can take the deduped binary spreadsheet and expand them back into their full set. The first column of the fuse-dedup.map-dec2014.txt  file contains the WARC-Record-ID of the original spreadsheet. The second column contains the equivalent deduped WARC-Record-ID. Thus, for each record, one must simply copy the deduped file to the expanded file. There are any number of ways to do this:
 
