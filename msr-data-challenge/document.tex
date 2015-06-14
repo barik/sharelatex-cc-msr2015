@@ -2,6 +2,7 @@
 \usepackage{IEEEpreamble}
 
 \usepackage{url}
+\usepackage{booktabs}
 \usepackage{csquotes}
 
 \newcommand{\urlcount}{2,127,284}
@@ -38,6 +39,97 @@ We conclude with an overview of the tools we provide to aid researchers who will
 
 
 \IEEEpeerreviewmaketitle
+
+\section{Introduction}
+
+End-user programmers today constitute a broad class of users, including teachers, accountants, administrators, managers, research scientists, and even children~\cite{Ko2011}.
+%
+Although these users are typically not professional software developers, their roles routinely involve computational tasks that, in many ways, are similar to those of developers --- not just in activity, but also in their underlying cognitive demands on users~\cite{Blackwell2002}. 
+
+Perhaps the most ubiquitous form~\cite{Scaffidi2005} of end-user programming software are \emph{spreadsheets}, a table-oriented visual interface that serves as the underlying model for the users' applications~\cite{Nardi1990}. \emph{Cells} within these tables are augmented with computation, such as expressions, functions and macros~\cite{Nardi1990}. 
+This interplay between presentation and computation within the spreadsheet environment has garnered significant interest from the software engineering research community~\cite{Burnett2009}. 
+Researchers have adopted techniques and approaches to studying errors~\cite{Powell2008}, code smells~\cite{Pinzger2012}, and refactoring in spreadsheets~\cite{Badame2012}, similar to traditional programming environments. 
+
+% \footnote{``Spreadsheets are not just tools for doing ``what-if'' analysis. They provide a specific data structure: a table. Most Excel users never enter a formula. They use Excel when they need a table. The gridlines are the most important feature of Excel.'' \url{http://www.joelonsoftware.com/items/2012/01/06.html}}.
+
+\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{Comparison of \textsc{Fuse} and other spreadsheet corpora\label{tab:corpora}}
+\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{llllll}
+\toprule
+ & \textbf{\textsc{Fuse}} & \textbf{EUSES} & \textbf{Enron} & \textbf{ClueWeb}\\
+\midrule
+Size ($n$) & 249,376 & 6,000 & 15,570 & 410,554\\
+Space (GB) & 87  & 0.64 & 23.3 & 110\\
+Access & All & Researchers & All & All\\
+Unique formulas & 894,361 & 84,004 & 784,380  & --\\
+Extendable & Yes & Yes & No & Yes\\
+Framework & Hadoop & Excel/VBA & Scantool & \textsc{--}\\
+Scalable & Yes & No & No & Yes\\
+Collection period & 2013-2014 & 2006 & 2006 & 2009\\
+Pri. origin & CC & Google & Enron & ClueWeb\\
+Binaries & Yes  & Yes & Yes & No\\
+Metadata & Yes & No & No & No\\
+Domains & 4,318 & - & - & 51,157\\
+Distinct functions & 219 & 209 & 139 & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+To better understand end-user activities and design tools to assist end-users, researchers have responded by curating spreadsheet corpora to support spreadsheet studies~\cite{Fisher2005,Hermans2015,Chen2013}. 
+%
+This paper presents one such spreadsheet corpus, called \textsc{Fuse}, extracted from the over 26.83 billion web pages in the Common Crawl\footnote{The Common Crawl non-profit organization provides this index to companies and individuals at no cost for the purpose of research and analysis. For more information, see \url{http://www.commoncrawl.org}.} index. 
+%
+We believe that \textsc{Fuse} offers several useful traits not found in prior corpora (see Table \ref{tab:corpora}); 
+for example, \textsc{Fuse} is obtained in such a way that researchers can independently reproduce an identical corpus from source materials.
+
+% 2006: http://msr.uwaterloo.ca/challenge/
+% 2007: http://msr.uwaterloo.ca/msr2007/challenge/
+% 2008: http://msr.uwaterloo.ca/msr2008/
+% 2009: http://msr.uwaterloo.ca/msr2009/
+% 2010: http://msr.uwaterloo.ca/msr2010/index.html
+% 2011: http://2011.msrconf.org/msr-challenge.html
+% 2012: http://2012.msrconf.org/challenge.php
+% 2013: http://2013.msrconf.org/challenge.php
+% 2014: http://2014.msrconf.org/challenge.php
+% 2015: http://2015.msrconf.org/challenge.php
+\begin{table}[!t]
+\caption{Previous MSR Challenge Data Sources\label{tab:datasources}}
+\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{ll}
+\toprule
+\textbf{\textsc{Year}} & \textbf{Data Source}\\
+\midrule
+2006 & PostgreSQL and ArgoUML\\
+2007 & Eclipse and Firefox\\
+2008 & Eclipse\\
+2009 & GNOME Desktop\\
+2010 & FreeBSD, Debian, and GNOME\\
+2011 & Eclipse and NetBeans, Firefox and Chrome\\
+2012 & Android\\
+2013 & Stack Overflow\\
+2014 & GitHub\\
+2015 & Stack Overflow\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Proposed MSR Challenge}
+
+Given the increasing role and importance of end-user programmers, our proposed MSR challenge asks participants to obtain insights about end-user programmers and the artifacts that they produce using spreadsheets. Can we identify the types of artifacts that they create? What type of features do they use to develop these artifacts? What type of mistakes do they make?
+
+Previous MSR challenges have been predominantly focused on the types of activities performed by professional programmers (see Table \ref{tab:datasources}). For example, years 2006 through 2011 of MSR challenges focused on source code repositories, bug data, and mailing lists for particular software projects. In 2012, the MSR challenge was extended to a different domain --- mobile devices --- but the sources of data to be considered were still essential change logs and bug reports. In more recent years, to increase diversity the MSR challenges have been expanding their data sets to broader information sources, such as Stack Overflow.
+
+We propose that spreadsheet corpora, such as \textsc{Fuse}, serve as the data source for next year's challenge. First, we think that such a challenge would increase the diversity of the MSR community, by garnering interesting from researchers in the end-user communities. Second, spreadsheets may serve as a data source to allow software engineering researchers to try their tools and techniques, such as static analysis, on a very different domain than what they typically study. Finally, we hope that this MSR challenge will inspire new tools and generate new insights about end-user programmers, and that such findings will drive the research direction of future end-user research.
 
 \section{The Origins of \textsc{Fuse}}
 
