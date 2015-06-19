@@ -73,7 +73,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node CREATED="1433771020292" ID="ID_1652236257" MODIFIED="1434232841909" TEXT="SheetDiff: a tool for identifying changes in spreadsheets">
+<node CREATED="1433771020292" ID="ID_1652236257" MODIFIED="1434238858267" TEXT="SheetDiff: a tool for identifying changes in spreadsheets">
 <font NAME="SansSerif" SIZE="14"/>
 <node CREATED="1433771058427" ID="ID_217053597" MODIFIED="1434232841909" TEXT="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5635197">
 <font NAME="SansSerif" SIZE="14"/>
@@ -82,7 +82,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node CREATED="1433771070200" FOLDED="true" ID="ID_962536011" MODIFIED="1434238121043" TEXT="Avoiding, finding and fixing spreadsheet errors - a survey of automated spreadsheet QA">
+<node CREATED="1433771070200" ID="ID_962536011" MODIFIED="1434238623389" TEXT="Avoiding, finding and fixing spreadsheet errors - a survey of automated spreadsheet QA">
 <font NAME="SansSerif" SIZE="14"/>
 <node CREATED="1433771243593" ID="ID_1268701325" MODIFIED="1434232841908" TEXT="http://www.sciencedirect.com/science/article/pii/S0164121214000788">
 <font NAME="SansSerif" SIZE="14"/>
