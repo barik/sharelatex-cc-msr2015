@@ -28,10 +28,10 @@ Emerson Murphy-Hill\IEEEauthorrefmark{1}}
 \maketitle
 
 \begin{abstract}
-We are proposing the \textsc{Fuse} corpus to be used as the data set for the MSR 2016 data challenge.
+We are proposing the \textsc{Fuse} corpus to be used as the dataset for the MSR 2016 data challenge.
 The \textsc{Fuse} corpus was presented at the MSR 2015 data showcase, containing \xlscount{} unique spreadsheets --- an order of magnitude larger than previous corpora.
 In this paper we make a case for how this diverse corpus of spreadsheets will offer large benefits to the end-user and software engineering community.
-We conclude with some promising lines of research \textsc{Fuse} allows and give an overview of the tools we provide to aid researchers who will use our data set for the challenge.
+We conclude with some promising lines of research \textsc{Fuse} allows and give an overview of the tools we provide to aid researchers who will use our dataset for the challenge.
 
 \end{abstract}
 
@@ -41,38 +41,37 @@ We conclude with some promising lines of research \textsc{Fuse} allows and give 
 \section{Introduction}
 
 End-user programmers today constitute a broad class of users, including teachers, accountants, administrators, managers, research scientists, and even children~\cite{Ko2011}.
-%
 Although these users are typically not professional software developers, their roles routinely involve computational tasks that, in many ways, are similar to those of developers --- not just in activity, but also in their underlying cognitive demands on users~\cite{Blackwell2002}. 
 
 Perhaps the most ubiquitous form~\cite{Scaffidi2005} of end-user programming software are \emph{spreadsheets}, a table-oriented visual interface that serves as the underlying model for the users' applications~\cite{Nardi1990}. \emph{Cells} within these tables are augmented with computation, such as expressions, functions and macros~\cite{Nardi1990}. 
 This interplay between presentation and computation within the spreadsheet environment has garnered significant interest from the software engineering research community~\cite{Burnett2009}. 
 Researchers have adopted techniques and approaches to studying errors~\cite{Powell2008}, code smells~\cite{Pinzger2012}, and refactoring in spreadsheets~\cite{Badame2012}, similar to traditional programming environments. 
 
-% \footnote{``Spreadsheets are not just tools for doing ``what-if'' analysis. They provide a specific data structure: a table. Most Excel users never enter a formula. They use Excel when they need a table. The gridlines are the most important feature of Excel.'' \url{http://www.joelonsoftware.com/items/2012/01/06.html}}.
-
-
-We have previously presented a large corpus of spreadsheets, called \textsc{Fuse}~\cite{barik2015}, extracted from the over 26.83 billion web pages in the Common Crawl\footnote{The Common Crawl non-profit organization provides this index to companies and individuals at no cost for the purpose of research and analysis. For more information, see \url{http://www.commoncrawl.org}.} index.
-This corpus has the potential for researchers to glean unprecedented insight into how end-user programmers use spreadsheets.
-
-%To better understand end-user activities and design tools to assist end-users, researchers have responded by curating spreadsheet corpora to support spreadsheet studies~\cite{Fisher2005,Hermans2015,Chen2013}. 
-%
-%This paper presents one such spreadsheet corpus, called \textsc{Fuse}, extracted from the over 26.83 billion web pages in the Common Crawl\footnote{The Common Crawl non-profit organization provides this index to companies and individuals at no cost for the purpose of research and analysis. For more information, see \url{http://www.commoncrawl.org}.} index. 
-%
-%We believe that \textsc{Fuse} offers several useful traits not found in prior corpora (see Table \ref{tab:corpora}); 
-%for example, \textsc{Fuse} is obtained in such a way that researchers can independently reproduce an identical corpus from source materials.
-
+We have previously presented a corpus of 249,376 spreadsheets, called \textsc{Fuse}~\cite{barik2015}, extracted from the over 26.83 billion web pages in the Common Crawl\footnote{The Common Crawl non-profit organization provides this index to companies and individuals at no cost for the purpose of research and analysis. For more information, see \url{http://www.commoncrawl.org}.} index.
+This corpus gives researchers the potential to extract unprecedented insight into how end-user use such an ubiquitous form of programming.
 
 
 \section{Proposed MSR Challenge}
-
-Given the increasing role and importance of end-user programmers, our proposed MSR challenge asks participants to obtain insights about end-user programmers and the artifacts that they produce using spreadsheets. 
-Can we identify the types of artifacts that they create? What type of features do they use to develop these artifacts? What type of mistakes do they make?
-
 Previous MSR challenges have been predominantly focused on the types of activities performed by professional programmers (see Table \ref{tab:datasources}). 
 For example, years 2006 through 2011 of MSR challenges focused on source code repositories, bug data, and mailing lists for particular software projects. 
 In 2012, the MSR challenge was extended to a different domain --- mobile devices --- but the sources of data considered were still essential change logs and bug reports. 
-In more recent years, to increase diversity the MSR challenges have been expanding their data sets to broader information sources, such as Stack Overflow.
 
+In more recent years, to increase diversity the MSR challenges have been expanding their datasets to broader information sources, such as Stack Overflow.
+Well-recieved mining papers, like the one presented by Chowdhury and Hindle \cite{chowdhury2015}, have tended to draw on additional, diverse datasets like YouTube comments.
+
+End-user programmers outnumber professional programmers by an order of magnitude~\cite{Scaffidi2005}.
+Given their role and importance will only increase with time, our proposed MSR challenge asks participants to obtain insights about end-user programmers and the artifacts that they produce using spreadsheets. 
+%Can we identify the types of artifacts that they create? 
+%What type of features do they use to develop these artifacts? 
+%What type of mistakes do they make?
+%These are some of the questions (see Section \ref{how_to_use_fuse}) we hope challenge participants can answer to help improve the code quality and experience for the millions of end-user programmers.
+%
+%We propose that spreadsheet corpora, such as \textsc{Fuse}, serve as the data source for next year's challenge. 
+First, we think that such a challenge would increase the diversity of the MSR community, by garnering interesting from researchers in the end-user communities. 
+Second, spreadsheets may serve as a data source to allow software engineering researchers to try their tools and techniques, such as static analysis, on a very different domain than what they typically study. 
+Finally, we hope that this MSR challenge will inspire new tools and generate new insights about end-user programmers, and that such findings will drive the research direction of future end-user research.
+
+%Todo(tbarik): Diversity adds a bunch of stuff.  Stack overflow gave Pat his aging developers talk.  Youtube comments + github comments let him do interesting things
 
 % 2006: http://msr.uwaterloo.ca/challenge/
 % 2007: http://msr.uwaterloo.ca/msr2007/challenge/
@@ -107,11 +106,7 @@ In more recent years, to increase diversity the MSR challenges have been expandi
 \end{tabular}
 \end{table}
 
-We propose that spreadsheet corpora, such as \textsc{Fuse}, serve as the data source for next year's challenge. First, we think that such a challenge would increase the diversity of the MSR community, by garnering interesting from researchers in the end-user communities. 
-Second, spreadsheets may serve as a data source to allow software engineering researchers to try their tools and techniques, such as static analysis, on a very different domain than what they typically study. 
-Finally, we hope that this MSR challenge will inspire new tools and generate new insights about end-user programmers, and that such findings will drive the research direction of future end-user research.
 
-%Todo(tbarik): Diversity adds a bunch of stuff.  Stack overflow gave Pat his aging developers talk.  Youtube comments + github comments let him do interesting things
 
 \section{The Origins of \textsc{Fuse}}
 
@@ -149,10 +144,10 @@ Distinct functions & 219 & 209 & 139 \\
 
 \subsection{The Common Crawl Web Index}
 
-We extracted \textsc{Fuse} from the over 26.83 billion web pages in the Common Crawl web index, which is hosted as one of Amazon EC2's public data sets. 
+We extracted \textsc{Fuse} from the over 26.83 billion web pages in the Common Crawl web index, which is hosted as one of Amazon EC2's public datasets. 
 The Common Crawl non-profit organization provides a monthly index to companies and individuals at no cost for the purpose of research and analysis\footnote{For more information, see \url{http://www.commoncrawl.org}}.
 This index contains not only the index of the web pages, but the original content of those web pages as well.
-Because we extracted our spreadsheets from the stored original web pages, \textsc{Fuse} is a reproducible data set.
+Because we extracted our spreadsheets from the stored original web pages, \textsc{Fuse} is a reproducible dataset.
 
 
 %todo(tbarik): even after extraction, it is a non-trivial size set 
@@ -210,7 +205,7 @@ Additionally, we are fortunate to have these previous corpora to compare Fuse to
 
 
 \section{A sample list of ways the data could be used}
-
+\label{how_to_use_fuse}
 There are many ways spreadsheets have been studied in the past.  
 In this section, we present a few of them as well as a few of our own with the hope of sparking the minds of the creative MSR community.
 
@@ -248,7 +243,7 @@ Discovering new metrics that can be easily added to spreadsheet corpora to help 
 Signal to noise ratio: How can you determine ``interesting'' spreadsheets for some definition of ``interesting''
 
 \section{Any research that has used the dataset or a similar dataset up to this point}
-We made the data set available in March 2015.  
+We made the dataset available in March 2015.  
 
 Since then, we have had tens of downloads and are currently aware of at least three researchers or research groups using Fuse.  
 \footnote{Links to known researchers or research labs using Fuse: \url{http://emeryberger.com/research/}, \url{http://research.csc.ncsu.edu/dlf/}, and \url{http://www.felienne.com/}}
