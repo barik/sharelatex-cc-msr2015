@@ -30,8 +30,8 @@ Emerson Murphy-Hill\IEEEauthorrefmark{1}}
 \begin{abstract}
 We are proposing the \textsc{Fuse} corpus to be used as the dataset for the MSR 2016 data challenge.
 The \textsc{Fuse} corpus was presented at the MSR 2015 data showcase, containing \xlscount{} unique spreadsheets --- an order of magnitude larger than previous corpora.
-In this paper we make a case for how this diverse corpus of spreadsheets will offer large benefits to the end-user and software engineering community.
-We conclude with some promising lines of research \textsc{Fuse} allows and give an overview of the tools we provide to aid researchers who will use our dataset for the challenge.
+In this paper we make a case for how this diverse corpus of spreadsheets will offer large benefits to the software engineering and research communities.
+We conclude with some promising lines of research \textsc{Fuse} makes possible and give an overview of the tools we provide to aid researchers participating in the challenge.
 
 \end{abstract}
 
@@ -43,21 +43,21 @@ We conclude with some promising lines of research \textsc{Fuse} allows and give 
 End-user programmers today constitute a broad class of users, including teachers, accountants, administrators, managers, research scientists, and even children~\cite{Ko2011}.
 Although these users are typically not professional software developers, their roles routinely involve computational tasks that, in many ways, are similar to those of developers --- not just in activity, but also in their underlying cognitive demands on users~\cite{Blackwell2002}. 
 
-Perhaps the most ubiquitous form~\cite{Scaffidi2005} of end-user programming software are \emph{spreadsheets}, a table-oriented visual interface that serves as the underlying model for the users' applications~\cite{Nardi1990}. \emph{Cells} within these tables are augmented with computation, such as expressions, functions and macros~\cite{Nardi1990}. 
+\emph{Spreadsheets} are perhaps the most ubiquitous form of end-user programming software~\cite{Scaffidi2005}. \emph{Cells} within the tables of these spreadsheets are augmented with computation, such as expressions, functions, and macros~\cite{Nardi1990}. 
 This interplay between presentation and computation within the spreadsheet environment has garnered significant interest from the software engineering research community~\cite{Burnett2009}. 
 Researchers have adopted techniques and approaches to studying errors~\cite{Powell2008}, code smells~\cite{Pinzger2012}, and refactoring in spreadsheets~\cite{Badame2012}, similar to traditional programming environments. 
 
-We have previously presented a corpus of 249,376 spreadsheets, called \textsc{Fuse}~\cite{barik2015}, extracted from the over 26.83 billion web pages in the Common Crawl\footnote{The Common Crawl non-profit organization provides this index to companies and individuals at no cost for the purpose of research and analysis. For more information, see \url{http://www.commoncrawl.org}.} index.
+We have previously presented a corpus of 249,376 spreadsheets, called \textsc{Fuse}~\cite{barik2015}, extracted from the over 26.83 billion web pages in the Common Crawl index.
 This corpus gives researchers the potential to extract unprecedented insight into how end-user use such an ubiquitous form of programming.
 
 
 \section{Proposed MSR Challenge}
 Previous MSR challenges have been predominantly focused on the types of activities performed by professional programmers (see Table \ref{tab:datasources}). 
 For example, years 2006 through 2011 of MSR challenges focused on source code repositories, bug data, and mailing lists for particular software projects. 
-In 2012, the MSR challenge was extended to a different domain --- mobile devices --- but the sources of data considered were still essential change logs and bug reports. 
+In 2012, the MSR challenge was extended to a different domain --- mobile devices --- but the sources of data considered were still essentially change logs and bug reports. 
 
-In more recent years, to increase diversity the MSR challenges have been expanding their datasets to broader information sources, such as Stack Overflow.
-Well-recieved mining papers, like the one presented by Chowdhury and Hindle \cite{chowdhury2015}, have tended to draw on additional, diverse datasets like YouTube comments.
+In more recent years, the MSR challenges have been expanding their datasets to more diverse information sources, such as Stack Overflow.
+Well-received mining papers, like the one presented by Chowdhury and Hindle \cite{chowdhury2015}, tend go further and incorporate additional diverse datasets like YouTube comments.
 
 End-user programmers outnumber professional programmers by an order of magnitude~\cite{Scaffidi2005}.
 Given their role and importance will only increase with time, our proposed MSR challenge asks participants to obtain insights about end-user programmers and the artifacts that they produce using spreadsheets. 
@@ -67,9 +67,9 @@ Given their role and importance will only increase with time, our proposed MSR c
 %These are some of the questions (see Section \ref{how_to_use_fuse}) we hope challenge participants can answer to help improve the code quality and experience for the millions of end-user programmers.
 %
 %We propose that spreadsheet corpora, such as \textsc{Fuse}, serve as the data source for next year's challenge. 
-First, we think that such a challenge would increase the diversity of the MSR community, by garnering interesting from researchers in the end-user communities. 
+First, we think that such a challenge would increase the diversity of the MSR community, by garnering interest from researchers in the end-user communities. 
 Second, spreadsheets may serve as a data source to allow software engineering researchers to try their tools and techniques, such as static analysis, on a very different domain than what they typically study. 
-Finally, we hope that this MSR challenge will inspire new tools and generate new insights about end-user programmers, and that such findings will drive the research direction of future end-user research.
+Finally, we hope that this MSR challenge will inspire new tools and generate new insights about end-user programmers, and that such findings will drive the directions of a broad range of software engineering research.
 
 %Todo(tbarik): Diversity adds a bunch of stuff.  Stack overflow gave Pat his aging developers talk.  Youtube comments + github comments let him do interesting things
 
@@ -113,24 +113,23 @@ Finally, we hope that this MSR challenge will inspire new tools and generate new
 In this section, we summarize the contents of the \textsc{Fuse} corpus.
 For readers curious on the details of the extraction process that took about 60,000 instance hours, see our MSR data paper~\cite{barik2015}.
 
-The primary contribution of \textsc{Fuse} is the \xlscount{} unique spreadsheets extracted from the Common Crawl web index.
+The primary contribution of \textsc{Fuse} is the \xlscount{} unique spreadsheets extracted from the Common Crawl web index\footnote{The Common Crawl non-profit organization provides this index to companies and individuals at no cost for the purpose of research and analysis. For more information, see \url{http://www.commoncrawl.org}.} .
 The second component is a myriad of metadata about these spreadsheets, which is detailed below.
 Finally, we released the \urlcount{} web URLs that returned spreadsheet-related MIME types, of which the URLs that returned actual spreadsheets are a subset.
 
 %todo(tbarik): even after extraction, it is a non-trivial size set 
 
-For our corpus, we augmented the JSON record returned from Common Crawl with JSON metadata from three \textit{plugins}: 
+For our corpus, we augmented the JSON web record returned from Common Crawl with additional metadata from four \textit{plugins}: 
+\texttt{Apache Tika}\footnote{\url{https://tika.apache.org/}}, which contbutes file metadata including the MIME type, a best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet;
 \texttt{InternetDomain}, which uses the Google Guava\footnote{\url{https://github.com/google/guava}} library to extract domain-related information from the \texttt{WARC-Target-URI};
-Apache \texttt{POI}\footnote{\url{http://poi.apache.org/}}, which obtains metrics on the content of the spreadsheets, such as the use of functions;
-and \texttt{LingPipe}\footnote{\url{http://alias-i.com/lingpipe/}}, which extracts language-related information from the spreadsheet. 
+\texttt{LingPipe}\footnote{\url{http://alias-i.com/lingpipe/}}, which extracts language-related information from the spreadsheet. 
+and \texttt{Apache POI}\footnote{\url{http://poi.apache.org/}}, which obtains metrics on the content of the spreadsheets, such as the use of functions;
 
-The \texttt{Tika} element contains four fields related to the file metadata, which include the MIME type, a best-guess file extension, a SHA-1 signature, and the length in bytes of the spreadsheet.
+The last two elements are provided as a way for researchers to query for spreadsheets of the most interest, and we detail them a bit more here.
+The \texttt{LingPipe} plugin extracts the token stream (keywords) from spreadsheets, lowercases these tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers).
+As an example, these tokens could be used to locate financial spreadsheets by looking for words such as ``accounts receivable'', ``depreciation'' and so on.
 
-The \texttt{InternetDomain} element is useful for analysis relating to the origin of a spreadsheet. It uses the \texttt{WARC-Target-URI} and extracts the host (e.g., \texttt{www.example.org}), the top private domain (e.g., \texttt{example.org}), and a public suffix\footnote{\url{https://publicsuffix.org/}} (e.g., \texttt{org}).
-
-Next, we provide an Alias-i \texttt{LingPipe} element, which extracts the token stream (keywords) from spreadsheets, lowercases these tokens, removes English stop words (such as `a' or `the'), and filters out non-words (such as numbers).
-
-Finally, to get a high-level overview of the content of the spreadsheets, we used Apache \texttt{POI} to gather spreadsheet metrics. 
+The \texttt{Apache POI} plugin gathers preadsheet metrics to get a high-level overview of the content of the spreadsheets.
 There are over 450 such metrics, which include the number of times a given Excel function (such as \texttt{SUM} or \texttt{VLOOKUP}) is used, the total number of input cells (i.e., cells that are not formulas), the number of numeric input cells, and the most common formula used. 
 
 % \section{Motivation for why the dataset is appropriate}
@@ -147,12 +146,12 @@ There are over 450 such metrics, which include the number of times a given Excel
 % Additionally, we are fortunate to have these previous corpora to compare Fuse to (Euses, Enron), which opens up a dynamic range of analysis.
 
 
-\section{A sample list of ways the data could be used}
+\section{Potential Spreadsheet Research Questions}
 \label{how_to_use_fuse}
 There are many ways spreadsheets have been studied in the past.  
 In this section, we present a few of them as well as a few of our own with the hope of sparking the minds of the creative MSR community.
 
-One similarity that spreadsheet corpora have is that not every spreadsheet uses formulas.  
+One similarity found among several spreadsheet corpora (Table \ref{tab:corpora}) is that not every spreadsheet uses formulas.  
 In fact, the proportion of formula-containing spreadsheets is typically less than half.
 This has been noticed by even the developers of Excel:
 \begin{displayquote}
@@ -163,38 +162,16 @@ Everybody thought of Excel as a financial modeling application, [but] we visited
 The open question we have is \textbf{Can you detect spreadsheets that could use formulas but don't using techniques like machine learning?}
 As far as we know, no one has directly answered this.
 
-Several researchers have investigated techniques of determining the quality of spreadsheets through static analysis, using theoretically similar approaches to their software engineering counterparts.
-For example, Cunha and colleagues have created a quality model of Spreadsheets~\cite{Cunha2012}.
-The work by Pinzger and others introduced the idea of code smells to spreadsheets\cite{Pinzger2012}.
+Several end-user researchers have investigated techniques of determining the quality of spreadsheets through static analysis, using similar approaches to their software engineering counterparts.
+For example, Cunha and colleagues have created a quality model of spreadsheets~\cite{Cunha2012}
+and the work by Pinzger and others introduced the idea of code smells to spreadsheets~\cite{Pinzger2012}.
 Most recently, Jannach and colleagues came up with a technique for automatically finding and fixing spreadsheet errors~\cite{jannach2014}.
-One downside to these recent approaches is that they all relied on the well-known EUSES corpus~\cite{Fisher2005}, which contained about 5,000 spreadsheets from 2005.
+One downside to these recent approaches is that they all relied on the well-known EUSES corpus~\cite{Fisher2005}, which contains about 5,000 spreadsheets circa 2005.
 It would be interesting to \textbf{replicate findings of these static analysis tools on \textsc{Fuse}}, and \textbf{to expand these techniques to include modern spreadsheet tools and functions}.
 
 We found some spreadsheets that changed at least once over the course of the Common Crawl.
 The fact that \textsc{Fuse} has this temporal component opens the door to literally a new dimension of analysis, such as \textbf{How do spreadsheets and their formulas change over time?}
 We anticipate that researchers will be able to use a spreadsheet-diffing tool like SheetDiff created by Chambers and colleagues~\cite{chambers2010} to assist with answering this family of research questions.
-
-The final set of research questions digs into the structure of spreadsheets and clustering or otherwise drawing conclusions about the set.
-The work by Abraham and colleagues \cite{Abraham2006} looked at \textbf{what can you extrapolate about a spreadsheet based on its structure}, such as "This looks like a gradebook and this looks like an inventory".
-Along this vein, \textbf{How likely are formulas to co-exist across sheets?} 
-\textbf{Do some functions cluster together? }
-\textbf{Can we do collaborative filtering or a similar technique and make recommendations to users? }
-Small examples like those created by Le and Gulwani's Flash Extraction technique~\cite{le2014}.  
-
-%todo(kjlubick)
-%Discovering new metrics that can be easily added to spreadsheet corpora to help tell us more about spreadsheets (augment apache POI).
-
-%todo(kjlubick)
-%Signal to noise ratio: How can you determine ``interesting'' spreadsheets for some definition of ``interesting''
-
-\section{The use of other spreadsheet corpora}
-Keeping with the spirit of diverse submissions, we would also like to point to two other spreadsheet corpora that participants may consider including in their analysis.
-We summarize these corpora in Table \ref{tab:corpora}.
-The EUSES corpus~\cite{Fisher2005} was created by scraping Google search queries for spreadsheets and keywords like ``finance''.
-As a part of the Enron trial, over 15,000 spreadsheets were included in the released emails, which were extracted to make the Enron corpus~\cite{Hermans2015}.
-
-These three corpora offer three different viewpoints into the user of spreadsheets --- for example, the Enron corpus offers insight into professional, financial spreadsheets.
-Our challenge would not require the use of EUSES or Enron corpora, but we would like participants to be aware of them and be free to use them to compare or contrast to \textsc{Fuse}.
 
 \begin{table}[!t]
 %% increase table row spacing, adjust to taste
@@ -226,28 +203,45 @@ Distinct functions & 219 & 209 & 139 \\
 \end{tabular}
 \end{table}
 
+The final set of research questions digs into the structure of spreadsheets and clustering or otherwise drawing conclusions about the set.
+The work by Abraham and colleagues \cite{Abraham2006} looked at \textbf{what can you extrapolate about a spreadsheet based on its structure}, such as "This looks like a gradebook and this looks like an inventory".
+Along this vein, \textbf{How likely are formulas to co-exist across sheets?} 
+\textbf{Do some functions cluster together and can we make recommendations based on this? }
+\textbf{Are there metrics that can be used to identify ``interesting'' spreadsheets, for some definition of interesting?}
+The space of questions is enormous and we end the list here, having inspired potential challenge participants.
+
+
+\section{The use of other spreadsheet corpora}
+Keeping with the spirit of diverse submissions, we would also like to point to two other spreadsheet corpora that participants may consider including in their analysis.
+We summarize these corpora in Table \ref{tab:corpora}.
+The EUSES corpus~\cite{Fisher2005} was created by scraping Google search queries for spreadsheets and keywords like ``finance''.
+As a part of the Enron trial, over 15,000 spreadsheets were included in the released emails, which were extracted to make the Enron corpus~\cite{Hermans2015}.
+
+These three corpora offer three different viewpoints into the user of spreadsheets --- for example, the Enron corpus offers insight into professional, financial spreadsheets.
+Our challenge would not require the use of EUSES or Enron corpora, but we would like participants to be aware of them and be free to use them to compare or contrast to \textsc{Fuse}.
+
+
+
 \section{Useful Analysis notes for Participants}
 
 In addition to releasing \textsc{Fuse}, we also released the source code of the tools we used to create the corpus.
 Of note, we used Apache POI as the main library for analyzing the spreadsheets, as it is fast, written in Java, open source and works well on most spreadsheet formats.
-One thing to keep in mind is that Apache POI uses up a fair amount of memory - to analyze spreadsheets that are 3MB or bigger requires at least 2 GB of heap space to avoid out-of-memory and related errors.
+One thing to keep in mind is that Apache POI uses up a fair amount of memory - to analyze spreadsheets that are 3MB or bigger requires at least 2 GB of heap space to avoid out-of-memory  errors.
 
 One potential concern participants may have with our dataset is it requiring an unreasonable amount of processing power for such a challenge.
 We would like to allay those concerns by sharing the fact that creating the metadata for all of the spreadsheets took around 400 instance hours on Amazon EMR, a far more reasonable number than the 60,000 hours creating the corpus required.
 
-Additionally, analysis time can be reduced further by using the metadata we provide to narrow the space of the spreadsheets.
-Participants can load our metadata into MongoDB, query for spreadsheets that contain at least one IF statement, and then analyze those several thousand spreadsheets.
+Additionally, analysis time can be reduced further by using the metadata we provide to narrow the search space.
+For example, participants can load our metadata into MongoDB, query for spreadsheets that contain at least one IF statement, and then analyze only those several thousand spreadsheets.
 
 \section{Past and Present Research involving Fuse}
-We made the dataset available in March 2015, upon submission of the MSR data paper.  
-
-Since then, we have had tens of downloads and are currently aware of at least three researchers or research groups using Fuse.  
-\footnote{Links to known researchers or research labs using Fuse: \url{http://emeryberger.com/research/}, \url{http://research.csc.ncsu.edu/dlf/}, and \url{http://www.felienne.com/}}
+We made the roughly 8 GB dataset available in March 2015, upon submission of the MSR data paper.  
+Since then, we have had tens of downloads and are currently aware of at least three researchers or research groups using Fuse\footnote{Links to known researchers or research labs using Fuse: \url{http://emeryberger.com/research/}, \url{http://research.csc.ncsu.edu/dlf/}, and \url{http://www.felienne.com/}}.
 
 
 
 
-\section{Any other details the authors feel is appropriate}
+\section{Final notes for challenge committee}
 We intend this paper to be the basis for the MSR 2016 data challenge.  
 However, we request that our MSR 2015 paper~\cite{barik2015} be cited as a part of the challenge.
 
