@@ -224,7 +224,8 @@ Of note, we used Apache POI as the main library for analyzing the spreadsheets, 
 One thing to keep in mind is that Apache POI uses up a fair amount of memory - to analyze spreadsheets that are 3MB or bigger requires at least 2 GB of heap space to avoid out-of-memory  errors.
 
 One potential concern participants may have with our dataset is it requiring an unreasonable amount of processing power for such a challenge.
-We would like to allay those concerns by sharing the fact that creating the metadata for all of the spreadsheets took around 400 instance hours on Amazon EMR, a far more reasonable number than the 60,000 hours creating the corpus required.
+We would like to allay those concerns with the fact that most of 60,000 hours required to make \textsc{Fuse} was spent extracting the spreadsheets -- 
+analyzing all of the spreadsheets with Apache POI only took around 400 instance hours.
 
 Additionally, analysis time can be reduced further by using the metadata we provide to narrow the search space.
 For example, participants can load our metadata into MongoDB, query for spreadsheets that contain at least one IF statement, and then analyze only those several thousand spreadsheets.
